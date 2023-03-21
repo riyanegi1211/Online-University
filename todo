@@ -1,0 +1,11 @@
+Add api documentation using Swagger
+Add monitoring using actuator and (micrometer, grafana, promethues)?
+login using spring session or jwt
+netflix eureka, zuul
+Spring security - Filter chain
+environment file
+
+Database - mysql
+
+Additional 
+Resiliency patterns using resiliency4j

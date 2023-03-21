@@ -1,0 +1,19 @@
+Compulsory - 
+Design Patterns - 
+2 Microservices - User Login, Courses
+Logging - SLF4J
+Auth and Authorisation - (https://spring.io/guides/tutorials/spring-security-and-angular-js/)
+    (https://spring.io/guides/tutorials/spring-boot-oauth2/)
+    (https://spring.io/guides/topicals/spring-security-architecture/)
+Transaction management within service - https://spring.io/guides/gs/managing-transactions/
+
+Additional
+Eureka Servive registry - https://spring.io/guides/gs/service-registration-and-discovery/
+Load Balancer - https://spring.io/guides/gs/spring-cloud-loadbalancer/
+Containerization - https://spring.io/guides/topicals/spring-boot-docker/
+Health Check - Actuator(https://spring.io/guides/gs/actuator-service/), 
+    Grafana-Prometheus/Wavefront(https://spring.io/guides/tutorials/metrics-and-tracing/)
+SSL/TLS - (https://www.baeldung.com/spring-tls-setup)
+Async - RxJS, Reactive(https://spring.io/guides/gs/reactive-rest-service/)
+    (https://spring.io/guides/gs/async-method/)
+Real time - Websocket(https://spring.io/guides/gs/messaging-stomp-websocket/) 
