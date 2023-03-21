@@ -8,12 +8,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class LoginController {
-    @GetMapping(value="login")
-    public String getMethodName() { // @PathVariable String name
-        // if (!"admin".equals(name)) {
-        //     return "Failure";
-        // }
-        return "Success";
+    @GetMapping(value="login/{name}")
+    public String getMethodName(@PathVariable String name) { 
+        if ("admin".equals(name)) {
+            return "Success";
+        }
+        return "Failure";
     }
-    
+
+    @GetMapping(value="admin")
+    public String adminView() { 
+        return "Admin View";
+    }
+
+    @GetMapping(value="student")
+    public String studentView() { 
+        return "Student View";
+    }
 }
