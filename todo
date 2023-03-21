@@ -1,9 +1,21 @@
+Frontend - 
+Page - Home, Login, Registration, Courses, Admin, Professor, Course
+CSS - , 
+Colour Scheme
+Services
+Components
+Auth - Login, Registration, AuthnGuard, AuthzGuard, Logout 
+Comment - Jsdoc 
+
+Backend
+
 Add api documentation using Swagger
 Add monitoring using actuator and (micrometer, grafana, promethues)?
 login using spring session or jwt
 netflix eureka, zuul
 Spring security - Filter chain
 environment file
+javadoc
 
 Database - mysql
 
