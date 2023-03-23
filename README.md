@@ -1,6 +1,10 @@
 # Online-University
 Mini Project
 
+ # Do not follow these, Code will run without them
+ # H2 is currently used on the backend.
+ # It will be ported to MySQL
+
 Steps to run on local machine
 
 Configure MySQl
