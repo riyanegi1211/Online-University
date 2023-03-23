@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  basicAuth = false;
   constructor(private http: HttpClient) { }
   username: string = "";
   password: string = ""
@@ -15,15 +16,13 @@ export class AppComponent {
   regUsername: string = "";
   regPassword: string = ""
 
-  url = "http://localhost:8080/";
+  url = "http://localhost:8080/api/";
 
   name: string = "abc";
-  ngOnInit() {
-    this.getName();
-  }
+
   getName() {
     const url = this.url + "name";
-    this.http.get<string>(url).subscribe((v) => this.name = v);
+    this.http.get(url, { responseType: 'text', withCredentials: true }).subscribe((v) => this.name = v);
   }
 
   onSubmit(form: NgForm) {
@@ -31,17 +30,12 @@ export class AppComponent {
     let formValue = form.value;
     let username = formValue.username;
     let password = formValue.password;
-    let headers = new HttpHeaders({ "authorization" : "Basic" + this.createBasicAuthToken(username, password) });
-    console.log("Headers");
-    console.log(headers);
-    this.http.post(url, headers).subscribe();
-  }
 
-  createBasicAuthToken(username: string, password: string) {
-    const authString = `${username}:${password}`;
-    const base64AuthString = window.btoa(authString);
-    // return 'Basic ' + window.btoa(username + ":" + password);
-    return base64AuthString;
+    let body = {
+      "username": username,
+      "password": password
+    }
+    this.http.post(url, body, { responseType: 'text', withCredentials: true }).subscribe();
   }
 
   onSubmitR(form: NgForm) {
@@ -49,12 +43,19 @@ export class AppComponent {
     let formValue = form.value;
     let username = formValue.username;
     let password = formValue.password;
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
-    const body = `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
-    // let headers = { headers: { authorization: this.createBasicAuthToken(username, password) } };
-    this.http.post(url, body, { headers, withCredentials: true }).subscribe();
+
+    let body = {
+      "username": username,
+      "password": password
+    }
+
+    // https://rxjs-dev.firebaseapp.com/guide/observer
+    const observer = {
+      next: (x: any) => {console.log(x)}, // redirect to login page
+      error: (err: any) => {console.log(err.error)}, // redirect to login or show error
+      complete: () => console.log('Observer got a complete notification'),
+    }
+    this.http.post(url, body, { responseType: 'text', withCredentials: true }).subscribe(observer);
   }
 }
 
