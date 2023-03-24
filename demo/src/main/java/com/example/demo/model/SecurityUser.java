@@ -1,4 +1,4 @@
-package com.example.demo.user;
+package com.example.demo.model;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -29,7 +29,8 @@ public class SecurityUser implements UserDetails {
         return Arrays.stream(user
             .getRole()
             .toString()
-            .split(""))
+            .split(","))
+            .map(s -> "ROLE_" + s)
             .map(SimpleGrantedAuthority::new)
             .toList();
     }

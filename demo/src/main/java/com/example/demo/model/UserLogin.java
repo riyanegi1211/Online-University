@@ -1,4 +1,4 @@
-package com.example.demo.login;
+package com.example.demo.model;
 
 public record UserLogin(String username, String password) {
     
