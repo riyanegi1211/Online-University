@@ -8,6 +8,8 @@ import com.example.demo.user.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import java.security.Principal;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,5 +91,11 @@ public class LoginController {
                         .build();
         userRepository.save(newUser);
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(Principal principal) {
+        LOG.info("Logout : " + principal.getName());
+        return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 }

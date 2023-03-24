@@ -33,6 +33,11 @@ public class SecurityConfig {
                         .requestMatchers("/api/register").permitAll()
                         .anyRequest().authenticated())
                 .headers(headers -> headers.frameOptions().sameOrigin())
+                .logout(logout -> logout
+                        .logoutUrl("/api/logout")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll())   
                 .build();
     }
 
