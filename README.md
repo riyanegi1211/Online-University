@@ -1,10 +1,6 @@
 # Online-University
 Mini Project
 
- # Do not follow these, Code will run without them
- # H2 is currently used on the backend.
- # It will be ported to MySQL
-
 Steps to run on local machine
 
 Configure MySQl
@@ -18,6 +14,5 @@ Query OK, 1 row affected, 1 warning (0.05 sec)
 mysql> GRANT ALL PRIVILEGES ON database_name.* TO 'newuser'@'localhost';
 Query OK, 0 rows affected (0.04 sec)
 
-2. Add the required details to application-demo.properties
-3. Rename .application.properties to application.properties
-4. Run spring boot application
+2. Add the required details to application.properties
+3. Run spring boot application
