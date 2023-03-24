@@ -16,6 +16,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextHolderStrategy;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 // import org.springframework.web.bind.annotation.RequestParam;
@@ -33,11 +38,11 @@ public class LoginController {
     private UserRepository userRepository;
     private final AuthenticationManager authenticationManager;
 
-    // private final SecurityContextHolderStrategy securityContextHolderStrategy =
-    // SecurityContextHolder.getContextHolderStrategy();
+    private final SecurityContextHolderStrategy securityContextHolderStrategy =
+    SecurityContextHolder.getContextHolderStrategy();
 
-    // private SecurityContextRepository securityContextRepository = new
-    // HttpSessionSecurityContextRepository();
+    private SecurityContextRepository securityContextRepository = new
+    HttpSessionSecurityContextRepository();
 
     public LoginController(UserRepository userRepository, AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
@@ -58,10 +63,10 @@ public class LoginController {
                 .unauthenticated(userLogin.username(), userLogin.password());
         Authentication authentication = authenticationManager.authenticate(token);
 
-        // SecurityContext context = securityContextHolderStrategy.createEmptyContext();
-        // context.setAuthentication(authentication);
-        // securityContextHolderStrategy.setContext(context);
-        // securityContextRepository.saveContext(context, request, response);
+        SecurityContext context = securityContextHolderStrategy.createEmptyContext();
+        context.setAuthentication(authentication);
+        securityContextHolderStrategy.setContext(context);
+        securityContextRepository.saveContext(context, request, response);
 
         if (authentication.isAuthenticated() == false) {
             return new ResponseEntity<>("Failed", HttpStatus.UNAUTHORIZED);
