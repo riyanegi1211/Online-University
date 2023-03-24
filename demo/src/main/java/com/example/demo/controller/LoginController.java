@@ -1,14 +1,19 @@
-package com.example.demo.login;
+package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.user.User;
-import com.example.demo.user.UserRepository;
+import com.example.demo.model.User;
+import com.example.demo.model.UserLogin;
+import com.example.demo.model.UserRegistration;
+import com.example.demo.repository.UserRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +23,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextHolderStrategy;
@@ -31,7 +37,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/")
 public class LoginController {
 
@@ -40,11 +46,10 @@ public class LoginController {
     private UserRepository userRepository;
     private final AuthenticationManager authenticationManager;
 
-    private final SecurityContextHolderStrategy securityContextHolderStrategy =
-    SecurityContextHolder.getContextHolderStrategy();
+    private final SecurityContextHolderStrategy securityContextHolderStrategy = SecurityContextHolder
+            .getContextHolderStrategy();
 
-    private SecurityContextRepository securityContextRepository = new
-    HttpSessionSecurityContextRepository();
+    private SecurityContextRepository securityContextRepository = new HttpSessionSecurityContextRepository();
 
     public LoginController(UserRepository userRepository, AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
@@ -52,8 +57,16 @@ public class LoginController {
     }
 
     @GetMapping("name")
-    public String login() {
-        return "HI";
+    public String login(Authentication authentication) {
+        List<String> roles = new ArrayList<>();
+        if (authentication != null) {
+            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+            for (GrantedAuthority authority : authorities) {
+                roles.add(authority.getAuthority());
+            }
+            // roles list now contains the names of all roles the user has
+        }
+        return "HI " + String.join(",", roles);
     }
 
     // https://docs.spring.io/spring-security/reference/servlet/authentication/session-management.html#store-authentication-manually
@@ -81,14 +94,13 @@ public class LoginController {
         LOG.info(userRegistration.username());
         if (userRegistration.username() == null || userRegistration.username().isEmpty()) {
             return new ResponseEntity<>("Username cannot be empty", HttpStatus.BAD_REQUEST);
-        }
-        else if (userRepository.existsByUsername(userRegistration.username())) {
+        } else if (userRepository.existsByUsername(userRegistration.username())) {
             return new ResponseEntity<>("Username already exists", HttpStatus.CONFLICT);
         }
         User newUser = User.builder()
-                        .username(userRegistration.username())
-                        .password(userRegistration.password())
-                        .build();
+                .username(userRegistration.username())
+                .password(userRegistration.password())
+                .build();
         userRepository.save(newUser);
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
