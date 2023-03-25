@@ -27,12 +27,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { FooterComponent } from './footer/footer.component';
+import { ProfessorComponent } from './professor/professor.component';
+import { AdminComponent } from './admin/admin.component';
+import { FormsModule } from '@angular/forms';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
 	AppComponent,
 	HomeComponent,
- FooterComponent
+ FooterComponent,
+ ProfessorComponent,
+ AdminComponent
   ],
   imports: [
 	BrowserModule,
@@ -59,7 +65,9 @@ import { FooterComponent } from './footer/footer.component';
 	MatNativeDateModule,
 	MatListModule,
 	NgbModule,
-	FullCalendarModule
+	FullCalendarModule,
+    FormsModule,
+    NgChartsModule
   ],
   entryComponents: [AppComponent],
   providers: [],

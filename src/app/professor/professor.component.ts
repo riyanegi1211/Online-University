@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/core';
 import { NgbOffcanvas, OffcanvasDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-professor',
+  templateUrl: './professor.component.html',
+  styleUrls: ['./professor.component.scss']
 })
-export class HomeComponent {
+export class ProfessorComponent {
     closeResult = '';
 
 	constructor(private offcanvasService: NgbOffcanvas) {}
@@ -34,12 +31,4 @@ export class HomeComponent {
 			return `with: ${reason}`;
 		}
 	}
-    calendarOptions: CalendarOptions = {
-        initialView: 'dayGridMonth',
-        plugins: [dayGridPlugin,interactionPlugin],
-        weekends: false,
-		events: [
-			{ title: 'Meeting', start: new Date() , end: '2023-03-24'},
-		],
-  	};
 }

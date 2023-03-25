@@ -17,5 +17,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import 'bootstrap/scss/bootstrap';
 
 .offcanvas.offcanvas-start {
-    background-color: black;
+    background-color: #02092C;
+}
+
+.chart{
+    position: relative;
+    max-width: 620px;
+    max-height: 620px;
 }

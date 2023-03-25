@@ -55,12 +55,11 @@ img{
 .card-container{
 	position: relative;
 	top: 140px;
-	left: 100px;
+	padding-left: 4rem;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-    width: 72vw;
-	column-gap: 120px;
+	column-gap: 80px;
 	row-gap: 80px;
 }
 
@@ -196,45 +195,3 @@ img{
     top: 10rem;
     row-gap: 30px;
 }
-
-.updates-container{
-    position: absolute;
-    left: 76vw;
-    top: 93vh;
-    display: flex;
-    flex-direction: column;
-    width: 25rem;
-    height: 80rem;
-    row-gap: 20px;
-}
-
-.upcoming-events,.timeline{
-    width: auto;
-    height: 17rem;
-    border: 2px solid black;
-    border-radius: 10px;
-}
-
-
-.upcoming-events h1{
-    padding: 5px;
-    background-color: #184e77;
-    color: white;
-}
-
-.timeline h1{
-    padding: 5px;
-    background-color: #184e77;
-    color: white;
-}
-
-
-
-
-  
-
-
-
-
-
-  

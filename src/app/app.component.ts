@@ -1,13 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { Calendar, CalendarOptions } from '@fullcalendar/core';
-import { NgbOffcanvas, OffcanvasDismissReasons, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-import * as bootstrap from 'bootstrap';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
-
 
 @Component({
   selector: 'app-root',
@@ -65,36 +57,4 @@ export class AppComponent implements OnInit{
 		// const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 	}
 
-	closeResult = '';
-
-	constructor(private offcanvasService: NgbOffcanvas) {}
-
-	open(content: any) {
-		this.offcanvasService.open(content, { ariaLabelledBy: 'offcanvas-basic-title' }).result.then(
-			(result) => {
-				this.closeResult = `Closed with: ${result}`;
-			},
-			(reason) => {
-				this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-			},
-		);
-	}
-
-	private getDismissReason(reason: any): string {
-		if (reason === OffcanvasDismissReasons.ESC) {
-			return 'by pressing ESC';
-		} else if (reason === OffcanvasDismissReasons.BACKDROP_CLICK) {
-			return 'by clicking on the backdrop';
-		} else {
-			return `with: ${reason}`;
-		}
-	}
-    calendarOptions: CalendarOptions = {
-        initialView: 'dayGridMonth',
-        plugins: [dayGridPlugin,interactionPlugin],
-        weekends: false,
-		events: [
-			{ title: 'Meeting', start: new Date() , end: '2023-03-24'},
-		],
-  	};
 }
