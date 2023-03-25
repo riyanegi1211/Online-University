@@ -16,3 +16,11 @@ Query OK, 0 rows affected (0.04 sec)
 
 2. Add the required details to application.properties
 3. Run spring boot application
+
+
+Credentials - admin, admin
+
+endpoints 
+/api/login
+
+/api/admin/getTeacherList
