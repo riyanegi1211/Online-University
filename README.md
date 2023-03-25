@@ -21,12 +21,17 @@ Query OK, 0 rows affected (0.04 sec)
 Credentials - admin, admin
 
 endpoints 
+
 POST /api/login - log in 
+
 POST /api/register - register a new user - will get a role of GUEST
+
 GET /api/role - get role of logged in user
+
 POST /api/logout - will return 403 but will logout
 
 GET /api/admin/ - verfies your authority -> return "you are an admin : {USERNAME}"
+
 GET /api/admin/getTeacherList
 
 GET /api/teacher/ -  verfies your authority
