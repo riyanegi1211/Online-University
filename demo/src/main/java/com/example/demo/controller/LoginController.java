@@ -59,7 +59,7 @@ public class LoginController {
         this.authenticationManager = authenticationManager;
     }
 
-    @GetMapping("name")
+    @GetMapping("role")
     public String login(Authentication authentication) {
         List<String> roles = new ArrayList<>();
         if (authentication != null) {

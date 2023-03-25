@@ -28,7 +28,7 @@ public class AdminController {
 
     @GetMapping("/")
     public String getName(Principal principal) {
-        return "you are an admin" + principal.getName();
+        return "you are an admin : " + principal.getName();
     }
 
     // @GetMapping("getStudentList")

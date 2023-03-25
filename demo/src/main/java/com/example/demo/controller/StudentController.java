@@ -29,7 +29,7 @@ public class StudentController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping
+    @GetMapping("/")
     public String getName(Principal principal) {
         return "you are an student" + principal.getName();
     }
