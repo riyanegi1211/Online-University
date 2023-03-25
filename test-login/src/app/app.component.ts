@@ -21,7 +21,7 @@ export class AppComponent {
   name: string = "abc";
 
   getName() {
-    const url = this.url + "name";
+    const url = this.url + "role";
     this.http.get(url, { responseType: 'text', withCredentials: true }).subscribe((v) => this.name = v);
   }
 
