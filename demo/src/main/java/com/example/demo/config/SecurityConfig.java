@@ -31,16 +31,17 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/login").permitAll()
                         .requestMatchers("/api/register").permitAll()
+                        .requestMatchers("/api/logout").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/student/**").hasRole("STUDENT")
                         .requestMatchers("/api/prof/**").hasRole("PROFESSOR")
                         .anyRequest().authenticated())
-                .headers(headers -> headers.frameOptions().sameOrigin())
                 .logout(logout -> logout
                         .logoutUrl("/api/logout")
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
-                        .permitAll())   
+                        .permitAll())
+                .headers(headers -> headers.frameOptions().sameOrigin())
                 .build();
     }
 

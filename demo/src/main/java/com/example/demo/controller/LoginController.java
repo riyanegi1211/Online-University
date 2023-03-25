@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import com.example.demo.model.UserLogin;
 import com.example.demo.model.UserRegistration;
@@ -27,6 +28,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextHolderStrategy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -89,7 +92,7 @@ public class LoginController {
         return new ResponseEntity<>("Successful", HttpStatus.OK);
     }
 
-    @PostMapping("/register")
+    @PostMapping("register")
     public ResponseEntity<String> registerNewUser(@RequestBody UserRegistration userRegistration) {
         LOG.info(userRegistration.username());
         if (userRegistration.username() == null || userRegistration.username().isEmpty()) {
@@ -97,17 +100,24 @@ public class LoginController {
         } else if (userRepository.existsByUsername(userRegistration.username())) {
             return new ResponseEntity<>("Username already exists", HttpStatus.CONFLICT);
         }
+        
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+
         User newUser = User.builder()
                 .username(userRegistration.username())
-                .password(userRegistration.password())
+                .password(encoder.encode(userRegistration.password()))
+                .role(Role.GUEST)
                 .build();
         userRepository.save(newUser);
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
 
-    @PostMapping("/logout")
-    public ResponseEntity<String> logout(Principal principal) {
-        LOG.info("Logout : " + principal.getName());
-        return new ResponseEntity<>("Success", HttpStatus.OK);
-    }
+    // It works, just returns 403 instead of 200
+    // @PostMapping("logout")
+    // public ResponseEntity<String> logout(Principal principal) {
+    //     if (principal != null) {
+    //         LOG.info("Logout : " + principal.getName());
+    //     }
+    //     return new ResponseEntity<>("Success", HttpStatus.OK);
+    // }
 }

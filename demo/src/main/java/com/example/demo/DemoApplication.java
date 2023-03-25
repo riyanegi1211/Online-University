@@ -10,10 +10,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.model.Admin;
+import com.example.demo.model.Course;
 import com.example.demo.model.Role;
 import com.example.demo.model.Student;
+import com.example.demo.model.StudentCourseData;
 import com.example.demo.model.Teacher;
 import com.example.demo.repository.AdminRepository;
+import com.example.demo.repository.CourseRepository;
+import com.example.demo.repository.StudentCourseDataRepository;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.repository.TeacherRepository;
 
@@ -40,26 +44,14 @@ public class DemoApplication {
         @Autowired
         private AdminRepository adminRepo;
 
+        @Autowired
+        private CourseRepository courseRepository;
+
+        @Autowired
+        private StudentCourseDataRepository studentCourseDataRepository;
+
         @Override
         public void run(String... args) throws Exception {
-            // User u1 = User.builder()
-            //         .username("admin")
-            //         .password(encoder().encode("admin"))
-            //         .role(Role.ADMIN)
-            //         .build();
-            // User u2 = User.builder()
-            //         .username("prof")
-            //         .password(encoder().encode("prof"))
-            //         .role(Role.PROFESSOR)
-            //         .build();
-            // User u3 = User.builder()
-            //         .username("abc")
-            //         .password(encoder().encode("abc"))
-            //         .role(Role.STUDENT)
-            //         .build();
-            // userRepo.save(u1);
-            // userRepo.save(u2);
-            // userRepo.save(u3);
 
             Admin a1 = Admin.adminBuilder()
                     .username("admin")
@@ -81,6 +73,20 @@ public class DemoApplication {
                     .role(Role.STUDENT)
                     .firstName("scam").build();
             studentRepo.save(s1);
+
+            Course c1 = Course.builder()
+                            .title("Course 1")
+                            .teacher(t1)
+                            .build();
+            courseRepository.save(c1);
+
+            StudentCourseData sd1 = StudentCourseData.builder()
+                                        .student(s1)
+                                        .course(c1)
+                                        .progress(0)
+                                        .build();
+            studentCourseDataRepository.save(sd1);             
+
         }
     }
 }
