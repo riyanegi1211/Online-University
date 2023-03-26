@@ -7,3 +7,15 @@ mat-sidenav
     width: 200px;
     background-color: white;
 }
+mat-list-item
+{
+    text-decoration: none;
+}
+mat-sidenav-container
+{
+    background-color: #EEF7E4;
+}
+mat-sidenav
+{
+    background-color: #E8F7E4;
+}
