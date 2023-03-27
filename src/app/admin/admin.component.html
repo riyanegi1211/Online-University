@@ -2,6 +2,9 @@
 	
 </section>
 <section class="admin-control-panel"></section> -->
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
 <div class="sidebar" [class.sidebar-close]="!openSidebar">
 	<div class="logo-details">
 		<div class="logo"></div>
@@ -10,7 +13,7 @@
 	  <li *ngFor="let item of menuSidebar" #itemEl routerLinkActive="active">
 		<div *ngIf="item.sub_menu.length == 0" class="dropdown-title">
 		  <a [routerLink]="[item.link]">
-			<i [class]="item.icon"></i>
+			<i [class] ="item.icon"></i>
 			<span class="link_name">{{item.link_name}}</span>
 		  </a>
 		</div>

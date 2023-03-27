@@ -3,6 +3,7 @@ import { CalendarOptions } from '@fullcalendar/core';
 import { NgbOffcanvas, OffcanvasDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { StudentServiceService } from '../student-service.service';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,9 @@ import interactionPlugin from '@fullcalendar/interaction';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-    closeResult = '';
+	closeResult = '';
 
-	constructor(private offcanvasService: NgbOffcanvas) {}
+	constructor(private offcanvasService: NgbOffcanvas, private studentService:StudentServiceService) {}
 
 	open(content: any) {
 		this.offcanvasService.open(content, { ariaLabelledBy: 'offcanvas-basic-title' }).result.then(
@@ -34,12 +35,39 @@ export class HomeComponent {
 			return `with: ${reason}`;
 		}
 	}
-    calendarOptions: CalendarOptions = {
-        initialView: 'dayGridMonth',
-        plugins: [dayGridPlugin,interactionPlugin],
-        weekends: false,
+	calendarOptions: CalendarOptions = {
+		initialView: 'dayGridMonth',
+		plugins: [dayGridPlugin,interactionPlugin],
+		weekends: false,
 		events: [
 			{ title: 'Meeting', start: new Date() , end: '2023-03-24'},
 		],
   	};
+
+	upcoming:any[]=[
+		{
+			description: "Event 1"
+		},
+		{
+			description: "Event 2"
+		},
+		{
+			description: "Event 3"
+		},
+		{
+			description: "Event 4"
+		},
+		{
+			description: "Event 5"
+		}
+	]
+
+	getCourseInfo(){
+		this.studentService.getCourseInfo().subscribe({
+			next: (data) => {console.log(data)},
+			error: (err) => {console.log(err)}
+		});
+	}
+
+
 }

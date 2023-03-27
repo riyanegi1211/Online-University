@@ -1,5 +1,5 @@
 <ng-template #content let-offcanvas>
-    <div class="offcanvas-header">
+	<div class="offcanvas-header">
 		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
 	</div>
 	<div class="offcanvas-body">
@@ -20,25 +20,26 @@
 	</div>
 </ng-template>
 
-<mat-toolbar>
+<mat-toolbar class="mat-tool">
 	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with menu icon" (click)="open(content)">
 		<mat-icon>menu</mat-icon>
 	</button>
-	<span>My App</span>
+	<span style="position: relative;">My App</span>
 	<span class="example-spacer"></span>
 	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with heart icon">
 		<mat-icon>favorite</mat-icon>
 	</button>
 	<div ngbDropdown class="d-inline-block">
-        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
-            Toggle dropdown
-        </button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem>Action - 1</button>
-            <button ngbDropdownItem>Another Action</button>
-            <button ngbDropdownItem>Something else is here</button>
-        </div>
-    </div>
+		<!-- <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+			Toggle dropdown
+		</button> -->
+		<img class="user-img" src="./assets/user.png" alt="" ngbDropdownToggle>
+		<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+			<button ngbDropdownItem>Action - 1</button>
+			<button ngbDropdownItem>Another Action</button>
+			<button ngbDropdownItem>Something else is here</button>
+		</div>
+	</div>
 </mat-toolbar>
 
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -64,7 +65,7 @@
 </div>
 
 <div class="card-container">
-	<div class="card-course">
+	<div class="card-course" (click)="getCourseInfo()">
 		<div class="content">
 			<div class="front">
 				<h3 class="title">Hey</h3>
@@ -72,9 +73,9 @@
 			</div>
 	
 			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
+				<div class="progress description" role="progressbar" aria-label="Success striped example" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+					<div class="progress-bar progress-bar-striped bg-success" style="width: 50%">50%</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -153,9 +154,23 @@
 <article class="updates-container">
 	<div class="upcoming-events">
 		<h1>Upcoming Events</h1>
+		<div class="events-container">
+			<ul class="events-list">
+				<li class="event-li" *ngFor="let event of upcoming">
+					{{event.description}}
+				</li>
+			</ul>
+		</div>
 	</div>
 	<div class="timeline">
 		<h1>Timeline</h1>
+		<div class="timeline-container">
+			<ul class="timeline-list">
+				<li class="timeline-li" *ngFor="let event of upcoming">
+					{{event.description}}
+				</li>
+			</ul>
+		</div>
 	</div>
 	<div class="calendar-div">
 		<full-calendar [options]="calendarOptions"></full-calendar>

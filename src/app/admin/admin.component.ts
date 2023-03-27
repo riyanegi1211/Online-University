@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartEvent, ChartType, Color } from 'chart.js';
+import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 
@@ -16,12 +16,12 @@ export class AdminComponent implements OnInit{
 		link_name: "Dashboard",
 		link: "/dashboard",
 		sub_menu: [],
-        icon: "fa-sharp fa-solid fa-chart-network",
+        icon: "bx bx-book-alt",
 	  }, 
 	  {
 		link_name: "Category",
 		link: null,
-		icon: "fa-sharp fa-solid fa-chart-network",
+		icon: "bx bx-book-alt",
 		sub_menu: [
 		  {
 			link_name: "HTML & CSS",

@@ -182,13 +182,14 @@
 	text-align: center;
 	line-height: 50px;
 	font-size: 20px;
+    color: black;
 	cursor: pointer;
 	transition: all 0.3s ease;
   }
 
-  .sidebar .nav-links li i::before{
-    content: "\f107";
-  }
+//   .sidebar .nav-links li i::before{
+//     content: "\f107";
+//   }
   
   .sidebar .nav-links li:hover i, 
   .sidebar .nav-links li.active i {
@@ -334,6 +335,7 @@
 		display: none;
 	}
   }
+  
 
 .home-section .home-view {
 	height: 1500px;

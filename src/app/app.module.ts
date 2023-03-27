@@ -31,6 +31,8 @@ import { ProfessorComponent } from './professor/professor.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { NgChartsModule } from 'ng2-charts';
 	NgbModule,
 	FullCalendarModule,
     FormsModule,
-    NgChartsModule
+    NgChartsModule,
+    HttpClientModule,
+    FontAwesomeModule
   ],
   entryComponents: [AppComponent],
   providers: [],
