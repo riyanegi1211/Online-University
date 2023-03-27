@@ -2,7 +2,7 @@
 <mat-card>
     <mat-card-content>
       <div class="header">
-        <P>Sign Into Your Account </P>
+        <P>Sign in to your account </P>
       </div>
       <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
         <div class="userInput">
@@ -34,8 +34,7 @@
           </mat-error>
         </mat-form-field>
         </div>
-        <button mat-flat-button color="primary" routerLink="/StudentDashboard">Login</button>
+        <button mat-flat-button style="background-color: #16bca8" routerLink="/StudentDashboard">Login</button>
       </form>
-
     </mat-card-content>
   </mat-card>
