@@ -1,0 +1,53 @@
+h2
+{
+    text-align: center;
+}
+p
+{
+    text-align: center;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+.cards
+{
+    width: 240px;
+    display: inline-block;
+    background-color: white;
+    align-items: center;
+    margin-left: 25px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: black;
+    border: 1px solid black;
+}
+.image img
+{
+    width: 100%;
+    align-items: center;
+}
+.title
+{
+    text-align: center;
+    margin-top: 5px;
+    font-size: 1.2em;
+}
+.desc
+{
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 0.8em;
+}
+.button
+{
+    align-items: center;
+    margin: 5px 8px 5px 8px;
+}
+button 
+{
+    transition-duration: 0.4s;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+    text-align: center;
+}
+  

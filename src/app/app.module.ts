@@ -12,10 +12,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule} from '@angular/material/card';
 import { MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { AssessmentComponent } from './assessment/assessment.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AssessmentComponent
   ],
   imports: [
     BrowserModule,
