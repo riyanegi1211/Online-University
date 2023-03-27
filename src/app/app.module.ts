@@ -13,11 +13,13 @@ import { MatCardModule} from '@angular/material/card';
 import { MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { AssessmentComponent } from './assessment/assessment.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AssessmentComponent
+    AssessmentComponent,
+    AnnouncementComponent
   ],
   imports: [
     BrowserModule,
