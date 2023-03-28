@@ -1,0 +1,116 @@
+<!-- <section class="admin-sidenav">
+	
+</section>
+<section class="admin-control-panel"></section> -->
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<div class="sidebar" [class.sidebar-close]="!openSidebar">
+	<div class="logo-details">
+		<div class="logo"></div>
+	</div>
+	<ul class="nav-links" id="nav-links">
+	  <li *ngFor="let item of menuSidebar" #itemEl routerLinkActive="active">
+		<div *ngIf="item.sub_menu.length == 0" class="dropdown-title">
+		  <a [routerLink]="[item.link]">
+			<i [class] ="item.icon"></i>
+			<span class="link_name">{{item.link_name}}</span>
+		  </a>
+		</div>
+		<div *ngIf="item.sub_menu.length > 0" class="dropdown-title" (click)="showSubmenu(itemEl)">
+		  <a>
+			<i [class]="item.icon"></i>
+			<span class="link_name">{{item.link_name}}</span>
+		  </a>
+		  <i class="fa-solid fa-angle-down arrow"></i>
+		</div>
+		<ul class="sub-menu" [class.blank]="item.sub_menu.length == 0">
+		  <li><a class="link_name">{{item.link_name}}</a></li>
+		  <li *ngFor="let item_sub of item.sub_menu" routerLinkActive="active">
+			<a [routerLink]="[item_sub.link]">{{item_sub.link_name}}</a>
+		  </li>
+		</ul>
+	  </li>
+	</ul>
+  </div>
+<section class="home-section">
+	<div class="home-header">
+		<div class="hamburger-menu">
+		<input type="checkbox" id="checkbox-hamburger-menu" [(ngModel)]="openSidebar"/>
+		<label class="label-hamburger-menu" for="checkbox-hamburger-menu">
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+			</label>
+		</div>
+		<div class="title">Header</div>
+	</div>
+	<section class="home-view">
+		<div class="total-cards-wrapper">
+			<article class="total-cards">
+				<div class="total-students">
+					<img class="student-img" src="./assets/student.png" alt="">
+					<span class="student-enrolled">
+						<p class="student-enrolled-p">Total students Enrolled</p>
+						<h1>3000</h1>
+					</span>
+					<hr class="total-students-hr">
+					<img class="below-hr-img" src="./assets/refresh.png" alt="">
+					<p class="total-students-p">Updated Yesterday</p>
+				</div>
+				<div class="total-faculty">
+					<img class="student-img" src="./assets/teacher.png" alt="">
+					<span class="student-enrolled">
+						<p class="student-enrolled-p">Faculties Enrolled</p>
+						<h1>3000</h1>
+					</span>
+					<hr class="total-faculty-hr">
+					<img class="below-hr-img" src="./assets/calendar.png" alt="">
+					<p class="total-students-p">Updated Yesterday</p>
+				</div>
+				<div class="total-courses">
+					<img class="student-img" src="./assets/books.png" alt="">
+					<span class="student-enrolled">
+						<p class="student-enrolled-p">Number of Courses</p>
+						<h1>3000</h1>
+					</span>
+					<hr class="total-courses-hr">
+					<img class="below-hr-img" src="./assets/clock.png" alt="">
+					<p class="total-students-p">Updated Yesterday</p>
+				</div>
+			</article>
+		</div>
+		<div class="student-stats">
+			<div class="student-stats-content">
+				<h1 class="student-stats-h1">Student Statistics</h1>
+				<p class="student-stats-p">Last Campaign Performance</p>
+			</div>
+			<canvas baseChart class="chart"
+				[data]="pieChartData"
+				[type]="pieChartType"
+				[options]="pieChartOptions"
+				[plugins]="pieChartPlugins"
+			>
+			</canvas>
+			<hr class="student-stats-hr">
+			<img class="student-stats-below-hr-img" src="./assets/clock.png" alt="">
+			<p class="student-stats-below-hr-p">Updated Yesterday</p>
+		</div>
+		<div class="professor-stats">
+			<div class="student-stats-content">
+				<h1 class="student-stats-h1">Student Statistics</h1>
+				<p class="student-stats-p">Last Campaign Performance</p>
+			</div>
+			<canvas baseChart class="chart"
+				[data]="pieChartData"
+				[type]="pieChartType"
+				[options]="pieChartOptions"
+				[plugins]="pieChartPlugins"
+			>
+			</canvas>
+			<hr class="student-stats-hr">
+			<img class="student-stats-below-hr-img" src="./assets/clock.png" alt="">
+			<p class="student-stats-below-hr-p">Updated Yesterday</p>
+		</div>
+	</section>
+</section>

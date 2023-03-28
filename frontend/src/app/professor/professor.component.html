@@ -1,0 +1,209 @@
+<ng-template #content let-offcanvas>
+    <div class="offcanvas-header">
+		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+	</div>
+	<div class="offcanvas-body">
+		<div class="btn-holder">
+			<button class="btn-offcanvas">
+				Hover me
+			</button>
+			<button class="btn-offcanvas">
+				Hover me
+			</button>
+			<button class="btn-offcanvas">
+				Hover me
+			</button>
+			<button class="btn-offcanvas">
+				Hover me
+			</button>
+		</div>
+	</div>
+</ng-template>
+
+<mat-toolbar>
+	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with menu icon" (click)="open(content)">
+		<mat-icon>menu</mat-icon>
+	</button>
+	<span>My App</span>
+	<span class="example-spacer"></span>
+	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with heart icon">
+		<mat-icon>favorite</mat-icon>
+	</button>
+	<div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+            Toggle dropdown
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Action - 1</button>
+            <button ngbDropdownItem>Another Action</button>
+            <button ngbDropdownItem>Something else is here</button>
+        </div>
+    </div>
+</mat-toolbar>
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="https://wallpaperaccess.com/full/5487979.jpg" class="d-block w-100" alt="...">
+		</div>
+		<div class="carousel-item">
+			<img src="https://wallpaperaccess.com/full/253371.jpg" class="d-block w-100" alt="...">
+		</div>
+		<div class="carousel-item">
+			<img src="https://c0.wallpaperflare.com/preview/81/93/70/the-john-rylands-library-john-rylands-library-manchester-manchester-university.jpg" class="d-block w-100" alt="...">
+		</div>
+	</div>
+	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	</button>
+	<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	</button>
+</div>
+
+<div class="card-container">
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-course">
+		<div class="content">
+			<div class="front">
+				<h3 class="title">Hey</h3>
+				<p class="subtitle">Hover me :)</p>
+			</div>
+	
+			<div class="back">
+				<p class="description">
+					Cool description so you can read it too my friend
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<app-footer></app-footer>
