@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,23 +16,25 @@ import { MatCardModule} from '@angular/material/card';
 import { MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { AssessmentComponent } from './assessment/assessment.component';
-import { AnnouncementComponent } from './announcement/announcement.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { HomeComponent } from './home/home.component';
+import { AssignmentComponent } from './assignment/assignment.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AssessmentComponent,
-    AnnouncementComponent,
     HomeComponent,
+    AssignmentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFileUploaderModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     MatExpansionModule,
     MatToolbarModule,
