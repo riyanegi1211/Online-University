@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+// import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -32,11 +34,13 @@ public class User {
     private String username;
 
     @Column(name = "password", nullable = false)
+    @JsonIgnore
     private String password;
 
     // @Column(name = "email", unique = true, nullable = false)
     // private String email;
 
     @Enumerated(EnumType.STRING)
+    @JsonIgnore
     private Role role;
 }

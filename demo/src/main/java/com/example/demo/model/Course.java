@@ -3,6 +3,8 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,12 +38,15 @@ public class Course implements Serializable{
  
     @OneToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private Teacher teacher;
  
     @Column(name = "start_date")
+    @JsonIgnore
     private LocalDate startDate;
  
     @Column(name = "end_date")
+    @JsonIgnore
     private LocalDate endDate;
 
 }
