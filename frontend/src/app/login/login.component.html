@@ -1,32 +1,41 @@
-<button (click)="getName()">{{name}}</button>
+<h1>Welcome to Online Learning</h1>
+<mat-card>
+    <mat-card-content>
+      <div class="header">
+        <P>Sign in to your account </P>
+      </div>
+      <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+        <div class="userInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>UserID</mat-label>
+            <input
+              formControlName="email" matInput placeholder="Enter User ID" required/>
+            <mat-error *ngIf="!loginForm.controls['email'].valid">
+                UserID is required
+            </mat-error>
+          </mat-form-field>
+        </div>
 
-<div class="login-container">
-  <h2>Login Form</h2>
-  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="username" />
-    </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" />
-    </div>
-    <button type="submit">Login</button>
-  </form>
-</div>
-
-<div class="login-container">
-  <h2>Registration Form</h2>
-  <form #registrationForm="ngForm" (ngSubmit)="onSubmitR(registrationForm)">
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="regUsername" />
-    </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="regPassword" />
-    </div>
-    <button type="submit">Register</button>
-  </form>
-</div>
-
+        <div>
+          <span>
+            <a class="text-link" class="aLink" routerLink="/auth/forgot-password">Forgot Password?</a>
+          </span>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
+            <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+        </button>
+        <mat-error *ngIf="!loginForm.controls['password'].valid">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        </div>
+        <button mat-flat-button style="background-color: #16bca8" routerLink="/StudentDashboard">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <!--Footer-->
