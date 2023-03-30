@@ -40,6 +40,12 @@ import { AssessmentComponent } from './assessment/assessment.component';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { CourseOverviewComponent } from './course-overview/course-overview.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -85,7 +91,12 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     FormsModule,
     NgChartsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+    MatInputModule
   ],
   entryComponents: [AppComponent],
   providers: [],
