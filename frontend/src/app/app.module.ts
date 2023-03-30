@@ -34,6 +34,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LoginComponent } from './login/login.component';
  FooterComponent,
  ProfessorComponent,
  AdminComponent,
- LoginComponent
+ LoginComponent,
+ StudentDashboardComponent
   ],
   imports: [
 	BrowserModule,
