@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -62,4 +62,41 @@ export class LoginComponent {
       }
       this.http.post(url, body, { responseType: 'text', withCredentials: true }).subscribe(observer);
     }
+    
+    // hide: boolean = false;
+
+    // constructor(private fb: FormBuilder, private router:Router, private http: HttpClient) {
+    // }
+  
+    // ngOnInit() {
+    // }
+  
+    // loginForm: FormGroup = this.fb.group({
+    //   email: ['', [Validators.required, Validators.email]],
+    //   password: ['', [Validators.required, Validators.minLength(6)]]
+    // })
+  
+  
+    // onLogin() {
+    //   if (!this.loginForm.valid) {
+    //     return;
+    //   }
+    //   console.log(this.loginForm.value);
+    //       const url = this.url + "login";
+    //   let formValue = this.loginForm.value;
+    //   let username = formValue.username;
+    //   let password = formValue.password;
+  
+    //   let body = {
+    //     "username": username,
+    //     "password": password
+    //   }
+    //   const observer = {
+    //     next: (x: any) => {console.log(x);this.router.navigate(['home'])}, // redirect to login page
+    //     error: (err: any) => {console.log(err.error)}, // redirect to login or show error
+    //     complete: () => console.log('Observer got a complete notification'),
+    //   }
+    //   this.http.post(url, body, { responseType: 'text', withCredentials: true }).subscribe(observer);
+      
+    // }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import { NgbOffcanvas, OffcanvasDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -13,7 +13,7 @@ import { StudentServiceService } from '../student-service.service';
 export class HomeComponent {
 	closeResult = '';
 
-	constructor(private offcanvasService: NgbOffcanvas, private studentService:StudentServiceService) {}
+	constructor(private offcanvasService: NgbOffcanvas, private studentService:StudentServiceService, private elementRef:ElementRef) {}
 
 	open(content: any) {
 		this.offcanvasService.open(content, { ariaLabelledBy: 'offcanvas-basic-title' }).result.then(
@@ -62,12 +62,24 @@ export class HomeComponent {
 		}
 	]
 
+
+	@ViewChild('progDiv') progDiv!: ElementRef;
+
+
+	res:number=0;
+	answer:string="";
 	getCourseInfo(){
 		this.studentService.getCourseInfo().subscribe({
-			next: (data) => {console.log(data)},
+			next: (data) => {
+				for(var obj of data){
+					this.res= (obj.totalLectures / obj.attendedLectures);
+					this.res= this.res*100;
+					this.answer= this.res.toFixed(2) + "%";
+					this.progDiv.nativeElement.style.width= `${this.answer}`;
+				}
+			},
 			error: (err) => {console.log(err)}
 		});
 	}
-
 
 }

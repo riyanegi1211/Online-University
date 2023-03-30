@@ -23,6 +23,9 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { MatInputModule} from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -34,6 +37,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CoursecrudComponent } from './coursecrud/coursecrud.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,8 @@ import { LoginComponent } from './login/login.component';
  FooterComponent,
  ProfessorComponent,
  AdminComponent,
- LoginComponent
+ LoginComponent,
+ CoursecrudComponent
   ],
   imports: [
 	BrowserModule,
@@ -73,7 +79,11 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     NgChartsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   entryComponents: [AppComponent],
   providers: [],
