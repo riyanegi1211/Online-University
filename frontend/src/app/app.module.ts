@@ -34,6 +34,12 @@ import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
+import { AssessmentComponent } from './assessment/assessment.component';
+import { AssignmentComponent } from './assignment/assignment.component';
+import { CourseOverviewComponent } from './course-overview/course-overview.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,13 @@ import { LoginComponent } from './login/login.component';
  FooterComponent,
  ProfessorComponent,
  AdminComponent,
- LoginComponent
+ LoginComponent,
+ StudentDashboardComponent,
+ AnnouncementComponent,
+ AssessmentComponent,
+ AssignmentComponent,
+ CourseOverviewComponent,
+ SideNavComponent
   ],
   imports: [
 	BrowserModule,

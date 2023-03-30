@@ -1,0 +1,25 @@
+<mat-toolbar style="background-color: #16bca8;">
+    <mat-toolbar-row>
+      <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+      Online University
+    </mat-toolbar-row>
+    
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened" mode="side">
+      <mat-list>
+        <mat-list-item><a routerLink="/Home">Course Overview</a></mat-list-item>
+        <mat-list-item><a routerLink="/One">Unit-1</a></mat-list-item>
+        <mat-list-item><a routerLink="/Two">Unit-2</a></mat-list-item>
+        <mat-list-item><a routerLink="/Three">Unit-3</a></mat-list-item>
+        <mat-list-item><a routerLink="/Four">Unit-4</a></mat-list-item>
+        <mat-list-item><a routerLink="/Five">Unit-5</a></mat-list-item>
+        <mat-list-item><a routerLink="/Assessment">Assessments</a></mat-list-item>
+        <mat-list-item><a routerLink="/Assignment">Assignments</a></mat-list-item>
+        <mat-list-item><a routerLink="/Attendance">Attendance</a></mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
