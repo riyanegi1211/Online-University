@@ -1,4 +1,4 @@
-<h1>Welcome to Online Learning</h1>
+<!-- <h1>Welcome to Online Learning</h1>
 <mat-card>
     <mat-card-content>
       <div class="header">
@@ -37,5 +37,43 @@
         <button mat-flat-button style="background-color: #16bca8">Login</button>
       </form>
     </mat-card-content>
-  </mat-card>
-  <!--Footer-->
+  </mat-card> -->
+
+  <button (click)="getName()">{{name}}</button>
+
+<div class="login-container">
+  <h2>Login Form</h2>
+  <!-- <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" />
+    </div>
+    <button type="submit">Login</button>
+  </form> -->
+  <form class="form" [formGroup]="update" (ngSubmit)="onSubmit()">
+    <label for="uname">User Name</label>
+    <input type="text" name="courseCode" id="" formControlName="username">
+    <label for="pwd">Password</label>
+    <input  type="text" name="coursename" id="" formControlName="password">
+    <button type="submit" class="btn btn-warning">Login</button>
+</form>
+</div>
+
+<div class="login-container">
+  <h2>Registration Form</h2>
+  <form #registrationForm="ngForm" (ngSubmit)="onSubmitR(registrationForm)">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="regUsername" />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="regPassword" />
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</div>
