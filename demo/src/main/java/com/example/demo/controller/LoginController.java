@@ -69,7 +69,7 @@ public class LoginController {
             }
             // roles list now contains the names of all roles the user has
         }
-        return "HI " + String.join(",", roles);
+        return String.join(",", roles);
     }
 
     // https://docs.spring.io/spring-security/reference/servlet/authentication/session-management.html#store-authentication-manually

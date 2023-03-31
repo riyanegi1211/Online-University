@@ -9,6 +9,8 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
+
 import com.example.demo.service.JpaUserDetailsService;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -42,7 +44,12 @@ public class SecurityConfig {
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                         .permitAll())
-                .headers(headers -> headers.frameOptions().sameOrigin())
+                // .headers(headers -> headers.frameOptions().sameOrigin())
+                .headers(headers -> headers
+                    .frameOptions().sameOrigin()
+                    .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Credentials", "true"))
+                    .addHeaderWriter(new StaticHeadersWriter(" Access-Control-Allow-Origin", "http://localhost:4200"))
+                )
                 .build();
     }
 
