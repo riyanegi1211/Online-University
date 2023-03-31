@@ -19,8 +19,12 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatCardModule} from '@angular/material/card';
+import { MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
@@ -36,37 +40,42 @@ import { FormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoursecrudComponent } from './coursecrud/coursecrud.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
-import { AnnouncementComponent } from './announcement/announcement.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { CourseOverviewComponent } from './course-overview/course-overview.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatExpansionModule} from '@angular/material/expansion';
-import { MatInputModule } from '@angular/material/input';
-
+import { UnitOneComponent } from './unit-one/unit-one.component';
+import { UnitTwoComponent } from './unit-two/unit-two.component';
+import { UnitThreeComponent } from './unit-three/unit-three.component';
+import { UnitFourComponent } from './unit-four/unit-four.component';
+import { UnitFiveComponent } from './unit-five/unit-five.component';
 
 @NgModule({
   declarations: [
 	AppComponent,
 	HomeComponent,
- FooterComponent,
- ProfessorComponent,
- AdminComponent,
- LoginComponent,
- StudentDashboardComponent,
- AnnouncementComponent,
- AssessmentComponent,
- AssignmentComponent,
- CourseOverviewComponent,
- SideNavComponent,
- CoursecrudComponent
+	FooterComponent,
+	ProfessorComponent,
+	AdminComponent,
+	LoginComponent,
+	StudentDashboardComponent,
+	AssessmentComponent,
+	AssignmentComponent,
+	CourseOverviewComponent,
+	SideNavComponent,
+	UnitOneComponent,
+	UnitTwoComponent,
+	UnitThreeComponent,
+	UnitFourComponent,
+	UnitFiveComponent,
+	CoursecrudComponent
+
   ],
   imports: [
 	BrowserModule,
@@ -87,26 +96,25 @@ import { MatInputModule } from '@angular/material/input';
 	MdbTooltipModule,
 	MdbValidationModule,
 	BrowserAnimationsModule,
+	ReactiveFormsModule,
 	MatToolbarModule,
-	MatIconModule,
-	MatSidenavModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
 	MatNativeDateModule,
 	MatListModule,
-	NgbModule,
-	FullCalendarModule,
-    FormsModule,
-    NgChartsModule,
-    HttpClientModule,
-    FontAwesomeModule,
-    MatCardModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatExpansionModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
-    ReactiveFormsModule
+	MatExpansionModule,
+  MatInputModule,
+  MatButtonModule,
+  MatCardModule,
+  MatInputModule,
+  MatFormFieldModule,
+  NgbModule,
+  FullCalendarModule,
+  FormsModule,
+  NgChartsModule,
+  HttpClientModule,
+  FontAwesomeModule
   ],
   entryComponents: [AppComponent],
   providers: [],
