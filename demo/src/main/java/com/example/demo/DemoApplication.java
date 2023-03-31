@@ -75,7 +75,10 @@ public class DemoApplication {
             studentRepo.save(s1);
 
             Course c1 = Course.builder()
-                            .title("Course 1")
+                            .totalLectures(2)
+                            .courseName("B.Tech")
+                            .courseCode("2015108")
+                            .status("pending")
                             .teacher(t1)
                             .build();
             courseRepository.save(c1);

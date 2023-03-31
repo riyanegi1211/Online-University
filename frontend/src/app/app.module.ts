@@ -23,6 +23,9 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { MatInputModule} from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -34,6 +37,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CoursecrudComponent } from './coursecrud/coursecrud.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { AssessmentComponent } from './assessment/assessment.component';
@@ -60,7 +65,8 @@ import { MatInputModule } from '@angular/material/input';
  AssessmentComponent,
  AssignmentComponent,
  CourseOverviewComponent,
- SideNavComponent
+ SideNavComponent,
+ CoursecrudComponent
   ],
   imports: [
 	BrowserModule,
@@ -96,7 +102,11 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatExpansionModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   entryComponents: [AppComponent],
   providers: [],

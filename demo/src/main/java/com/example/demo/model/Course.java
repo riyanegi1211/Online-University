@@ -31,11 +31,21 @@ public class Course implements Serializable{
     private Long courseId;
  
     @Column(name = "title")
+    @JsonIgnore
     private String title;
  
-    @Column(name = "description")
-    private String description;
- 
+    @Column(name = "course_name")
+    private String courseName;
+
+    @Column(name= "course_code")
+    private String courseCode;
+
+    @Column(name= "status")
+    private String status;
+
+    @Column(name = "total_lectures")
+    private Integer totalLectures;
+
     @OneToOne
     @JoinColumn(name = "user_id")
     @JsonIgnore
