@@ -27,6 +27,9 @@ import { MatCardModule} from '@angular/material/card';
 import { MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { MatInputModule} from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -40,6 +43,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CoursecrudComponent } from './coursecrud/coursecrud.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { AssignmentComponent } from './assignment/assignment.component';
@@ -64,11 +69,13 @@ import { UnitFiveComponent } from './unit-five/unit-five.component';
 	AssignmentComponent,
 	CourseOverviewComponent,
 	SideNavComponent,
- UnitOneComponent,
- UnitTwoComponent,
- UnitThreeComponent,
- UnitFourComponent,
- UnitFiveComponent
+	UnitOneComponent,
+	UnitTwoComponent,
+	UnitThreeComponent,
+	UnitFourComponent,
+	UnitFiveComponent,
+	CoursecrudComponent
+
   ],
   imports: [
 	BrowserModule,
@@ -91,21 +98,23 @@ import { UnitFiveComponent } from './unit-five/unit-five.component';
 	BrowserAnimationsModule,
 	ReactiveFormsModule,
 	MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-	MatExpansionModule,
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
 	MatNativeDateModule,
 	MatListModule,
-	NgbModule,
-	FullCalendarModule,
-    FormsModule,
-    NgChartsModule,
-    HttpClientModule,
-    FontAwesomeModule
+	MatExpansionModule,
+  MatInputModule,
+  MatButtonModule,
+  MatCardModule,
+  MatInputModule,
+  MatFormFieldModule,
+  NgbModule,
+  FullCalendarModule,
+  FormsModule,
+  NgChartsModule,
+  HttpClientModule,
+  FontAwesomeModule
   ],
   entryComponents: [AppComponent],
   providers: [],

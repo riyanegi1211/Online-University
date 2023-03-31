@@ -11,16 +11,19 @@ import { UnitFourComponent } from './unit-four/unit-four.component';
 import { UnitOneComponent } from './unit-one/unit-one.component';
 import { UnitThreeComponent } from './unit-three/unit-three.component';
 import { UnitTwoComponent } from './unit-two/unit-two.component';
-
+import { CoursecrudComponent } from './coursecrud/coursecrud.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-    { path: 'home', component: HomeComponent },
+    { path: '',   redirectTo: '/login', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'professor', component: ProfessorComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'login', component: LoginComponent },
+
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     {path: "Assessment",component:AssessmentComponent},
-  {path: "Assignment",component:AssignmentComponent},
+    {path: "Assignment",component:AssignmentComponent},
     {path: "UnitOne",component:UnitOneComponent},
     {path: "UnitTwo",component:UnitTwoComponent},
     {path: "UnitThree",component:UnitThreeComponent},
@@ -28,6 +31,11 @@ const routes: Routes = [
     {path: "UnitFive",component:UnitFiveComponent}
 
   ];
+
+    { path: 'admin/course', component: CoursecrudComponent },
+    { path: '',   redirectTo: '/home', pathMatch: 'full' }
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

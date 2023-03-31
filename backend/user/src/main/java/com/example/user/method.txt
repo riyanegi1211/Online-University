@@ -1,0 +1,47 @@
+user service
+
+api gateway -> userService -> Course service
+                            -> Enrollement service
+https://www.baeldung.com/spring-boot-feignclient-vs-webclient
+user - sid, name
+course - cid, teacher, material
+Enrollement - sid, cid, student, course name
+
+/student 
+    /courses
+    /courses/{id}
+    /courses/{id}/{dataId}
+    /profile
+    /misc - /notification, /calender etc.
+
+/teacher
+    /courses
+    /courses/{id}
+    /courses/{id}/{dataId}
+    /profile
+    /courses/{id}/student ?
+    /misc
+
+/admin
+    /courses
+    /courses/{id}
+    /courses/{id}/{dataId}
+    /profile
+    
+    /students
+    /students/{id}
+    /teacher
+    /teacher/{id}
+
+    /misc
+
+
+
+
+course service
+    /courses/{id}
+    /courses/{id}/{dataId}
+
+Enrollement service 
+    /courses/{userId}
+    /courseData/{userId}/
