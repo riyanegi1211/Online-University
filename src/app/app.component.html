@@ -8,15 +8,15 @@
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
     <mat-list>
-      <mat-list-item><a routerLink="/Home">Course Overview</a></mat-list-item>
-      <mat-list-item><a routerLink="/One">Unit-1</a></mat-list-item>
-      <mat-list-item><a routerLink="/Two">Unit-2</a></mat-list-item>
-      <mat-list-item><a routerLink="/Three">Unit-3</a></mat-list-item>
-      <mat-list-item><a routerLink="/Four">Unit-4</a></mat-list-item>
-      <mat-list-item><a routerLink="/Five">Unit-5</a></mat-list-item>
-      <mat-list-item><a routerLink="/Assessment">Assessments</a></mat-list-item>
-      <mat-list-item><a routerLink="/Assignment">Assignments</a></mat-list-item>
-      <mat-list-item><a routerLink="/Attendance">Attendance</a></mat-list-item>
+      <mat-list-item><a routerLink="/Home" [routerLinkActive]="['is-active']">Course Overview</a></mat-list-item>
+      <mat-list-item><a routerLink="/One" [routerLinkActive]="['is-active']">Unit-1</a></mat-list-item>
+      <mat-list-item><a routerLink="/Two" [routerLinkActive]="['is-active']">Unit-2</a></mat-list-item>
+      <mat-list-item><a routerLink="/Three" [routerLinkActive]="['is-active']">Unit-3</a></mat-list-item>
+      <mat-list-item><a routerLink="/Four" [routerLinkActive]="['is-active']">Unit-4</a></mat-list-item>
+      <mat-list-item><a routerLink="/Five" [routerLinkActive]="['is-active']">Unit-5</a></mat-list-item>
+      <mat-list-item><a routerLink="/Assessment" [routerLinkActive]="['is-active']">Assessments</a></mat-list-item>
+      <mat-list-item><a routerLink="/Assignment" [routerLinkActive]="['is-active']">Assignments</a></mat-list-item>
+      <mat-list-item><a routerLink="/Attendance" [routerLinkActive]="['is-active']">Attendance</a></mat-list-item>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
