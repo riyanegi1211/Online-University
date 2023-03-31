@@ -1,4 +1,4 @@
-package com.example.user;
+package com.example.user.controller;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.user.CourseService;
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
 import com.example.user.model.CourseStudent;

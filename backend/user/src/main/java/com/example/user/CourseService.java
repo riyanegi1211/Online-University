@@ -44,8 +44,8 @@ public class CourseService {
                                 .studentCourseData(data)
                                 .courseData(c.getCourseData())
                                 .courseId(c.getCourseId())
-                                .description(c.getDescription())
-                                .title(c.getTitle())
+                                // .description(c.getDescription())
+                                // .title(c.getTitle())
                                 .build();
         return cs;
     }

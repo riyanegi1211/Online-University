@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.gateway;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpResponse;

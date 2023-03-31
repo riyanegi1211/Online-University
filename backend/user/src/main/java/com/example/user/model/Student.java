@@ -29,11 +29,6 @@ public class Student extends User implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
-    // @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    // @JsonManagedReference
-    @JsonIgnore
-    // private Set<StudentCourseData> studentCourseData = new HashSet<>();
-
     @Builder(builderMethodName = "studentBuilder")
     public Student(Long id, String username, String password, Role role, String firstName, String lastName) {
         super(id, username, password, role);

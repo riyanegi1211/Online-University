@@ -23,31 +23,40 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class Course implements Serializable{
+public class Course implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
     private Long courseId;
- 
-    @Column(name = "title")
-    private String title;
- 
-    @Column(name = "description")
-    private String description;
- 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    @JsonIgnore
-    private Teacher teacher;
- 
+
+    // @Column(name = "title")
+    // private String title;
+
+    // @Column(name = "description")
+    // private String description;
+
+    @Column(name = "course_name")
+    private String courseName;
+
+    @Column(name = "course_code")
+    private String courseCode;
+
+    @Column(name = "teacher_id")
+    private Long teacherId;
+    // private Teacher teacher;
+
     @Column(name = "start_date")
-    @JsonIgnore
     private LocalDate startDate;
- 
+
     @Column(name = "end_date")
-    @JsonIgnore
     private LocalDate endDate;
 
-    @JsonIgnore
     private List<CourseData> courseData;
+
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "total_lectures")
+    private Integer totalLectures;
+
 }
