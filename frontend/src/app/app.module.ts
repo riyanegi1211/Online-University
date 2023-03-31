@@ -45,6 +45,11 @@ import { AssessmentComponent } from './assessment/assessment.component';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { CourseOverviewComponent } from './course-overview/course-overview.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { UnitOneComponent } from './unit-one/unit-one.component';
+import { UnitTwoComponent } from './unit-two/unit-two.component';
+import { UnitThreeComponent } from './unit-three/unit-three.component';
+import { UnitFourComponent } from './unit-four/unit-four.component';
+import { UnitFiveComponent } from './unit-five/unit-five.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +63,12 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 	AssessmentComponent,
 	AssignmentComponent,
 	CourseOverviewComponent,
-	SideNavComponent
+	SideNavComponent,
+ UnitOneComponent,
+ UnitTwoComponent,
+ UnitThreeComponent,
+ UnitFourComponent,
+ UnitFiveComponent
   ],
   imports: [
 	BrowserModule,

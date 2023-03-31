@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./student-dashboard.component.css']
 })
 export class StudentDashboardComponent {
-
+  opened = false;
 }

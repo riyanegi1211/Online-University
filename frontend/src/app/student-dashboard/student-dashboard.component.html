@@ -1,30 +1,25 @@
-<!--Header-->
-<mat-toolbar color="primary">
+<mat-toolbar style="background-color: #16bca8;">
     <mat-toolbar-row>
-        <button mat-icon-button>
-            <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
-        </button>
-        <h1>Online University</h1>
+      <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+      Online University
     </mat-toolbar-row>
-</mat-toolbar>
-<mat-sidenav-container>
-    <mat-sidenav #sidenav opened="true" mode="side">
-        <mat-nav-list>
-            <a mat-list-item>Home</a>
-            <a mat-list-item>Unit-1</a>
-            <a mat-list-item>Unit-2</a>
-            <a mat-list-item>Unit-3</a>
-            <a mat-list-item>Unit-4</a>
-            <a mat-list-item>Unit-5</a>
-            <a mat-list-item>Attendance</a>
-            <a mat-list-item>Assignments</a>
-            <a mat-list-item>Announcements</a>
-        </mat-nav-list>
+    
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened" mode="side">
+      <mat-list>
+        <mat-list-item><a routerLink="/Home">Course Overview</a></mat-list-item>
+        <mat-list-item><a routerLink="/One">Unit-1</a></mat-list-item>
+        <mat-list-item><a routerLink="/Two">Unit-2</a></mat-list-item>
+        <mat-list-item><a routerLink="/Three">Unit-3</a></mat-list-item>
+        <mat-list-item><a routerLink="/Four">Unit-4</a></mat-list-item>
+        <mat-list-item><a routerLink="/Five">Unit-5</a></mat-list-item>
+        <mat-list-item><a routerLink="/Assessment">Assessments</a></mat-list-item>
+        <mat-list-item><a routerLink="/Assignment">Assignments</a></mat-list-item>
+        <mat-list-item><a routerLink="/Attendance">Attendance</a></mat-list-item>
+      </mat-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <div style="height: 88vh;">
-            <router-outlet></router-outlet>
-        </div>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
-</mat-sidenav-container>
-<!--Footer-->
+  </mat-sidenav-container>
