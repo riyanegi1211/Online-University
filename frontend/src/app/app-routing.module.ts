@@ -5,10 +5,11 @@ import { ProfessorComponent } from './professor/professor.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { CoursecrudComponent } from './coursecrud/coursecrud.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
     { path: '',   redirectTo: '/login', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
+    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'professor', component: ProfessorComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'login', component: LoginComponent },

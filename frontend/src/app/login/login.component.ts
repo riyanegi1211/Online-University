@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormBuilder, FormGroup, NgForm, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder,  NgForm, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 	
   hide: boolean = false;
 
-  constructor(private fb: FormBuilder, private http:HttpClient, private router:Router) {
+  constructor(private fb: FormBuilder, private http:HttpClient, private router:Router, private userService: UserService) {
   }
 
   ngOnInit() {
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.url= this.url+"role";
 	
     const observer= {
-        next: (x:any) => {console.log(x)}, 
+        next: (x:any) => {console.log(x);}, 
         error: (err: any) => {console.log(err.error)}, 
         complete: () => console.log('Observer got a complete notification'),
       }
