@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { CoursecrudComponent } from './coursecrud/coursecrud.component';
 
 const routes: Routes = [
+    { path: '',   redirectTo: '/login', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'professor', component: ProfessorComponent },
     { path: 'admin', component: AdminComponent },

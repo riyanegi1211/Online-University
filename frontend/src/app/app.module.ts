@@ -39,6 +39,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoursecrudComponent } from './coursecrud/coursecrud.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
+import { AssessmentComponent } from './assessment/assessment.component';
+import { AssignmentComponent } from './assignment/assignment.component';
+import { CourseOverviewComponent } from './course-overview/course-overview.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +60,12 @@ import { CoursecrudComponent } from './coursecrud/coursecrud.component';
  ProfessorComponent,
  AdminComponent,
  LoginComponent,
+ StudentDashboardComponent,
+ AnnouncementComponent,
+ AssessmentComponent,
+ AssignmentComponent,
+ CourseOverviewComponent,
+ SideNavComponent,
  CoursecrudComponent
   ],
   imports: [
@@ -80,6 +98,11 @@ import { CoursecrudComponent } from './coursecrud/coursecrud.component';
     NgChartsModule,
     HttpClientModule,
     FontAwesomeModule,
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+    MatInputModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
