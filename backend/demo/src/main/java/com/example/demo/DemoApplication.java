@@ -74,6 +74,8 @@ public class DemoApplication {
                     .firstName("scam").build();
             studentRepo.save(s1);
 
+            // Student s2 = Student.studentBuilder().id(null);
+
             Course c1 = Course.builder()
                             .totalLectures(2)
                             .courseName("B.Tech")
