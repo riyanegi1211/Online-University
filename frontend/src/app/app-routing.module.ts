@@ -20,8 +20,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'professor', component: ProfessorComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'admin/course', component: CoursecrudComponent }
-    { path: '',   redirectTo: '/home', pathMatch: 'full' },
+    { path: 'admin/course', component: CoursecrudComponent },
     {path: "Assessment",component:AssessmentComponent},
     {path: "Assignment",component:AssignmentComponent},
     {path: "UnitOne",component:UnitOneComponent},
