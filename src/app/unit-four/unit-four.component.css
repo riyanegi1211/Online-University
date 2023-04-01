@@ -4,6 +4,16 @@
     margin-left: 15px;
     text-align: center;
 }
+.acc
+{
+    margin: 30px;
+    opacity: 0.7;
+}
+mat-accordion
+{
+    padding: 10px;
+}
+
 .display-5
 {
    padding-top: 2px;
@@ -22,17 +32,17 @@
 a:link 
 { 
     text-decoration: none; 
-    color: white;
+    color: black;
 }
 
 
 a:visited { text-decoration: none;
-    color: white;
+    color: black;
     }
 
 
 a:hover { text-decoration: none; 
-    color: white;
+    color: black;
    font-weight:bold;}
 
 

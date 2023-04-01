@@ -1,4 +1,4 @@
-<mat-toolbar style="background-color: #16bca8;">
+<mat-toolbar>
   <mat-toolbar-row>
     <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
     Online University
@@ -8,15 +8,14 @@
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
     <mat-list>
-      <mat-list-item><a routerLink="/Home" [routerLinkActive]="['is-active']">Course Overview</a></mat-list-item>
-      <mat-list-item><a routerLink="/One" [routerLinkActive]="['is-active']">Unit-1</a></mat-list-item>
-      <mat-list-item><a routerLink="/Two" [routerLinkActive]="['is-active']">Unit-2</a></mat-list-item>
-      <mat-list-item><a routerLink="/Three" [routerLinkActive]="['is-active']">Unit-3</a></mat-list-item>
-      <mat-list-item><a routerLink="/Four" [routerLinkActive]="['is-active']">Unit-4</a></mat-list-item>
-      <mat-list-item><a routerLink="/Five" [routerLinkActive]="['is-active']">Unit-5</a></mat-list-item>
-      <mat-list-item><a routerLink="/Assessment" [routerLinkActive]="['is-active']">Assessments</a></mat-list-item>
-      <mat-list-item><a routerLink="/Assignment" [routerLinkActive]="['is-active']">Assignments</a></mat-list-item>
-      <mat-list-item><a routerLink="/Attendance" [routerLinkActive]="['is-active']">Attendance</a></mat-list-item>
+      <mat-list-item><a routerLink="/Home" [routerLinkActive]="['is-active']"><span>Course Overview</span></a></mat-list-item>
+      <mat-list-item><a routerLink="/One" [routerLinkActive]="['is-active']"><span>Unit-1</span></a></mat-list-item>
+      <mat-list-item><a routerLink="/Two" [routerLinkActive]="['is-active']"><span>Unit-2</span></a></mat-list-item>
+      <mat-list-item><a routerLink="/Three" [routerLinkActive]="['is-active']"><span>Unit-3</span></a></mat-list-item>
+      <mat-list-item><a routerLink="/Four" [routerLinkActive]="['is-active']"><span>Unit-4</span></a></mat-list-item>
+      <mat-list-item><a routerLink="/Five" [routerLinkActive]="['is-active']"><span>Unit-5</span></a></mat-list-item>
+      <mat-list-item><a routerLink="/Assessment" [routerLinkActive]="['is-active']"><span>Assessments</span></a></mat-list-item>
+      <mat-list-item><a routerLink="/Assignment" [routerLinkActive]="['is-active']"><span>Assignments</span></a></mat-list-item>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>

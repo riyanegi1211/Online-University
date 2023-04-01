@@ -1,7 +1,13 @@
 mat-sidenav-container
 {
     height: calc(205vh - 115vh);
-    background-color: #16bca8;
+    background-color: black;
+}
+
+mat-toolbar
+{
+    background-color: black;
+    color: white;
 }
 mat-sidenav
 {
@@ -19,11 +25,15 @@ mat-list-item
     padding-top: 16px;
     padding-left: 20px;
     display: block;
-    border-bottom: 1px solid rgba(0,0,0,.12);
-    
+    border-bottom: 1px solid rgba(0,0,0,.12); 
+}
+mat-list-item:hover
+{
+    background-color: #282828;
+    color: white;
 }
 .is-active {
-    font-weight: bold;
+    font-weight: bolder;
 }
 mat-sidenav-container
 {
@@ -31,7 +41,8 @@ mat-sidenav-container
 }
 mat-sidenav
 {
-    background-color: #E8F7E4;
+    background-color: black;
+    opacity: 0.7;
 }
 *
 {
@@ -41,17 +52,21 @@ mat-sidenav
 a:link 
 { 
     text-decoration: none; 
-    color: green;
+    color: white;
 }
-
-
-a:visited { text-decoration: none;
-    color: green; }
-
-
-a:hover { text-decoration: none; 
-    color: green;}
-
-
-a:active { text-decoration: none;
-    color: green; }
+a:visited 
+{ 
+    text-decoration: none;
+    color: white; 
+}
+a:hover 
+{ 
+    text-decoration: none; 
+    color: white;
+    font-weight: bolder;
+}
+a:active 
+{ 
+    text-decoration: none;
+    color: white; 
+}
