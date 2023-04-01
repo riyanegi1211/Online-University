@@ -27,7 +27,7 @@ mat-list-item
 }
 mat-sidenav-container
 {
-    background-color: #EEF7E4;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,170,176,1) 79%, rgba(0,205,172,1) 100%);
 }
 mat-sidenav
 {

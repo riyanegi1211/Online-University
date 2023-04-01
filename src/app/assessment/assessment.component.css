@@ -10,17 +10,26 @@ h2
   margin-bottom: 20px;
  }
  .content
- {
+{
+    margin-right: 20px;
+    margin-left: 15px;
     text-align: center;
- }
- .display-5
- {
-    padding-top: 2px;
-    padding-bottom: 5px;
- }
- .jumbotron {
-    padding: 10px;
- }
+}
+.display-5
+{
+   padding-top: 2px;
+   padding-bottom: 5px;
+   font-weight: 500;
+}
+.lead
+{
+    font-weight: 400;
+}
+.jumbotron {
+   padding: 10px;
+   margin: 30px;
+   opacity: 0.5;
+}
 .flip-card {
     background-color: transparent;
     width: 250px;

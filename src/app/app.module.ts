@@ -19,6 +19,11 @@ import { AssessmentComponent } from './assessment/assessment.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { HomeComponent } from './home/home.component';
 import { AssignmentComponent } from './assignment/assignment.component';
+import { UnitOneComponent } from './unit-one/unit-one.component';
+import { UnitTwoComponent } from './unit-two/unit-two.component';
+import { UnitThreeComponent } from './unit-three/unit-three.component';
+import { UnitFourComponent } from './unit-four/unit-four.component';
+import { UnitFiveComponent } from './unit-five/unit-five.component';
 
 
 
@@ -27,7 +32,12 @@ import { AssignmentComponent } from './assignment/assignment.component';
     AppComponent,
     AssessmentComponent,
     HomeComponent,
-    AssignmentComponent
+    AssignmentComponent,
+    UnitOneComponent,
+    UnitTwoComponent,
+    UnitThreeComponent,
+    UnitFourComponent,
+    UnitFiveComponent
   ],
   imports: [
     BrowserModule,
