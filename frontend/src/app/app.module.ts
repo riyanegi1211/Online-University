@@ -28,8 +28,6 @@ import { MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule} from '@angular/material/card';
-import { MatInputModule} from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -43,7 +41,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CoursecrudComponent } from './coursecrud/coursecrud.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { AssessmentComponent } from './assessment/assessment.component';

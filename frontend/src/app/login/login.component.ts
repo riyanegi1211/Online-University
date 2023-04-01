@@ -32,11 +32,10 @@ export class LoginComponent implements OnInit {
   redirecting(){
     console.log("called");
     this.url= this.url+"role";
-	
+	this.userService.logIn();
     const observer= {
-        next: (x:any) => {console.log(x);}, 
+        next: (x:any) => {console.log(x)}, 
         error: (err: any) => {console.log(err.error)}, 
-        complete: () => console.log('Observer got a complete notification'),
       }
     this.http.get(this.url,{responseType: 'text' ,withCredentials: true}).subscribe(observer);
     this.router.navigate(['/home']);
@@ -64,7 +63,6 @@ export class LoginComponent implements OnInit {
     }
     this.http.post(url, body, { responseType: 'text', withCredentials: true }).subscribe(observer);
   }
-	basicAuth = false;
 	// username: string = "";
     // password: string = ""
   

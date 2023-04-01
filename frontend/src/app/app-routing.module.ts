@@ -15,12 +15,12 @@ import { CoursecrudComponent } from './coursecrud/coursecrud.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-    { path: '',   redirectTo: '/login', pathMatch: 'full' },
+    { path: '',   redirectTo: '/home', pathMatch: 'full' },
+    { path: 'login', component: LoginComponent },
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'professor', component: ProfessorComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'login', component: LoginComponent },
-
+    { path: 'admin/course', component: CoursecrudComponent }
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     {path: "Assessment",component:AssessmentComponent},
     {path: "Assignment",component:AssignmentComponent},
@@ -32,9 +32,6 @@ const routes: Routes = [
 
   ];
 
-    { path: 'admin/course', component: CoursecrudComponent },
-    { path: '',   redirectTo: '/home', pathMatch: 'full' }
-];
 
 
 @NgModule({
