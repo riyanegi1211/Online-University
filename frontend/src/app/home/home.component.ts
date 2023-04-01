@@ -4,6 +4,7 @@ import { NgbOffcanvas, OffcanvasDismissReasons } from '@ng-bootstrap/ng-bootstra
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { StudentServiceService } from '../student-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ import { StudentServiceService } from '../student-service.service';
 export class HomeComponent {
 	closeResult = '';
 
-	constructor(private offcanvasService: NgbOffcanvas, private studentService:StudentServiceService, private elementRef:ElementRef) {}
+	constructor(private offcanvasService: NgbOffcanvas, private studentService:StudentServiceService, private elementRef:ElementRef, private router:Router) {}
 
 	open(content: any) {
 		this.offcanvasService.open(content, { ariaLabelledBy: 'offcanvas-basic-title' }).result.then(
@@ -68,7 +69,7 @@ export class HomeComponent {
 
 	res:number=0;
 	answer:string="";
-	getCourseInfo(){
+	ngOnInit(){
 		this.studentService.getCourseInfo().subscribe({
 			next: (data) => {
 				for(var obj of data){
@@ -81,5 +82,9 @@ export class HomeComponent {
 			error: (err) => {console.log(err)}
 		});
 	}
+
+    loadDashboard(){
+        this.router.navigate(['dashboard']);
+    }
 
 }

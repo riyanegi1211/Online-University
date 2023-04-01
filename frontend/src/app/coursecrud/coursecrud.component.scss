@@ -1,14 +1,65 @@
-table,th,td{
-	border: 1px solid black;
+table{
+    position: relative;
+    left: 22%;
 	border-collapse: collapse;
 }
 
 td,th{
+    // border: 1px solid black;
+    width: 200px;
 	padding: 15px;
+}
+
+th{
+    background-color: black;
+    color: white;
+}
+
+td{
+    border: 1px solid black;
+}
+
+table tbody tr:nth-child(even){
+    background-color: rgb(211, 207, 207);
 }
 
 .update-container{
 	position: relative;
-	top: 300px;
-	left: 50px;
+	top: 50%;
+	left: 10%;
+    font-size: 16px;
+}
+
+.update-container input{
+    margin-left: 10px;
+    border-color: aquamarine;
+}
+
+.update-container label:nth-child(n+1)
+{
+    margin-left: 30px;
+}
+
+.get-btn{
+    position: relative;
+    left: 50%;
+    top: 30%;
+    color: white;
+}
+
+table thead{
+    width: calc(100% - 49em);
+}
+
+.add-btn{
+    margin-left: 60px;
+}
+
+.update-container h3{
+    position: relative;
+    top: 45px;
+    right: 120px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline black 2px;
 }

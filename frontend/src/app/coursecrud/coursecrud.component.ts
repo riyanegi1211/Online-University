@@ -58,5 +58,12 @@ export class CoursecrudComponent {
 			error: (err) => {console.log(err)}
 		})
 	}
+
+	deleteData(courseId:number){
+		this.courseService.deleteData(courseId).subscribe({
+			next: (data) => {console.log(data)},
+			error: (err) => {console.log(err)}
+		})
+	}
 	
 }

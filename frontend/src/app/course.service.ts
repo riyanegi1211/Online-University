@@ -11,6 +11,7 @@ export class CourseService {
 
 	getURL:string= "http://localhost:8080/api/admin/getCoursesList";
 	strURL:string= "http://localhost:8080/api/admin/saveCourses";
+    delURL:string= "http://localhost:8080/api/admin/deleteData";
 	getCoursesList():Observable<any>{
 		return this.http.get(this.getURL);
 	}
@@ -19,5 +20,9 @@ export class CourseService {
         let headers= {'content-type':'application/json'};
         let jsonObj= JSON.stringify(data);
         return this.http.post(this.strURL,jsonObj,{'headers' : headers});
+    }
+
+    deleteData(courseId:number):Observable<any>{
+        return this.http.delete(this.delURL + '/' + courseId);
     }
 }

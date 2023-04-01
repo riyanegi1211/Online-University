@@ -13,21 +13,23 @@ import { UnitThreeComponent } from './unit-three/unit-three.component';
 import { UnitTwoComponent } from './unit-two/unit-two.component';
 import { CoursecrudComponent } from './coursecrud/coursecrud.component';
 import { AuthGuard } from './auth.guard';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 
 const routes: Routes = [
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'professor', component: ProfessorComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'dashboard', component: StudentDashboardComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'admin/course', component: CoursecrudComponent },
     {path: "Assessment",component:AssessmentComponent},
     {path: "Assignment",component:AssignmentComponent},
-    {path: "UnitOne",component:UnitOneComponent},
-    {path: "UnitTwo",component:UnitTwoComponent},
-    {path: "UnitThree",component:UnitThreeComponent},
-    {path: "UnitFour",component:UnitFourComponent},
-    {path: "UnitFive",component:UnitFiveComponent}
+    {path: "One",component:UnitOneComponent},
+    {path: "Two",component:UnitTwoComponent},
+    {path: "Three",component:UnitThreeComponent},
+    {path: "Four",component:UnitFourComponent},
+    {path: "Five",component:UnitFiveComponent}
 
   ];
 

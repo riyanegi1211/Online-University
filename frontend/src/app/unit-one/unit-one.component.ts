@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StudentServiceService } from '../student-service.service';
 
 @Component({
   selector: 'app-unit-one',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./unit-one.component.scss']
 })
 export class UnitOneComponent {
-
+   
+    constructor(private studentService: StudentServiceService){}
+    lectureUpdate(){
+        this.studentService.updateCourseInfo().subscribe({
+            next: (data) => {console.log(data)},
+            error: (err) => {console.log(err)}
+        })
+    }
 }

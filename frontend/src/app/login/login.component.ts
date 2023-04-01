@@ -32,13 +32,14 @@ export class LoginComponent implements OnInit {
   redirecting(){
     console.log("called");
     this.url= this.url+"role";
-	this.userService.logIn();
+    this.userService.logIn();
     const observer= {
         next: (x:any) => {console.log(x)}, 
         error: (err: any) => {console.log(err.error)}, 
       }
     this.http.get(this.url,{responseType: 'text' ,withCredentials: true}).subscribe(observer);
-    this.router.navigate(['/home']);
+    
+    this.router.navigate(['home']);
   }
 
   onLogin() {
