@@ -16,7 +16,7 @@ import { AuthGuard } from './auth.guard';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 
 const routes: Routes = [
-    { path: '',   redirectTo: '/home', pathMatch: 'full' },
+    { path: '',   redirectTo: '/login', pathMatch: 'full' },
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'professor', component: ProfessorComponent },
     { path: 'login', component: LoginComponent },
