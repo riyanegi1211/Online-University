@@ -1,0 +1,42 @@
+.content
+{
+   text-align: center;
+}
+.display-5
+{
+   
+   font-weight: 500;
+}
+.lead 
+{
+    font-weight: 400;
+}
+.jumbotron {
+   padding: 10px;
+   margin: 30px;
+   opacity: 0.5;
+}
+a:link 
+{ 
+    text-decoration: none; 
+    color: white;
+}
+a:visited 
+{ text-decoration: none;
+   color: white; 
+}
+
+a:hover { text-decoration: none; 
+   color: #F9F6EE;
+   font-weight: bold;
+}
+a:active { 
+   text-decoration: none;
+   color: #F9F6EE; 
+}
+input
+{
+   margin-left: 30px;
+   margin-right: 10px;
+   margin-bottom: 10px;
+}
