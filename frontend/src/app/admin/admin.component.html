@@ -27,7 +27,7 @@
 		<ul class="sub-menu" [class.blank]="item.sub_menu.length == 0">
 		  <li><a class="link_name">{{item.link_name}}</a></li>
 		  <li *ngFor="let item_sub of item.sub_menu" routerLinkActive="active">
-			<a [routerLink]="[item_sub.link]">{{item_sub.link_name}}</a>
+			<!-- <a [routerLink]="[item_sub.link]">{{item_sub.link_name}}</a> -->
 		  </li>
 		</ul>
 	  </li>

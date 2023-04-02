@@ -2,6 +2,9 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 // import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
@@ -31,12 +34,12 @@ public class StudentCourseData implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "student_id")
-    // @JsonBackReference
+    @JsonIgnore
     private Student student;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    // @JsonBackReference
+    @JsonIgnore
     private Course course;
 
     @Column(name = "progress")
