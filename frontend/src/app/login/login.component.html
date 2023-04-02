@@ -1,3 +1,5 @@
+<div class="login">
+  <div class="wrapper">
 <h1>Welcome to Virtual Campus!</h1>
 <mat-card>
     <mat-card-content>
@@ -8,7 +10,7 @@
       <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
         <div class="userInput">
           <mat-form-field class="full-width" appearance="outline">
-            <mat-label>UserID</mat-label>
+            <mat-label>User ID</mat-label>
             <input
               formControlName="name" matInput placeholder="Enter User ID" required/>
             <mat-error *ngIf="!loginForm.controls['name'].valid">
@@ -38,7 +40,20 @@
       </form>
     </mat-card-content>
   </mat-card>
-
+  <div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+</div>
   <!-- <button (click)="getName()">{{name}}</button>
 
 <div class="login-container">
