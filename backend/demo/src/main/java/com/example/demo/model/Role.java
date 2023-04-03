@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
-public enum Role {
+import java.io.Serializable;
+
+public enum Role implements Serializable{
     STUDENT,
     PROFESSOR,
     ADMIN,

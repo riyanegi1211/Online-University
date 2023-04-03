@@ -11,87 +11,116 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.model.Admin;
 import com.example.demo.model.Course;
+import com.example.demo.model.CourseData;
 import com.example.demo.model.Role;
 import com.example.demo.model.Student;
 import com.example.demo.model.StudentCourseData;
+import com.example.demo.model.StudentProgress;
+import com.example.demo.model.StudentProgressId;
 import com.example.demo.model.Teacher;
 import com.example.demo.repository.AdminRepository;
+import com.example.demo.repository.CourseDataRepository;
 import com.example.demo.repository.CourseRepository;
 import com.example.demo.repository.StudentCourseDataRepository;
+import com.example.demo.repository.StudentProgressRepository;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.repository.TeacherRepository;
 
 @SpringBootApplication
 public class DemoApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
 
-    @Bean
-    public PasswordEncoder encoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public PasswordEncoder encoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-    @Component
-    public class DataLoader implements CommandLineRunner {
+	@Component
+	public class DataLoader implements CommandLineRunner {
 
-        @Autowired
-        private StudentRepository studentRepo;
+		@Autowired
+		private StudentRepository studentRepo;
 
-        @Autowired
-        private TeacherRepository teacherRepo;
+		@Autowired
+		private TeacherRepository teacherRepo;
 
-        @Autowired
-        private AdminRepository adminRepo;
+		@Autowired
+		private AdminRepository adminRepo;
 
-        @Autowired
-        private CourseRepository courseRepository;
+		@Autowired
+		private CourseRepository courseRepository;
 
-        @Autowired
-        private StudentCourseDataRepository studentCourseDataRepository;
+		@Autowired
+		private CourseDataRepository cDataRepository;
 
-        @Override
-        public void run(String... args) throws Exception {
+		@Autowired
+		private StudentProgressRepository studentProgressRepository;
 
-            Admin a1 = Admin.adminBuilder()
-                    .username("admin")
-                    .password(encoder().encode("admin"))
-                    .role(Role.ADMIN)
-                    .firstName("Admin").build();
-            adminRepo.save(a1);
+		@Autowired
+		private StudentCourseDataRepository studentCourseDataRepository;
 
-            Teacher t1 = Teacher.teacherBuilder()
-                    .username("prof")
-                    .password(encoder().encode("prof"))
-                    .role(Role.PROFESSOR)
-                    .firstName("Proffesor").build();
-            teacherRepo.save(t1);
+		@Override
+		public void run(String... args) throws Exception {
 
-            Student s1 = Student.studentBuilder()
-                    .username("abc")
-                    .password(encoder().encode("abc"))
-                    .role(Role.STUDENT)
-                    .firstName("scam").build();
-            studentRepo.save(s1);
+			Admin a1 = Admin.adminBuilder()
+					.username("admin")
+					.password(encoder().encode("admin"))
+					.role(Role.ADMIN)
+					.firstName("Admin").build();
+			adminRepo.save(a1);
+
+			Teacher t1 = Teacher.teacherBuilder()
+					.username("prof")
+					.password(encoder().encode("prof"))
+					.role(Role.PROFESSOR)
+					.firstName("Proffesor").build();
+			teacherRepo.save(t1);
+
+			Student s1 = Student.studentBuilder()
+					.username("abc")
+					.password(encoder().encode("abc"))
+					.role(Role.STUDENT)
+					.firstName("scam").build();
+			studentRepo.save(s1);
 
             // Student s2 = Student.studentBuilder().id(null);
 
-            Course c1 = Course.builder()
-                            .totalLectures(2)
-                            .courseName("B.Tech")
-                            .courseCode("2015108")
-                            .status("pending")
-                            .teacher(t1)
-                            .build();
-            courseRepository.save(c1);
+			Course c1 = Course.builder()
+							.totalLectures(2)
+							.courseName("B.Tech")
+							.courseCode("2015108")
+							.status("pending")
+							.teacher(t1)
+							.build();
+			courseRepository.save(c1);
 
-            StudentCourseData sd1 = StudentCourseData.builder()
-                                        .student(s1)
-                                        .course(c1)
-                                        .progress(0)
-                                        .build();
-            studentCourseDataRepository.save(sd1);             
+			StudentCourseData sd1 = StudentCourseData.builder()
+										.student(s1)
+										.course(c1)
+										.progress(0)
+										.build();
+			studentCourseDataRepository.save(sd1);     
+			
 
-        }
-    }
+			CourseData cData= CourseData.builder()
+										.course(c1)
+										.title("Lecture 1")
+										.link("https://youtu.be/9rt-hFcXd0M")
+										.build();
+			cDataRepository.save(cData);
+
+			CourseData cData2= CourseData.builder()
+										.course(c1)
+										.title("Lecture 2")
+										.link("https://youtu.be/9rt-hFcXd0M")
+										.build();
+			cDataRepository.save(cData2);
+
+			StudentProgress studentProgress= new StudentProgress(new StudentProgressId(c1, s1, cData));
+			studentProgressRepository.save(studentProgress);
+
+		}
+	}
 }

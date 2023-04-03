@@ -1,6 +1,13 @@
 mat-sidenav-container
 {
     height: calc(205vh - 115vh);
+    background-color: black;
+}
+
+mat-toolbar
+{
+    background-color: black;
+    color: white;
 }
 mat-sidenav
 {
@@ -10,17 +17,56 @@ mat-sidenav
 mat-list-item
 {
     text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .87);
+    text-align: left;
+    height: 40px;
+    padding-top: 16px;
+    padding-left: 20px;
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,.12); 
+}
+mat-list-item:hover
+{
+    background-color: #282828;
+    color: white;
+}
+.is-active {
+    font-weight: bolder;
 }
 mat-sidenav-container
 {
-    background-color: #EEF7E4;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,170,176,1) 79%, rgba(0,205,172,1) 100%);
 }
 mat-sidenav
 {
-    background-color: #E8F7E4;
+    background-color: black;
+    opacity: 0.7;
 }
 *
 {
     padding: 0;
     margin: 0;
+}
+a:link 
+{ 
+    text-decoration: none; 
+    color: white;
+}
+a:visited 
+{ 
+    text-decoration: none;
+    color: white; 
+}
+a:hover 
+{ 
+    text-decoration: none; 
+    color: white;
+    font-weight: bolder;
+}
+a:active 
+{ 
+    text-decoration: none;
+    color: white; 
 }
