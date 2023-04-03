@@ -30,6 +30,12 @@ public class CalenderItem {
     @Column(name = "user_id")
     long userId;
 
+    @Column(name= "start_date")
+    String startDate;
+
+    @Column(name = "end_date")
+    String endDate;
+
     @Column(name = "task")
     String task;
 }

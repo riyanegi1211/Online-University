@@ -69,9 +69,11 @@ public class UserApplication {
                     .firstName("Proffesor").build();
             teacherRepo.save(t1);           
 
-            CalenderItem cal = new CalenderItem();
-            cal.setUserId((long)1);
-            cal.setTask("Complete project");
+            CalenderItem cal = CalenderItem.builder().startDate("2023-04-03")
+            .endDate("2023-04-10")
+            .userId((long)1)
+            .task("Complete Project")
+            .build();
 
             calenderRepository.save(cal);
         }

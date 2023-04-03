@@ -10,7 +10,7 @@ export class StudentServiceService {
 
 	constructor(private http:HttpClient, private userService:UserService) { }
 
-	strURL:string= "http://localhost:8080/api/student/getCourses";
+	strURL:string= "http://localhost:8080/api/student/1/courses";
     
 	getCourseInfo():Observable<any>{
 		return this.http.get(this.strURL, { withCredentials: true });

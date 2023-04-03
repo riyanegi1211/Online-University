@@ -30,17 +30,25 @@ export class LoginComponent implements OnInit {
 
 
 
-  redirecting() {
+  redirecting(x: any) {
     console.log("called");
     const roleUrl = this.url + "role";
     this.userService.logIn();
-    const observer = {
-      next: (x: any) => { console.log(x) },
-      error: (err: any) => { console.log(err.error) }
+    // const observer = {
+    //   next: (x: any) => { console.log(x) },
+    //   error: (err: any) => { console.log(err.error) }
+    // }
+    // this.http.get(roleUrl, { responseType: 'text', withCredentials: true }).subscribe(observer);
+    if(x.role == "ADMIN")
+    {
+        // this.router.navigate([admin])
     }
-    this.http.get(roleUrl, { responseType: 'text', withCredentials: true }).subscribe(observer);
+    else if(x.role == "PROFESSOR")
+    {
 
-    // this.router.navigate(['home']);
+    }
+    else
+        this.router.navigate(['home']);
   }
 
   onLogin() {
@@ -59,17 +67,16 @@ export class LoginComponent implements OnInit {
       "password": password
     }
 
-    let headers = new HttpHeaders();
-    let data = username + ':' + password
-    let encodedCredentials = Buffer.from(data).toString('base64');
-    // let encodedCredentials = btoa(username + ':' + password); // encode as base64
-    headers = headers.append('Authorization', 'Basic ' + encodedCredentials);
+    // let headers = new HttpHeaders();
+    // let data = username + ':' + password
+    // let encodedCredentials = Buffer.from(data).toString('base64');
+    // headers = headers.append('Authorization', 'Basic ' + encodedCredentials);
     const observer = {
-      next: (x: any) => { console.log(x); this.redirecting() },
+      next: (x: any) => { console.log(x); this.redirecting(x) },
       error: (err: any) => { console.log(err.error) },
       complete: () => console.log('Observer got a complete notification'),
     }
-    this.http.post(loginUrl, body, { headers: headers, responseType: 'text', withCredentials: true }).subscribe(observer);
+    this.http.post(loginUrl, body, { responseType: 'text', withCredentials: true }).subscribe(observer);
   }
   // username: string = "";
   // password: string = ""

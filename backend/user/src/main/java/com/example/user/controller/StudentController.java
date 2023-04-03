@@ -60,8 +60,8 @@ public class StudentController {
     }
 
     @GetMapping("{sid}/courses")
-    public List<CourseList> getCourses(@PathVariable long sid) {
-        return courseService.getCourses(sid);
+    public List<CourseStudent> getCourses(@PathVariable long sid) {
+        return courseService.getCoursesHome(sid);
     }
 
     @GetMapping("{sid}/course/{courseId}")

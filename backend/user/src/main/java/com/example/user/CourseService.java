@@ -1,6 +1,7 @@
 package com.example.user;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -62,7 +63,7 @@ public class CourseService {
     }
 
     // course service and enrollment
-    public CourseStudent getCourseByIdWithData(long userId, int courseId) {
+    public CourseStudent getCourseByIdWithData(long userId, long courseId) {
         Course c = this.getCourseById(userId, courseId);
         c.setTotalLectures(c.getCourseData().size());
         List<StudentCourseData> data = enrollmentService.getStudentCourseData(userId, courseId);
@@ -77,7 +78,7 @@ public class CourseService {
     }
 
     // course service
-    public Course getCourseById(long userId, int courseId) {
+    public Course getCourseById(long userId, long courseId) {
         UriSpec<RequestBodySpec> uriSpec = this.client.method(HttpMethod.GET);
         RequestBodySpec bodySpec = uriSpec.uri("/courses/" + String.valueOf(courseId));
         RequestHeadersSpec<?> headersSpec = bodySpec;
@@ -120,6 +121,15 @@ public class CourseService {
             e.printStackTrace();
         }
         return val;
+    }
+
+    public List<CourseStudent> getCoursesHome(long sid) {
+        List<CourseList> clist= this.enrollmentService.getCoursesForId(sid);
+        List<CourseStudent> lcourse= new ArrayList<>();
+        for(CourseList cList2: clist){
+            lcourse.add(this.getCourseByIdWithData(sid, cList2.getCourseId()));
+        }
+        return lcourse;
     }
 
     // SO71077603

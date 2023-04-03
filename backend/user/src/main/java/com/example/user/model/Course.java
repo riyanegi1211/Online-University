@@ -66,6 +66,6 @@ public class Course implements Serializable{
 
     private List<CourseData> courseData;
 
-    private List<StudentCourseData> studentCourseData;
+    // private List<StudentCourseData> studentCourseData;
 
 }

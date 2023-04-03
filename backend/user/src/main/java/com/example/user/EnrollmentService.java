@@ -72,7 +72,7 @@ public class EnrollmentService {
         return val;
     }
 
-    public List<StudentCourseData> getStudentCourseData(long userId, int courseId) {
+    public List<StudentCourseData> getStudentCourseData(long userId, long courseId) {
         UriSpec<RequestBodySpec> uriSpec = this.client.method(HttpMethod.GET);
         RequestBodySpec bodySpec = uriSpec.uri("/courses/" + courseId + "/student/" + userId+"/attendance");
         RequestHeadersSpec<?> headersSpec = bodySpec;
