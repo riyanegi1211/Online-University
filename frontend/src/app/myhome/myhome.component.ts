@@ -33,6 +33,7 @@ export class MyhomeComponent {
 	eventData:Progress[]  =[]; // new Progress("hello", "2023-04-03", "2023-04-10"), new Progress("hello", "2023-04-03", "2023-04-11")
 
     progress!: Progress;
+    @ViewChild('progDiv') progDiv!: ElementRef;
     calendarOptions: CalendarOptions=  {
         initialView: 'dayGridMonth',
         plugins: [dayGridPlugin,interactionPlugin],
@@ -133,7 +134,7 @@ export class MyhomeComponent {
 	]
 
 
-	@ViewChild('progDiv') progDiv!: ElementRef;
+	
 
 
 	res:number=0;
