@@ -18,6 +18,7 @@ import org.springframework.web.reactive.function.client.WebClient.UriSpec;
 
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
+import com.example.user.model.CourseList;
 import com.example.user.model.CourseStudent;
 import com.example.user.model.CourseSummary;
 import com.example.user.model.StudentCourseData;
@@ -33,7 +34,7 @@ public class CourseService {
     private EnrollmentService enrollmentService;
 
     // enrollment ?course service
-    public List<CourseSummary> getCourses(long userId) {
+    public List<CourseList> getCourses(long userId) {
         return enrollmentService.getCoursesForId(userId);
     }
 
@@ -61,20 +62,19 @@ public class CourseService {
     }
 
     // course service and enrollment
-    // public CourseStudent getCourseByIdStudent(long userId, int courseId) {
-    //     Course c = this.getCourseById(userId, courseId);
+    public CourseStudent getCourseByIdWithData(long userId, int courseId) {
+        Course c = this.getCourseById(userId, courseId);
+        c.setTotalLectures(c.getCourseData().size());
+        List<StudentCourseData> data = enrollmentService.getStudentCourseData(userId, courseId);
         
-    //     List<StudentCourseData> data = enrollmentService.getStudentCourseData(userId, courseId);
-        
-    //     CourseStudent cs = CourseStudent.builder()
-    //                             .studentCourseData(data)
-    //                             .courseData(c.getCourseData())
-    //                             .courseId(c.getCourseId())
-    //                             // .description(c.getDescription())
-    //                             // .title(c.getTitle())
-    //                             .build();
-    //     return cs;
-    // }
+        CourseStudent cs = CourseStudent.builder()
+                                .studentCourseData(data)
+                                .attendedLectures(data.size())
+                                .course(c)
+                                .progress((Integer)((data.size())/(c.getTotalLectures())*100))
+                                .build();
+        return cs;
+    }
 
     // course service
     public Course getCourseById(long userId, int courseId) {

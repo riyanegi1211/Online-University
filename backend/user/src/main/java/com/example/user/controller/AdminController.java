@@ -12,6 +12,7 @@ import com.example.user.CourseService;
 import com.example.user.model.Admin;
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
+import com.example.user.model.CourseList;
 import com.example.user.model.CourseSummary;
 import com.example.user.model.Student;
 import com.example.user.model.Teacher;
@@ -62,7 +63,7 @@ public class AdminController {
     // }
 
     @GetMapping("{uid}/courses")
-    public List<CourseSummary> getCourses(@PathVariable long uid) {
+    public List<CourseList> getCourses(@PathVariable long uid) {
         return courseService.getCourses(uid);
     }
 

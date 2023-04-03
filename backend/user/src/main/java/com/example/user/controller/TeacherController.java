@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.user.CourseService;
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
+import com.example.user.model.CourseList;
 import com.example.user.model.CourseSummary;
 import com.example.user.model.Teacher;
 import com.example.user.repository.TeacherRepository;
@@ -46,7 +47,7 @@ public class TeacherController {
     // }
 
     @GetMapping("{uid}/courses")
-    public List<CourseSummary> getCourses(@PathVariable long uid) {
+    public List<CourseList> getCourses(@PathVariable long uid) {
         return courseService.getCourses(uid);
     }
 

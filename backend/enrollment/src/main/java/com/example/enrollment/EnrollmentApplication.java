@@ -27,7 +27,7 @@ public class EnrollmentApplication {
 			System.out.println("Adding data");
 			Enrollment e = Enrollment.builder()
 									.courseId(1)
-									.studentId(1)
+									.userId(1)
 									.build();
 			enrollmentRepository.save(e);
 		}

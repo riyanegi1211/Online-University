@@ -4,12 +4,12 @@ logging:
   level:
     org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: DEBUG
 
-    reactor:
-        netty: INFO
-    org:
-      springframework:
-        cloud:
-            gateway: INFO
+    # reactor:
+    #     netty: INFO
+    # org:
+    #   springframework:
+    #     cloud:
+    #         gateway: INFO
 
 
 # logging:

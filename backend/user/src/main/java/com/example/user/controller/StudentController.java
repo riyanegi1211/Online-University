@@ -15,6 +15,7 @@ import com.example.user.CourseService;
 import com.example.user.model.CalenderItem;
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
+import com.example.user.model.CourseList;
 import com.example.user.model.CourseStudent;
 import com.example.user.model.CourseSummary;
 import com.example.user.model.Student;
@@ -59,13 +60,13 @@ public class StudentController {
     }
 
     @GetMapping("{sid}/courses")
-    public List<CourseSummary> getCourses(@PathVariable long sid) {
+    public List<CourseList> getCourses(@PathVariable long sid) {
         return courseService.getCourses(sid);
     }
 
     @GetMapping("{sid}/course/{courseId}")
     public CourseStudent getCoursesById(@PathVariable long sid, @PathVariable int courseId) {
-        return courseService.getCourseByIdStudent(sid, courseId);
+        return courseService.getCourseByIdWithData(sid, courseId);
     }
 
     @GetMapping("{sid}/course/{courseId}/{lectureId}")

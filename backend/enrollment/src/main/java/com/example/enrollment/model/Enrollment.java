@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 public class Enrollment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "enrollment_id")
     long enrollmentId;
 
     @Column(name = "student_id")

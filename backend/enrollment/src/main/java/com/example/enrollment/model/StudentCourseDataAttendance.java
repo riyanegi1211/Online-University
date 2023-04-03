@@ -1,4 +1,4 @@
-package com.example.enrollment.repository;
+package com.example.enrollment.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "enrollment")
+@Table(name = "attendance")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

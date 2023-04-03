@@ -64,9 +64,8 @@ public class Course implements Serializable{
     // @JsonIgnore
     // private List<CourseData> courseData;
 
-    
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    @JsonManagedReference
     private List<CourseData> courseData;
+
+    private List<StudentCourseData> studentCourseData;
 
 }
