@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("api/login")
+@RequestMapping("login")
 public class LoginController {
     
     @Autowired
@@ -22,8 +22,9 @@ public class LoginController {
 
     @PostMapping
     public UserIdentifier login(@RequestBody UserLogin user) {
+        System.out.println(user);
         User u = userRepository.findByUsername(user.getUsername()).orElse(null);
-        if (u != null && u.getPassword() == "{noop}"+user.getPassword()) {
+        if (u != null && u.getPassword().equals("{noop}"+user.getPassword())) {
             return new UserIdentifier(u.getId(), u.getRole().toString());
         }
         return new UserIdentifier();

@@ -19,8 +19,6 @@ import lombok.NoArgsConstructor;
 
 @IdClass(StudentProgressId.class)
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table
 @Data
 public class StudentProgress implements Serializable{
