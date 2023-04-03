@@ -30,7 +30,7 @@ public class CourseStudent implements Serializable {
 
     private String description;
 
-    private Teacher teacher;
+    // private Teacher teacher;
 
     private LocalDate startDate;
 

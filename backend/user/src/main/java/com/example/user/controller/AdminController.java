@@ -21,7 +21,7 @@ import com.example.user.repository.TeacherRepository;
 import com.example.user.repository.UserRepository;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/admin")
 public class AdminController {
     
 
@@ -56,49 +56,49 @@ public class AdminController {
     @Autowired
     private TeacherRepository teacherRepository;
 
-    long adminId;
-    AdminController() {
-        this.adminId = 5;
+    // long adminId;
+    // AdminController() {
+    //     this.adminId = 5;
+    // }
+
+    @GetMapping("{uid}/courses")
+    public List<CourseSummary> getCourses(@PathVariable long uid) {
+        return courseService.getCourses(uid);
     }
 
-    @GetMapping("/courses")
-    public List<CourseSummary> getCourses() {
-        return courseService.getCourses(adminId);
+    @GetMapping("{uid}/course/{courseId}")
+    public Course getCoursesById(@PathVariable long uid, @PathVariable int courseId) {
+        return courseService.getCourseById(uid, courseId);
     }
 
-    @GetMapping("/course/{courseId}")
-    public Course getCoursesById(@PathVariable int courseId) {
-        return courseService.getCourseById(adminId, courseId);
+    @GetMapping("{uid}/course/{courseId}/{lectureId}")
+    public CourseData getCourseDataById(@PathVariable long uid, @PathVariable int courseId, @PathVariable int lectureId) {
+        return courseService.getCourseDataById(uid, courseId, lectureId);
     }
 
-    @GetMapping("/course/{courseId}/{lectureId}")
-    public CourseData getCourseDataById(@PathVariable int courseId, @PathVariable int lectureId) {
-        return courseService.getCourseDataById(adminId, courseId, lectureId);
-    }
-
-    @GetMapping("/student")
-    public List<Student> getAllStudent() {
+    @GetMapping("{uid}/student")
+    public List<Student> getAllStudent(@PathVariable long uid) {
         return studentRepository.findAll();
     }
 
-    @GetMapping("/student/{studentId}")
-    public Student getStudentById(@PathVariable long studentId) {
+    @GetMapping("{uid}/student/{studentId}")
+    public Student getStudentById(@PathVariable long uid, @PathVariable long studentId) {
         // System.out.println(courseService.test()); 
         return studentRepository.findById(studentId).orElse(null);
     }
 
-    @GetMapping("/teacher")
-    public List<Teacher> getAllTeacher() {
+    @GetMapping("{uid}/teacher")
+    public List<Teacher> getAllTeacher(@PathVariable long uid) {
         return teacherRepository.findAll();
     }
 
-    @GetMapping("/teacher/{teacherId}")
-    public Teacher getTeacherById(@PathVariable long teacherId) {
+    @GetMapping("{uid}/teacher/{teacherId}")
+    public Teacher getTeacherById(@PathVariable long uid, @PathVariable long teacherId) {
         return teacherRepository.findById(teacherId).orElse(null);
     }
 
-    @GetMapping("/profile")
-    public Admin getProfile() {
-        return adminRepository.findById(adminId).orElse(null);
+    @GetMapping("{uid}/profile")
+    public Admin getProfile(@PathVariable long uid) {
+        return adminRepository.findById(uid).orElse(null);
     }
 }

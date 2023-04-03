@@ -1,5 +1,16 @@
 server:
     port: 8080
+logging:
+  level:
+    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: DEBUG
+
+    reactor:
+        netty: INFO
+    org:
+      springframework:
+        cloud:
+            gateway: INFO
+
 
 # logging:
 #   level:
@@ -16,10 +27,12 @@ spring:
         gateway:
           routes:
           - id: user_service
-            uri: http://localhost:8081/
+            uri: http://localhost:8090/
             
             predicates:
-            - Path=/**
+            - Path=/api/**
             # - Path=/api/student/**
             # - Path=/api/teacher/**
             # - Path=/api/admin/**
+            filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}

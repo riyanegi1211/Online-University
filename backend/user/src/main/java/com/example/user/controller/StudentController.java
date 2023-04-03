@@ -12,17 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.user.CourseService;
+import com.example.user.model.CalenderItem;
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
 import com.example.user.model.CourseStudent;
 import com.example.user.model.CourseSummary;
 import com.example.user.model.Student;
+import com.example.user.repository.CalenderRepository;
 import com.example.user.repository.StudentRepository;
 import com.example.user.repository.UserRepository;
 
 @RestController
 // @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/student")
+@RequestMapping("student")
 public class StudentController {
     /*
 
@@ -37,39 +39,53 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    // @Autowired
+    // private UserRepository userRepository;
 
     @Autowired 
     private CourseService courseService;
 
-    long studentId;
-    StudentController() {
-        this.studentId = 1;
+    @Autowired
+    private CalenderRepository calenderRepository;
+
+    // long studentId;
+    // StudentController() {
+    //     this.studentId = 1;
+    // }
+
+    @GetMapping("/{sid}")
+    public String checkConnection(@PathVariable long sid) {
+        return "You are student " + sid;
     }
 
-    @GetMapping("/courses")
-    public List<CourseSummary> getCourses() {
-        return courseService.getCourses(studentId);
+    @GetMapping("{sid}/courses")
+    public List<CourseSummary> getCourses(@PathVariable long sid) {
+        return courseService.getCourses(sid);
     }
 
-    @GetMapping("/course/{courseId}")
-    public CourseStudent getCoursesById(@PathVariable int courseId) {
-        return courseService.getCourseByIdStudent(studentId, courseId);
+    @GetMapping("{sid}/course/{courseId}")
+    public CourseStudent getCoursesById(@PathVariable long sid, @PathVariable int courseId) {
+        return courseService.getCourseByIdStudent(sid, courseId);
     }
 
-    @GetMapping("/course/{courseId}/{lectureId}")
-    public CourseData getCourseDataById(@PathVariable int courseId, @PathVariable int lectureId) {
-        return courseService.getCourseDataById(studentId, courseId, lectureId);
+    @GetMapping("{sid}/course/{courseId}/{lectureId}")
+    public CourseData getCourseDataById(@PathVariable long sid, @PathVariable int courseId, @PathVariable int lectureId) {
+        return courseService.getCourseDataById(sid, courseId, lectureId);
     }
 
-    @GetMapping("/profile")
-    public Student getProfile() {
-        Student s = studentRepository.findById(studentId).orElse(null);
+    @GetMapping("{sid}/profile")
+    public Student getProfile(@PathVariable long sid) {
+        Student s = studentRepository.findById(sid).orElse(null);
         if (s == null) {
             System.out.println("Student requested is null");
         } else System.out.println(s);
         return s;
+    }
+
+    @GetMapping("{sid}/calender")
+    public List<CalenderItem> getCalender(@PathVariable long sid) {
+        List<CalenderItem> calItem = calenderRepository.findAllByUserId(sid); //.orElse(null)
+        return calItem;
     }
 
 

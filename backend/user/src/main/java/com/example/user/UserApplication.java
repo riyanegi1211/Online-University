@@ -1,7 +1,21 @@
 package com.example.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+import com.example.user.model.Admin;
+import com.example.user.model.CalenderItem;
+import com.example.user.model.Role;
+import com.example.user.model.Student;
+import com.example.user.model.Teacher;
+import com.example.user.repository.AdminRepository;
+import com.example.user.repository.CalenderRepository;
+import com.example.user.repository.StudentRepository;
+import com.example.user.repository.TeacherRepository;
 
 @SpringBootApplication
 public class UserApplication {
@@ -14,66 +28,52 @@ public class UserApplication {
     //     return new BCryptPasswordEncoder();
     // }
 
-    // @Component
-    // public class DataLoader implements CommandLineRunner {
+    @Component
+    public class DataLoader implements CommandLineRunner {
 
-    //     @Autowired
-    //     private StudentRepository studentRepo;
+        @Autowired
+        private StudentRepository studentRepo;
 
-    //     @Autowired
-    //     private TeacherRepository teacherRepo;
+        @Autowired
+        private TeacherRepository teacherRepo;
 
-    //     @Autowired
-    //     private AdminRepository adminRepo;
+        @Autowired
+        private AdminRepository adminRepo;
 
-    //     @Autowired
-    //     private CourseRepository courseRepository;
+        @Autowired
+        private CalenderRepository calenderRepository;
 
-    //     @Autowired
-    //     private StudentCourseDataRepository studentCourseDataRepository;
 
-    //     @Override
-    //     public void run(String... args) throws Exception {
+        @Override
+        public void run(String... args) throws Exception {
 
-    //         Admin a1 = Admin.adminBuilder()
-    //                 .username("admin")
-    //                 .password(encoder().encode("admin"))
-    //                 .role(Role.ADMIN)
-    //                 .firstName("Admin").build();
-    //         adminRepo.save(a1);
+            Student s1 = Student.studentBuilder()
+                    .username("abc")
+                    .password("{noop}abc")
+                    .role(Role.STUDENT)
+                    .firstName("scam").build();
+            studentRepo.save(s1);
 
-    //         Teacher t1 = Teacher.teacherBuilder()
-    //                 .username("prof")
-    //                 .password(encoder().encode("prof"))
-    //                 .role(Role.PROFESSOR)
-    //                 .firstName("Proffesor").build();
-    //         teacherRepo.save(t1);
+            Admin a1 = Admin.adminBuilder()
+                    .username("admin")
+                    .password("{noop}admin")
+                    .role(Role.ADMIN)
+                    .firstName("Admin").build();
+            adminRepo.save(a1);
 
-    //         Student s1 = Student.studentBuilder()
-    //                 .username("abc")
-    //                 .password(encoder().encode("abc"))
-    //                 .role(Role.STUDENT)
-    //                 .firstName("scam").build();
-    //         studentRepo.save(s1);
+            Teacher t1 = Teacher.teacherBuilder()
+                    .username("prof")
+                    .password("{noop}prof")
+                    //.password(encoder().encode("prof"))
+                    .role(Role.PROFESSOR)
+                    .firstName("Proffesor").build();
+            teacherRepo.save(t1);           
 
-    //         // Student s2 = Student.studentBuilder().id(null);
+            CalenderItem cal = new CalenderItem();
+            cal.setUserId((long)1);
+            cal.setTask("Complete project");
 
-    //         Course c1 = Course.builder()
-    //                         .totalLectures(2)
-    //                         .courseName("B.Tech")
-    //                         .courseCode("2015108")
-    //                         .status("pending")
-    //                         .teacher(t1)
-    //                         .build();
-    //         courseRepository.save(c1);
-
-    //         StudentCourseData sd1 = StudentCourseData.builder()
-    //                                     .student(s1)
-    //                                     .course(c1)
-    //                                     .progress(0)
-    //                                     .build();
-    //         studentCourseDataRepository.save(sd1);             
-
-    //     }
-    // }
+            calenderRepository.save(cal);
+        }
+    }
 }

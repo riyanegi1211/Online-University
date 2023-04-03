@@ -1,4 +1,4 @@
-package com.example.user.model;
+package com.example.courses.model;
 
 import java.io.Serializable;
 
@@ -21,12 +21,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name= "course_data")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
 public class CourseData implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long courseDataId;
     
     @ManyToOne
