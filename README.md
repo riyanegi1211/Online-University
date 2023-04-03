@@ -23,6 +23,17 @@ Static credential values are - "admin,admin", "prof,prof", "abc,abc"
 
 Try to dynamically get values from the backend.if getting error, whatsapp.
 
+6. To run the code
+```
+cd frontend
+npm install
+ng serve --open
+```
+
+```
+Open spring boot extension and run 4 microservices - gateway, user, course, enrollment
+```
+
 # Current Architecture
 
 ![mermaid-diagram-2023-04-03-155201](https://user-images.githubusercontent.com/34604329/229562399-16f5095d-2b83-47f0-b70a-92600cb0b0d2.svg)
