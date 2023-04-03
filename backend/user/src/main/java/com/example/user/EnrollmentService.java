@@ -17,6 +17,7 @@ import org.springframework.web.reactive.function.client.WebClient.UriSpec;
 import com.example.user.model.Course;
 import com.example.user.model.CourseSummary;
 import com.example.user.model.StudentCourseData;
+import com.example.user.model.StudentList;
 
 import reactor.core.publisher.Mono;
 
@@ -47,21 +48,21 @@ public class EnrollmentService {
         return val;
     }
 
-    public List<CourseSummary> getCoursesForId(long userId) {
+    public List<StudentList> getStudentsForCourseId(long courseId) {
         UriSpec<RequestBodySpec> uriSpec = this.client.method(HttpMethod.GET);
-        RequestBodySpec bodySpec = uriSpec.uri("/courses/" + String.valueOf(userId));
+        RequestBodySpec bodySpec = uriSpec.uri("/student/" + String.valueOf(courseId));
         RequestHeadersSpec<?> headersSpec = bodySpec;
-        Mono<List<CourseSummary>> response = headersSpec.header(
+        Mono<List<StudentList>> response = headersSpec.header(
                 HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .accept(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML)
                 .acceptCharset(StandardCharsets.UTF_8)
                 // .ifNoneMatch("*")
                 // .ifModifiedSince(ZonedDateTime.now())
                 .retrieve()
-                .bodyToMono(new ParameterizedTypeReference<List<CourseSummary>>() {
+                .bodyToMono(new ParameterizedTypeReference<List<StudentList>>() {
                 });
 
-        List<CourseSummary> val = null;
+        List<StudentList> val = null;
         try {
             val = response.toFuture().get();
         } catch (NumberFormatException | InterruptedException | ExecutionException e) {
@@ -70,49 +71,26 @@ public class EnrollmentService {
         return val;
     }
 
-    public List<CourseSummary> getCoursesForId(long userId) {
-        UriSpec<RequestBodySpec> uriSpec = this.client.method(HttpMethod.GET);
-        RequestBodySpec bodySpec = uriSpec.uri("/courses/" + String.valueOf(userId));
-        RequestHeadersSpec<?> headersSpec = bodySpec;
-        Mono<List<CourseSummary>> response = headersSpec.header(
-                HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .accept(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML)
-                .acceptCharset(StandardCharsets.UTF_8)
-                // .ifNoneMatch("*")
-                // .ifModifiedSince(ZonedDateTime.now())
-                .retrieve()
-                .bodyToMono(new ParameterizedTypeReference<List<CourseSummary>>() {
-                });
+    // public List<StudentCourseData> getStudentCourseData(long userId, int courseId) {
+    //     UriSpec<RequestBodySpec> uriSpec = this.client.method(HttpMethod.GET);
+    //     RequestBodySpec bodySpec = uriSpec.uri("/courses/" + String.valueOf(userId)+"/data");
+    //     RequestHeadersSpec<?> headersSpec = bodySpec;
+    //     Mono<List<StudentCourseData>> response = headersSpec.header(
+    //             HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+    //             .accept(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML)
+    //             .acceptCharset(StandardCharsets.UTF_8)
+    //             // .ifNoneMatch("*")
+    //             // .ifModifiedSince(ZonedDateTime.now())
+    //             .retrieve()
+    //             .bodyToMono(new ParameterizedTypeReference<List<StudentCourseData>>() {});
 
-        List<CourseSummary> val = null;
-        try {
-            val = response.toFuture().get();
-        } catch (NumberFormatException | InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }
-        return val;
-    }
-
-    public List<StudentCourseData> getStudentCourseData(long userId, int courseId) {
-        UriSpec<RequestBodySpec> uriSpec = this.client.method(HttpMethod.GET);
-        RequestBodySpec bodySpec = uriSpec.uri("/courses/" + String.valueOf(userId)+"/data");
-        RequestHeadersSpec<?> headersSpec = bodySpec;
-        Mono<List<StudentCourseData>> response = headersSpec.header(
-                HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .accept(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML)
-                .acceptCharset(StandardCharsets.UTF_8)
-                // .ifNoneMatch("*")
-                // .ifModifiedSince(ZonedDateTime.now())
-                .retrieve()
-                .bodyToMono(new ParameterizedTypeReference<List<StudentCourseData>>() {});
-
-        List<StudentCourseData> val = null;
-        try {
-            val = response.toFuture().get();
-        } catch (NumberFormatException | InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }
-        return val;
-    }
+    //     List<StudentCourseData> val = null;
+    //     try {
+    //         val = response.toFuture().get();
+    //     } catch (NumberFormatException | InterruptedException | ExecutionException e) {
+    //         e.printStackTrace();
+    //     }
+    //     return val;
+    // }
 
 }

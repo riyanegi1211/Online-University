@@ -61,20 +61,20 @@ public class CourseService {
     }
 
     // course service and enrollment
-    public CourseStudent getCourseByIdStudent(long userId, int courseId) {
-        Course c = this.getCourseById(userId, courseId);
+    // public CourseStudent getCourseByIdStudent(long userId, int courseId) {
+    //     Course c = this.getCourseById(userId, courseId);
         
-        List<StudentCourseData> data = enrollmentService.getStudentCourseData(userId, courseId);
+    //     List<StudentCourseData> data = enrollmentService.getStudentCourseData(userId, courseId);
         
-        CourseStudent cs = CourseStudent.builder()
-                                .studentCourseData(data)
-                                .courseData(c.getCourseData())
-                                .courseId(c.getCourseId())
-                                // .description(c.getDescription())
-                                // .title(c.getTitle())
-                                .build();
-        return cs;
-    }
+    //     CourseStudent cs = CourseStudent.builder()
+    //                             .studentCourseData(data)
+    //                             .courseData(c.getCourseData())
+    //                             .courseId(c.getCourseId())
+    //                             // .description(c.getDescription())
+    //                             // .title(c.getTitle())
+    //                             .build();
+    //     return cs;
+    // }
 
     // course service
     public Course getCourseById(long userId, int courseId) {

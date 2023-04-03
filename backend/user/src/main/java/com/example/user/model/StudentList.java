@@ -1,4 +1,4 @@
-package com.example.enrollment.model;
+package com.example.user.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
