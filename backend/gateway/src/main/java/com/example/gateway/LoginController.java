@@ -3,11 +3,6 @@ package com.example.gateway;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Stream;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,10 +15,13 @@ import reactor.core.publisher.Mono;
 public class LoginController {
 
     @PostMapping("/api/login")
-    public Mono<String> myEndpoint(ServerHttpResponse response) {
+    public Mono<String> myEndpoint(ServerHttpResponse response, Authentication auth) {
         // System.out.println("Message from Login");
         // response.setStatusCode(HttpStatus.OK);
-        return Mono.just("Successful");
+        if(auth.isAuthenticated()) {
+            return Mono.just(auth.getName());
+        }
+        return Mono.just("not authenticated");
     }
 
     @GetMapping("/api/role")
