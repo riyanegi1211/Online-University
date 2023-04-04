@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, NgForm, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { SharedService } from '../shared.service';
 import { Buffer } from 'buffer';
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   hide: boolean = false;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private userService: UserService) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private userService: UserService, private sharedService: SharedService ) {
   }
 
   ngOnInit() {
@@ -41,11 +42,11 @@ export class LoginComponent implements OnInit {
     // this.http.get(roleUrl, { responseType: 'text', withCredentials: true }).subscribe(observer);
     if(x.role == "ADMIN")
     {
-        // this.router.navigate([admin])
+        this.router.navigate(['admin']);
     }
     else if(x.role == "PROFESSOR")
     {
-
+        this.router.navigate(['professor']);
     }
     else
         this.router.navigate(['home']);
@@ -72,7 +73,12 @@ export class LoginComponent implements OnInit {
     // let encodedCredentials = Buffer.from(data).toString('base64');
     // headers = headers.append('Authorization', 'Basic ' + encodedCredentials);
     const observer = {
-      next: (x: any) => { console.log(x); this.redirecting(x) },
+      next: (x: any) => {   console.log(x); 
+                            const val= JSON.parse(x);
+                            this.sharedService.setUserId(val.userId);
+                            console.log(this.sharedService.getUserId());
+                            this.redirecting(x) 
+                        },
       error: (err: any) => { console.log(err.error) },
       complete: () => console.log('Observer got a complete notification'),
     }

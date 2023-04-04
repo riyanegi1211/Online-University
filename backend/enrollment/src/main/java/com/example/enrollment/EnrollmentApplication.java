@@ -30,6 +30,12 @@ public class EnrollmentApplication {
 									.userId(1)
 									.build();
 			enrollmentRepository.save(e);
+
+            Enrollment e2 = Enrollment.builder()
+									.courseId(2)
+									.userId(1)
+									.build();
+			enrollmentRepository.save(e2);
 		}
 	}
 

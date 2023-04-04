@@ -25,8 +25,9 @@
 </table>
 
 
+
+<h3>Add Data :- </h3>
 <div class="update-container">
-    <h3>Add Data:-</h3>
 	<form class="form" [formGroup]="update" (ngSubmit)="onSubmit()">
 		<label for="cid">Course Code:</label>
 		<input type="text" name="courseCode" id="" formControlName="courseCode">
@@ -35,10 +36,11 @@
 		<label for="lecnum">Number Of Lectures:</label>
 		<input type="text" name="totallectures" id="" formControlName="totalLectures">
 		<label for="stat">Status:</label>
-		<input type="text" name="stat" id="" formControlName="status">	
+		<input type="text" name="stat" id="" formControlName="status">
 		<button type="submit" class="btn btn-warning add-btn">Submit</button>
 	</form>
 </div>
+
 
 
 

@@ -64,12 +64,12 @@
 	</button>
 </div>
 
-<div class="card-container">
+<div *ngFor="let x of send" class="card-container">
 	<div class="card-course" (click)="loadDashboard()">
 		<div class="content">
 			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
+				<h3 class="title">{{x.courseName}}</h3>
+				<p class="subtitle">{{x.courseCode}}</p>
 			</div>
 	
 			<div class="back">
@@ -79,7 +79,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="card-course">
+	<!-- <div class="card-course">
 		<div class="content">
 			<div class="front">
 				<h3 class="title">Hey</h3>
@@ -147,8 +147,8 @@
 					Cool description so you can read it too my friend
 				</p>
 			</div>
-		</div>
-	</div>
+		</div> -->
+	<!-- </div> -->
 </div>
 
 <article class="updates-container">

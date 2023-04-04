@@ -39,15 +39,21 @@ export class MyhomeComponent {
         plugins: [dayGridPlugin,interactionPlugin],
         weekends: false,
         events: this.eventData
-      };;
+      }
+    info:any=[];
+    response:any=[];
+    send:any=[];
 	// this.eventData= data; console.log(this.eventData)
 	ngOnInit(){
 		this.studentService.getCourseInfo().subscribe({
 			next: (data) => {
                 console.log(data);
+                for(let y of data){
+                    console.log(y.course);
+                    this.send.push(y.course);
+                }
 				for(var obj of data){
 					this.res= obj.progress;
-					// this.res= this.res*100;
 					this.answer= this.res.toFixed(2) + "%";
 					this.progDiv.nativeElement.style.width= `${this.answer}`;
 				}

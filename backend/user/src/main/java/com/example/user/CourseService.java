@@ -65,7 +65,7 @@ public class CourseService {
     // course service and enrollment
     public CourseStudent getCourseByIdWithData(long userId, long courseId) {
         Course c = this.getCourseById(userId, courseId);
-        c.setTotalLectures(c.getCourseData().size());
+        // c.setTotalLectures(c.getCourseData().size());
         List<StudentCourseData> data = enrollmentService.getStudentCourseData(userId, courseId);
         
         CourseStudent cs = CourseStudent.builder()
@@ -130,6 +130,72 @@ public class CourseService {
             lcourse.add(this.getCourseByIdWithData(sid, cList2.getCourseId()));
         }
         return lcourse;
+    }
+
+    public String saveCourses(Course course) {
+        UriSpec<RequestBodySpec> uriSpec = this.client.method(HttpMethod.POST);
+        RequestBodySpec bodySpec = uriSpec.uri("/courses");
+        bodySpec.bodyValue(course);
+        RequestHeadersSpec<?> headersSpec = bodySpec;
+        Mono<String> response = headersSpec.header(
+                HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .accept(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML)
+                .acceptCharset(StandardCharsets.UTF_8)
+                // .ifNoneMatch("*")
+                // .ifModifiedSince(ZonedDateTime.now())
+                .retrieve()
+                .bodyToMono(String.class);
+        String val="";
+        try {
+            val = response.toFuture().get();
+        } catch (NumberFormatException | InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return val;
+    }
+
+    public String updateCourses(Course course, Long cid) {
+        UriSpec<RequestBodySpec> uriSpec = this.client.method(HttpMethod.PUT);
+        RequestBodySpec bodySpec = uriSpec.uri("/courses/"+cid);
+        bodySpec.bodyValue(course);
+        RequestHeadersSpec<?> headersSpec = bodySpec;
+        Mono<String> response = headersSpec.header(
+                HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .accept(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML)
+                .acceptCharset(StandardCharsets.UTF_8)
+                // .ifNoneMatch("*")
+                // .ifModifiedSince(ZonedDateTime.now())
+                .retrieve()
+                .bodyToMono(String.class);
+        String val="";
+        try {
+            val = response.toFuture().get();
+        } catch (NumberFormatException | InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return val;
+    }
+
+    public String deleteCourse(Long cid) {
+        UriSpec<RequestBodySpec> uriSpec = this.client.method(HttpMethod.DELETE);
+        RequestBodySpec bodySpec = uriSpec.uri("/courses/"+cid);
+        // bodySpec.bodyValue(course);
+        RequestHeadersSpec<?> headersSpec = bodySpec;
+        Mono<String> response = headersSpec.header(
+                HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .accept(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML)
+                .acceptCharset(StandardCharsets.UTF_8)
+                // .ifNoneMatch("*")
+                // .ifModifiedSince(ZonedDateTime.now())
+                .retrieve()
+                .bodyToMono(String.class);
+        String val="";
+        try {
+            val = response.toFuture().get();
+        } catch (NumberFormatException | InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return val;
     }
 
     // SO71077603

@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-	constructor(private http:HttpClient) { }
+	constructor(private http:HttpClient, private sharedService:SharedService) { }
 
-	getURL:string= "http://localhost:8080/api/admin/getCoursesList";
-	strURL:string= "http://localhost:8080/api/admin/saveCourses";
-    delURL:string= "http://localhost:8080/api/admin/deleteData";
+    cid= this.sharedService.getUserId();
+	getURL:string= `http://localhost:8080/api/admin/${this.cid}/courses`;
+	strURL:string= `http://localhost:8080/api/admin/${this.cid}/courses`;
+    delURL:string= `http://localhost:8080/api/admin/${this.cid}/courses`;
 	getCoursesList():Observable<any>{
 		return this.http.get(this.getURL);
 	}
@@ -24,5 +26,11 @@ export class CourseService {
 
     deleteData(courseId:number):Observable<any>{
         return this.http.delete(this.delURL + '/' + courseId);
+    }
+
+    updateCourses(data: any,courseId:number):Observable<any>{
+        let headers= {'content-type':'application/json'};
+        let jsonObj= JSON.stringify(data);
+        return this.http.put(this.delURL + '/' + courseId,jsonObj,{'headers' : headers});
     }
 }

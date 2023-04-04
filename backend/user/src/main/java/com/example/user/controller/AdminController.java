@@ -3,6 +3,7 @@ package com.example.user.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,11 @@ import com.example.user.repository.AdminRepository;
 import com.example.user.repository.StudentRepository;
 import com.example.user.repository.TeacherRepository;
 import com.example.user.repository.UserRepository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
+
 
 @RestController
 @RequestMapping("/admin")
@@ -63,8 +69,8 @@ public class AdminController {
     // }
 
     @GetMapping("{uid}/courses")
-    public List<CourseList> getCourses(@PathVariable long uid) {
-        return courseService.getCourses(uid);
+    public List<Course> getCourses() {
+        return courseService.getAllCourses();
     }
 
     @GetMapping("{uid}/course/{courseId}")
@@ -102,4 +108,25 @@ public class AdminController {
     public Admin getProfile(@PathVariable long uid) {
         return adminRepository.findById(uid).orElse(null);
     }
+
+    @PostMapping(value="{uid}/courses")
+    public String saveCourses(@RequestBody Course course) {
+        //TODO: process POST request
+        return this.courseService.saveCourses(course);
+    }
+
+    @PutMapping(value="{uid}/courses/{cid}")
+    public String updateCourses(@PathVariable Long uid,@PathVariable Long cid ,@RequestBody Course course) {
+        //TODO: process PUT request
+        
+        return this.courseService.updateCourses(course,cid);
+    }
+
+    @DeleteMapping(value="{uid}/courses/{cid}")
+    public String deleteCourse(@PathVariable Long uid,@PathVariable Long cid) {
+        //TODO: process PUT request
+        
+        return this.courseService.deleteCourse(cid);
+    }
+    
 }

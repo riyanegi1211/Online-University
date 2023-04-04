@@ -3,8 +3,12 @@ package com.example.courses;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.courses.model.Course;
@@ -34,5 +38,24 @@ public class CourseController {
     @GetMapping("/courses/{id}/{dataId}")
     public CourseData getCourseData(@PathVariable long id, @PathVariable long dataId) {
         return courseDataRepository.findById(dataId).orElse(null);
+    }
+
+    
+    @PostMapping(value="/courses")
+    public String saveCourses(@RequestBody Course course) {
+        this.courseRepository.save(course);
+        return "Successful";
+    }
+
+    @PutMapping(value="/courses/{cid}")
+    public String saveCourses(@PathVariable Long cid,@RequestBody Course course) {
+        this.courseRepository.save(course);
+        return "Successful";
+    }
+
+    @DeleteMapping(value="/courses/{cid}")
+    public String deleteCourse(@PathVariable Long cid) {
+        this.courseRepository.deleteById(cid);
+        return "Successful";
     }
 }

@@ -38,6 +38,14 @@ public class CoursesApplication {
 							.build();
 			courseRepository.save(c1);
 
+            Course c2 = Course.builder()
+							.totalLectures(4)
+							.courseName("MBA")
+							.courseCode("2015109")
+							.status("completed")
+							.build();
+            courseRepository.save(c2);
+
 			CourseData cData= CourseData.builder()
 										.course(c1)
 										.title("Lecture 1")
