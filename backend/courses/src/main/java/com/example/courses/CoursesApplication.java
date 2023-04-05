@@ -31,7 +31,7 @@ public class CoursesApplication {
 		public void run(String... args) throws Exception {
 			System.out.println("Adding data");
 			Course c1 = Course.builder()
-							.totalLectures(18)
+							.totalLectures(34)
 							.courseName("B.Tech")
 							.courseCode("2015108")
 							.status("pending")
@@ -45,7 +45,7 @@ public class CoursesApplication {
 							.status("completed")
 							.build();
             courseRepository.save(c2);
-
+			// Course 1 Unit 1 
 			CourseData cData= CourseData.builder()
 										.course(c1)
 										.title("Lecture 1")
@@ -172,6 +172,117 @@ public class CoursesApplication {
 										.build();
 			cDataRepository.save(cData18);
 
+			// Course 1 Unit 2
+			CourseData cData19= CourseData.builder()
+										.course(c1)
+										.title("Lecture 19")
+										.link("https://youtu.be/MiJdgxTWaFs")
+										.build();
+			cDataRepository.save(cData19);
+
+			CourseData cData20= CourseData.builder()
+										.course(c1)
+										.title("Lecture 20")
+										.link("https://youtu.be/s8l8NWII3qw")
+										.build();
+			cDataRepository.save(cData20);
+
+			CourseData cData21= CourseData.builder()
+										.course(c1)
+										.title("Lecture 21")
+										.link("https://youtu.be/WEpLyOc0bCE")
+										.build();
+			cDataRepository.save(cData21);
+
+			CourseData cData22= CourseData.builder()
+										.course(c1)
+										.title("Lecture 22")
+										.link("https://youtu.be/eJcBH0xvG98")
+										.build();
+			cDataRepository.save(cData22);
+
+			CourseData cData23= CourseData.builder()
+										.course(c1)
+										.title("Lecture 23")
+										.link("https://youtu.be/kJW_iXrwePE")
+										.build();
+			cDataRepository.save(cData23);
+
+			CourseData cData24= CourseData.builder()
+										.course(c1)
+										.title("Lecture 24")
+										.link("https://youtu.be/7F3MYyw3Jmg")
+										.build();
+			cDataRepository.save(cData24);
+
+			CourseData cData25= CourseData.builder()
+										.course(c1)
+										.title("Lecture 25")
+										.link("https://youtu.be/Xx1tWbb37hY")
+										.build();
+			cDataRepository.save(cData25);
+
+			CourseData cData26= CourseData.builder()
+										.course(c1)
+										.title("Lecture 26")
+										.link("https://youtu.be/xKZFAkSt2UU")
+										.build();
+			cDataRepository.save(cData26);
+
+			CourseData cData27= CourseData.builder()
+										.course(c1)
+										.title("Lecture 27")
+										.link("https://youtu.be/TkTgo_7ab0M")
+										.build();
+			cDataRepository.save(cData27);
+
+			CourseData cData28= CourseData.builder()
+										.course(c1)
+										.title("Lecture 28")
+										.link("https://youtu.be/Crqgl10aIGQ")
+										.build();
+			cDataRepository.save(cData28);
+
+			CourseData cData29= CourseData.builder()
+										.course(c1)
+										.title("Lecture 29")
+										.link("https://youtu.be/kvk8gfAJLeg")
+										.build();
+			cDataRepository.save(cData29);
+
+			CourseData cData30= CourseData.builder()
+										.course(c1)
+										.title("Lecture 30")
+										.link("https://youtu.be/bjtMCwy_LMA")
+										.build();
+			cDataRepository.save(cData30);
+			CourseData cData31= CourseData.builder()
+										.course(c1)
+										.title("Lecture 31")
+										.link("https://youtu.be/LCRGV8avvUY")
+										.build();
+			cDataRepository.save(cData31);
+
+			CourseData cData32= CourseData.builder()
+										.course(c1)
+										.title("Lecture 32")
+										.link("https://youtu.be/Fj1ywT9ETQk")
+										.build();
+			cDataRepository.save(cData32);
+
+			CourseData cData33= CourseData.builder()
+										.course(c1)
+										.title("Lecture 33")
+										.link("https://youtu.be/c_dqAyQu84A")
+										.build();
+			cDataRepository.save(cData33);
+
+			CourseData cData34= CourseData.builder()
+										.course(c1)
+										.title("Lecture 34")
+										.link("https://youtu.be/1t8NAjIXvVA")
+										.build();
+			cDataRepository.save(cData34);
 		}
 	}
 }
