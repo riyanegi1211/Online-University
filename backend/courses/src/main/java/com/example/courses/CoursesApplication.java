@@ -31,7 +31,7 @@ public class CoursesApplication {
 		public void run(String... args) throws Exception {
 			System.out.println("Adding data");
 			Course c1 = Course.builder()
-							.totalLectures(2)
+							.totalLectures(18)
 							.courseName("B.Tech")
 							.courseCode("2015108")
 							.status("pending")
