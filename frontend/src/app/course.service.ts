@@ -21,6 +21,7 @@ export class CourseService {
     saveCourses(data: any):Observable<any>{
         let headers= {'content-type':'application/json'};
         let jsonObj= JSON.stringify(data);
+        console.log(this.strURL);
         return this.http.post(this.strURL,jsonObj,{'headers' : headers});
     }
 
@@ -29,8 +30,8 @@ export class CourseService {
     }
 
     updateCourses(data: any,courseId:number):Observable<any>{
-        let headers= {'content-type':'application/json'};
-        let jsonObj= JSON.stringify(data);
-        return this.http.put(this.delURL + '/' + courseId,jsonObj,{'headers' : headers});
+        // let headers= {'content-type':'application/json'};
+        // let jsonObj= JSON.stringify(data);
+        return this.http.put(this.delURL + '/' + courseId,data);
     }
 }

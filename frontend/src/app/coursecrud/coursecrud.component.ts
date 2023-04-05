@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { er } from '@fullcalendar/core/internal-common';
 import { CourseService } from '../course.service';
+// import { error } from 'console';
 
 @Component({
   selector: 'app-coursecrud',
@@ -33,10 +34,17 @@ export class CoursecrudComponent {
 		status: new FormControl(''),
 	})
 
+	putOp= new FormGroup({
+		courseCode: new FormControl(''),
+		courseName: new FormControl(''),
+		totalLectures: new FormControl(0),
+		status: new FormControl(''),
+	})
 	
 	
 	courseArr:any[]=[];
 	courseDetails:any={};
+	id:number= 0;
 	onSubmit(){
 		console.log(this.update.value);
 		this.courseDetails= this.update.value;
@@ -54,9 +62,14 @@ export class CoursecrudComponent {
 
 	getAllCoursesList(){
 		this.courseService.getCoursesList().subscribe({
-			next: (data) => {console.log(data); this.courseArr=data},
+			next: (data) => {	console.log(data);
+								for(const x of data){
+									this.id= x.courseId;
+								} 
+								this.courseArr=data},
 			error: (err) => {console.log(err)}
 		})
+		console.log(this.id);
 	}
 
 	deleteData(courseId:number){
@@ -65,7 +78,32 @@ export class CoursecrudComponent {
 			error: (err) => {console.log(err)}
 		})
 	}
+    key:number= 0;
+	updateData(courseId:number){
+		// this.courseService.getCoursesList().subscribe({
+		// 	next: (data) => {console.log(data);console.log(this.id)},
+		// 	error: (err) => {console.log(err)}
+		// })
+		// this.courseService.updateCourses(body, this.id).subscribe({
+		// 	next: (data) => {console.log(data)},
+		// 	error: (err) => {console.log(err)}
+		// });
+        this.key= courseId;   
+	}
 
-    
+    updateCourse(){
+        let body={
+			courseName: this.update.value.courseName,
+			courseCode: this.update.value.courseCode,
+			totalLectures: this.update.value.totalLectures,
+			status: this.update.value.status
+		}
+        let id= this.key;
+        console.log(id);
+        this.courseService.updateCourses(body,id).subscribe({
+            next: (data) => {console.log(data)},
+            error: (err) => {console.log(err)}
+        })
+    }
 	
 }
