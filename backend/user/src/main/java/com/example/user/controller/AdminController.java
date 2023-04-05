@@ -69,7 +69,7 @@ public class AdminController {
     // }
 
     @GetMapping("{uid}/courses")
-    public List<Course> getCourses() {
+    public List<Course> getCourses(@PathVariable long uid) {
         return courseService.getAllCourses();
     }
 
