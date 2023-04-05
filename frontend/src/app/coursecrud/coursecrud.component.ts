@@ -99,10 +99,10 @@ export class CoursecrudComponent {
 			courseName: this.putOp.value.courseName,
 			courseCode: this.putOp.value.courseCode,
 			totalLectures: this.putOp.value.totalLectures,
-			status: this.putOp.value.status
+			status: this.putOp.value.status,
+            courseId: this.key
 		}
-        let id= this.key;
-        this.courseService.updateCourses(body,id).subscribe({
+        this.courseService.updateCourses(body,body.courseId).subscribe({
             next: (data) => {   console.log(data);
                                 this.courseService.getCoursesList().subscribe({
                                     next: (data) => {   this.courseArr=data	
