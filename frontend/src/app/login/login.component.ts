@@ -74,9 +74,10 @@ export class LoginComponent implements OnInit {
     // headers = headers.append('Authorization', 'Basic ' + encodedCredentials);
     const observer = {
       next: (x: any) => {   console.log(x); 
-                            const val= JSON.parse(x);
-                            this.sharedService.setUserId(val.userId);
-                            console.log(this.sharedService.getUserId());
+                            // const val= JSON.parse(x);
+                            // this.sharedService.setUserId(val.userId);
+                            // console.log(this.sharedService.getUserId());
+                            localStorage.setItem("userId",'2');
                             this.redirecting(x) 
                         },
       error: (err: any) => { console.log(err.error) },

@@ -47,10 +47,16 @@ public class CourseController {
         return "Successful";
     }
 
+    // @PutMapping(value="/courses/{cid}")
+    // public String saveCourses(@PathVariable Long cid,@RequestBody Course course) {
+    //     this.courseRepository.save(course);
+    //     return "Successful";
+    // }
+
     @PutMapping(value="/courses/{cid}")
-    public String saveCourses(@PathVariable Long cid,@RequestBody Course course) {
-        this.courseRepository.save(course);
-        return "Successful";
+    public Course saveCourses(@PathVariable Long cid,@RequestBody Course course) {
+        System.out.println("Success"+this.courseRepository.save(course));
+        return this.courseRepository.save(course);
     }
 
     @DeleteMapping(value="/courses/{cid}")

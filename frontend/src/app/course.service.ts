@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SharedService } from './shared.service';
+import { Course } from './Course';
 
 @Injectable({
   providedIn: 'root'
@@ -10,28 +11,35 @@ export class CourseService {
 
 	constructor(private http:HttpClient, private sharedService:SharedService) { }
 
-    cid= this.sharedService.getUserId();
-	getURL:string= `http://localhost:8080/api/admin/${this.cid}/courses`;
-	strURL:string= `http://localhost:8080/api/admin/${this.cid}/courses`;
-    delURL:string= `http://localhost:8080/api/admin/${this.cid}/courses`;
+    // uid:string="";
 	getCoursesList():Observable<any>{
-		return this.http.get(this.getURL);
+        // this.uid= this.sharedService.getUserId();
+        let uid = localStorage.getItem("userId");
+	    let getURL= `http://localhost:8080/api/admin/${uid}/courses`;
+		return this.http.get(getURL);
 	}
 
     saveCourses(data: any):Observable<any>{
         let headers= {'content-type':'application/json'};
+        // this.uid= this.sharedService.getUserId();
+        let uid = localStorage.getItem("userId");
+        let strURL= `http://localhost:8080/api/admin/${uid}/courses`;
         let jsonObj= JSON.stringify(data);
-        console.log(this.strURL);
-        return this.http.post(this.strURL,jsonObj,{'headers' : headers});
+        console.log(strURL);
+        return this.http.post(strURL,jsonObj,{'headers' : headers});
     }
 
     deleteData(courseId:number):Observable<any>{
-        return this.http.delete(this.delURL + '/' + courseId);
+        let uid = localStorage.getItem("userId");
+        let delURL= `http://localhost:8080/api/admin/${uid}/courses`;
+        return this.http.delete(delURL + '/' + courseId, {responseType: 'text'});
     }
 
     updateCourses(data: any,courseId:number):Observable<any>{
         // let headers= {'content-type':'application/json'};
         // let jsonObj= JSON.stringify(data);
-        return this.http.put(this.delURL + '/' + courseId,data);
+        let uid = localStorage.getItem("userId");
+        let delURL= `http://localhost:8080/api/admin/${uid}/courses`;
+        return this.http.put(delURL + '/' + courseId,data);
     }
 }

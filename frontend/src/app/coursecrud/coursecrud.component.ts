@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { er } from '@fullcalendar/core/internal-common';
 import { CourseService } from '../course.service';
+import { Course } from '../Course';
 // import { error } from 'console';
 
 @Component({
@@ -42,7 +43,7 @@ export class CoursecrudComponent {
 	})
 	
 	
-	courseArr:any[]=[];
+	courseArr:Course[]=[];
 	courseDetails:any={};
 	id:number= 0;
 	onSubmit(){
@@ -63,13 +64,15 @@ export class CoursecrudComponent {
 	getAllCoursesList(){
 		this.courseService.getCoursesList().subscribe({
 			next: (data) => {	console.log(data);
-								for(const x of data){
-									this.id= x.courseId;
-								} 
-								this.courseArr=data},
+                                for(const x of data)
+                                {
+                                    this.courseArr.push(x.courseId);
+                                }
+								this.courseArr=data
+                                // console.log(this.courseArr);
+                            },
 			error: (err) => {console.log(err)}
 		})
-		console.log(this.id);
 	}
 
 	deleteData(courseId:number){
@@ -93,15 +96,21 @@ export class CoursecrudComponent {
 
     updateCourse(){
         let body={
-			courseName: this.update.value.courseName,
-			courseCode: this.update.value.courseCode,
-			totalLectures: this.update.value.totalLectures,
-			status: this.update.value.status
+			courseName: this.putOp.value.courseName,
+			courseCode: this.putOp.value.courseCode,
+			totalLectures: this.putOp.value.totalLectures,
+			status: this.putOp.value.status
 		}
         let id= this.key;
-        console.log(id);
         this.courseService.updateCourses(body,id).subscribe({
-            next: (data) => {console.log(data)},
+            next: (data) => {   console.log(data);
+                                this.courseService.getCoursesList().subscribe({
+                                    next: (data) => {   this.courseArr=data	
+                                                        console.log(this.courseArr);
+                                                    },
+                                    error: (err) => {console.log(err)}
+                                })
+                            },
             error: (err) => {console.log(err)}
         })
     }

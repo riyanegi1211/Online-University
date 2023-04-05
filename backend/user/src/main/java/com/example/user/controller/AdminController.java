@@ -115,17 +115,22 @@ public class AdminController {
         return this.courseService.saveCourses(course);
     }
 
-    @PutMapping(value="{uid}/courses/{cid}")
-    public String updateCourses(@PathVariable Long uid,@PathVariable Long cid ,@RequestBody Course course) {
-        //TODO: process PUT request
+    // @PutMapping(value="{uid}/courses/{cid}")
+    // public String updateCourses(@PathVariable Long uid,@PathVariable Long cid ,@RequestBody Course course) {
+    //     //TODO: process PUT request
         
+    //     return this.courseService.updateCourses(course,cid);
+    // }
+
+    @PutMapping(value="{uid}/courses/{cid}")
+    public Course updateCourses(@PathVariable Long uid,@PathVariable Long cid ,@RequestBody Course course) {
+        //TODO: process PUT request
+        System.out.println("User id is: "+ uid);
         return this.courseService.updateCourses(course,cid);
     }
 
     @DeleteMapping(value="{uid}/courses/{cid}")
     public String deleteCourse(@PathVariable Long uid,@PathVariable Long cid) {
-        //TODO: process PUT request
-        
         return this.courseService.deleteCourse(cid);
     }
     
