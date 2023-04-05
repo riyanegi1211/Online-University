@@ -51,7 +51,12 @@ public class UserApplication {
                     .username("abc")
                     .password("{noop}abc")
                     .role(Role.STUDENT)
-                    .firstName("scam").build();
+                    .firstName("scam")
+                    .lastName("1992")
+                    .studentSemester(Long.valueOf(6))
+                    .studentBranch("B.Tech")
+                    .studentId("2015108")
+                    .build();
             studentRepo.save(s1);
 
             Admin a1 = Admin.adminBuilder()

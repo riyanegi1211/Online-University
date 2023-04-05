@@ -14,20 +14,6 @@ export class CoursecrudComponent {
 
 	constructor(private courseService: CourseService, private fb:FormBuilder){}
 	
-	// @ViewChild('cid') courseId!: ElementRef;
-	// @ViewChild('cname') courseName!: ElementRef;
-	// @ViewChild('lecnum') totalLectures!: ElementRef;
-	// @ViewChild('stat') status!: ElementRef;
-
-
-	// ngOnChanges(){
-	// 	console.log(this.courseId.nativeElement.value);
-	// 	console.log(this.courseName.nativeElement.value);
-	// 	console.log(this.totalLectures.nativeElement.value);
-	// 	console.log(this.status.nativeElement.value);
-	// }
-
-
 	update= new FormGroup({
 		courseCode: new FormControl(''),
 		courseName: new FormControl(''),
@@ -69,7 +55,6 @@ export class CoursecrudComponent {
                                     this.courseArr.push(x.courseId);
                                 }
 								this.courseArr=data
-                                // console.log(this.courseArr);
                             },
 			error: (err) => {console.log(err)}
 		})
@@ -83,14 +68,6 @@ export class CoursecrudComponent {
 	}
     key:number= 0;
 	updateData(courseId:number){
-		// this.courseService.getCoursesList().subscribe({
-		// 	next: (data) => {console.log(data);console.log(this.id)},
-		// 	error: (err) => {console.log(err)}
-		// })
-		// this.courseService.updateCourses(body, this.id).subscribe({
-		// 	next: (data) => {console.log(data)},
-		// 	error: (err) => {console.log(err)}
-		// });
         this.key= courseId;   
 	}
 

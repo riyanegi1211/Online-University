@@ -53,6 +53,7 @@ import { UnitFourComponent } from './unit-four/unit-four.component';
 import { UnitFiveComponent } from './unit-five/unit-five.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MyhomeComponent } from './myhome/myhome.component';
+import { UsercrudComponent } from './usercrud/usercrud.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { MyhomeComponent } from './myhome/myhome.component';
 	UnitFourComponent,
 	UnitFiveComponent,
 	CoursecrudComponent,
- MyhomeComponent
+ MyhomeComponent,
+ UsercrudComponent
 
   ],
   imports: [

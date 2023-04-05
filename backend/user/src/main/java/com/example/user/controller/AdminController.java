@@ -15,8 +15,11 @@ import com.example.user.model.Course;
 import com.example.user.model.CourseData;
 import com.example.user.model.CourseList;
 import com.example.user.model.CourseSummary;
+import com.example.user.model.NewStudent;
+import com.example.user.model.Role;
 import com.example.user.model.Student;
 import com.example.user.model.Teacher;
+import com.example.user.model.User;
 import com.example.user.repository.AdminRepository;
 import com.example.user.repository.StudentRepository;
 import com.example.user.repository.TeacherRepository;
@@ -83,16 +86,6 @@ public class AdminController {
         return courseService.getCourseDataById(uid, courseId, lectureId);
     }
 
-    @GetMapping("{uid}/student")
-    public List<Student> getAllStudent(@PathVariable long uid) {
-        return studentRepository.findAll();
-    }
-
-    @GetMapping("{uid}/student/{studentId}")
-    public Student getStudentById(@PathVariable long uid, @PathVariable long studentId) {
-        // System.out.println(courseService.test()); 
-        return studentRepository.findById(studentId).orElse(null);
-    }
 
     @GetMapping("{uid}/teacher")
     public List<Teacher> getAllTeacher(@PathVariable long uid) {
@@ -130,8 +123,73 @@ public class AdminController {
     }
 
     @DeleteMapping(value="{uid}/courses/{cid}")
-    public String deleteCourse(@PathVariable Long uid,@PathVariable Long cid) {
+    public String deleteCourses(@PathVariable Long uid,@PathVariable Long cid) {
         return this.courseService.deleteCourse(cid);
     }
-    
+
+    @GetMapping("{uid}/students")
+    public List<Student> getAllStudent(@PathVariable long uid) {
+        return studentRepository.findAll();
+    }
+
+    @GetMapping("{uid}/students/{studentId}")
+    public Student getStudentById(@PathVariable long uid, @PathVariable long studentId) {
+        // System.out.println(courseService.test()); 
+        return studentRepository.findById(studentId).orElse(null);
+    }
+
+    @PostMapping(value="{uid}/students")
+    public String saveStudent(@RequestBody NewStudent student) {
+        // System.out.println(student);
+        //this.studentRepository.save(student);
+        // User u= this.userRepository.save(new User("default129", "default@123", Role.STUDENT));
+        Student s1 = Student.studentBuilder()
+            .username("default129")
+            .password("{noop}default@123")
+            .role(Role.STUDENT)
+            .firstName(student.getFirstName())
+            .lastName(student.getLastName())
+            .studentSemester(student.getStudentSemester())
+            .studentBranch(student.getStudentBranch())
+            .studentId(student.getStudentId())
+            .build();
+
+            studentRepository.save(s1);
+        return "Successful";
+    }
+
+    @PutMapping(value="{uid}/students/{sid}")
+    public Student updateStudent(@PathVariable Long sid,@RequestBody NewStudent student) {
+        // System.out.println("Success"+this.studentRepository.save(student));
+        System.out.println(student);
+        // Student s1 = Student.studentBuilder()
+        //     .id(sid)
+        //     // .username("default129")
+        //     // .password("{noop}default@123")
+        //     // .role(Role.STUDENT)
+        //     .firstName(student.getFirstName())
+        //     .lastName(student.getLastName())
+        //     .studentSemester(student.getStudentSemester())
+        //     .studentBranch(student.getStudentBranch())
+        //     .studentId(student.getStudentId())
+        //     .build();
+        // .orElseThrow(() -> new EntityNotFoundException("Student not found with id " + sid)
+        Student s1 = studentRepository.findById(sid).orElse(null);
+        if(s1 == null)
+        {
+            return null;
+        }
+        s1.setFirstName(student.getFirstName());
+        s1.setLastName(student.getLastName());
+        s1.setStudentSemester(student.getStudentSemester());
+        s1.setStudentBranch(student.getStudentBranch());
+        s1.setStudentId(student.getStudentId());
+        return studentRepository.save(s1);
+    }
+
+    @DeleteMapping(value="{uid}/students/{sid}")
+    public String deleteStudent(@PathVariable Long sid){
+        this.studentRepository.deleteById(sid);
+        return "Successful";
+    }
 }
