@@ -14,15 +14,18 @@ import { UnitTwoComponent } from './unit-two/unit-two.component';
 import { CoursecrudComponent } from './coursecrud/coursecrud.component';
 import { AuthGuard } from './auth.guard';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { MyhomeComponent } from './myhome/myhome.component';
+import { UsercrudComponent } from './usercrud/usercrud.component';
 
 const routes: Routes = [
     { path: '',   redirectTo: '/login', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'home', component: MyhomeComponent, canActivate: [AuthGuard] },
     { path: 'professor', component: ProfessorComponent },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: StudentDashboardComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'admin/course', component: CoursecrudComponent },
+    { path: 'admin/student', component: UsercrudComponent },
     {path: "Assessment",component:AssessmentComponent},
     {path: "Assignment",component:AssignmentComponent},
     {path: "One",component:UnitOneComponent},

@@ -118,9 +118,9 @@ public class DemoApplication {
 										.build();
 			cDataRepository.save(cData2);
 
-			StudentProgress studentProgress= new StudentProgress(new StudentProgressId(c1, s1, cData));
-			studentProgressRepository.save(studentProgress);
-
+			// StudentProgress studentProgress= new StudentProgress(new StudentProgressId(c1, s1, cData));
+			// studentProgressRepository.save(studentProgress);
+            
 		}
 	}
 }

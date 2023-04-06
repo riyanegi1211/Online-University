@@ -24,19 +24,9 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class CourseStudent implements Serializable {
-    private Long courseId;
-
-    private String title;
-
-    private String description;
-
-    private Teacher teacher;
-
-    private LocalDate startDate;
-
-    private LocalDate endDate;
-
-    private List<CourseData> courseData;
+    private Course course;
+    private long attendedLectures;
+    private int progress;
     private List<StudentCourseData> studentCourseData;
 
 }

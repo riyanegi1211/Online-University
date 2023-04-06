@@ -29,11 +29,34 @@ public class Student extends User implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "semester")
+    private Long studentSemester;
+
+    @Column(name = "branch")
+    private String studentBranch;
+
+    @Column(name= "student_id")
+    private String studentId;
+
+    // public Student(Long id, String username, String password, Role role, String firstName, String lastName, Long studentSemester,
+    //         String studentBranch, Long studentId) {
+    //     super(id, username, password, role);
+    //     this.firstName = firstName;
+    //     this.lastName = lastName;
+    //     this.studentSemester = studentSemester;
+    //     this.studentBranch = studentBranch;
+    //     this.studentId = studentId;
+    // }
+
     @Builder(builderMethodName = "studentBuilder")
-    public Student(Long id, String username, String password, Role role, String firstName, String lastName) {
+    public Student(Long id, String username, String password, Role role, String firstName, String lastName, Long studentSemester,
+    String studentBranch, String studentId) {
         super(id, username, password, role);
         this.firstName = firstName;
         this.lastName = lastName;
+        this.studentId= studentId;
+        this.studentSemester = studentSemester;
+        this.studentBranch = studentBranch;
     }
 
 }

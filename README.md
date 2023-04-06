@@ -1,39 +1,39 @@
 # Online-University
 Mini Project
-
+Micro Branch
 Steps to run on local machine
 
 Configure MySQl
-1. Create new user and database
-CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
-Query OK, 0 rows affected (0.21 sec)
+1. add new database name in the following command in place of {DATABASE_NAME}
 
-mysql> CREATE DATABASE database_name CHARACTER SET utf8;
-Query OK, 1 row affected, 1 warning (0.05 sec)
+mysql> CREATE DATABASE {DATABASE_NAME};
 
-mysql> GRANT ALL PRIVILEGES ON database_name.* TO 'newuser'@'localhost';
-Query OK, 0 rows affected (0.04 sec)
+2. add previously created username in {USERNAME}. previous user maybe 'newuser'
 
-2. Add the required details to application.properties
-3. Run spring boot application
+mysql> GRANT ALL PRIVILEGES ON {DATABASE_NAME}.* TO '{USERNAME}'@'localhost';
 
 
-Credentials - admin, admin
+3. Add/Change the required details to application.properties in 3 projects in the backend - user, course, enrollment
 
-endpoints 
+4. Use spring boot extension to run gateway, user, course, enrollment
 
-POST /api/login - log in 
+5. Authentication and Authorisation is not working in microservices. 
 
-POST /api/register - register a new user - will get a role of GUEST
+Static credential values are - "admin,admin", "prof,prof", "abc,abc"
 
-GET /api/role - get role of logged in user
+Try to dynamically get values from the backend.if getting error, whatsapp.
 
-POST /api/logout - will return 403 but will logout
+6. To run the code
+```
+cd frontend
+npm install
+ng serve --open
+```
 
-GET /api/admin/ - verfies your authority -> return "you are an admin : {USERNAME}"
+```
+Open spring boot extension and run 4 microservices - gateway, user, course, enrollment
+```
 
-GET /api/admin/getTeacherList
+# Current Architecture
 
-GET /api/teacher/ -  verfies your authority
-
-GET /api/student/ - verfies your authority
+![mermaid-diagram-2023-04-03-155201](https://user-images.githubusercontent.com/34604329/229562399-16f5095d-2b83-47f0-b70a-92600cb0b0d2.svg)

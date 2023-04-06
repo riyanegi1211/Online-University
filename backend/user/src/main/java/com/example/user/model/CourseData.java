@@ -1,18 +1,42 @@
 package com.example.user.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.io.Serializable;
 
-@Data
-@Getter
-@Setter
-@NoArgsConstructor
+import org.hibernate.annotations.ManyToAny;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @AllArgsConstructor
-public class CourseData {
-    long id;
-    long courseid;
-    String data;
+@NoArgsConstructor
+@Data
+@Builder
+public class CourseData implements Serializable{
+    @Id
+    long courseDataId;
+    
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    @JsonBackReference
+    Course course;
+
+    @Column(name= "title")
+    String title;
+    
+    @Column(name = "link")
+    String link;
 }

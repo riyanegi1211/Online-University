@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.user.CourseService;
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
+import com.example.user.model.CourseList;
 import com.example.user.model.CourseSummary;
 import com.example.user.model.Teacher;
 import com.example.user.repository.TeacherRepository;
@@ -40,29 +41,34 @@ public class TeacherController {
     @Autowired 
     private CourseService courseService;
 
-    long teacherId;
-    TeacherController() {
-        this.teacherId = 5;
+    // long teacherId;
+    // TeacherController() {
+    //     this.teacherId = 5;
+    // }
+
+    @GetMapping("{uid}")
+    public String getName(@PathVariable long uid) {
+        return "You are " + uid;
     }
 
-    @GetMapping("/courses")
-    public List<CourseSummary> getCourses() {
-        return courseService.getCourses(teacherId);
+    @GetMapping("{uid}/courses")
+    public List<CourseList> getCourses(@PathVariable long uid) {
+        return courseService.getCourses(uid);
     }
 
-    @GetMapping("/course/{courseId}")
-    public Course getCoursesById(@PathVariable int courseId) {
-        return courseService.getCourseById(teacherId, courseId);
+    @GetMapping("{uid}/course/{courseId}")
+    public Course getCoursesById(@PathVariable long uid, @PathVariable int courseId) {
+        return courseService.getCourseById(uid, courseId);
     }
 
-    @GetMapping("/course/{courseId}/{lectureId}")
-    public CourseData getCourseDataById(@PathVariable int courseId, @PathVariable int lectureId) {
-        return courseService.getCourseDataById(teacherId, courseId, lectureId);
+    @GetMapping("{uid}/course/{courseId}/{lectureId}")
+    public CourseData getCourseDataById(@PathVariable long uid, @PathVariable int courseId, @PathVariable int lectureId) {
+        return courseService.getCourseDataById(uid, courseId, lectureId);
     }
 
-    @GetMapping("/profile")
-    public Teacher getProfile() {
-        return teacherRepository.findById(teacherId).orElse(null);
+    @GetMapping("{uid}/profile")
+    public Teacher getProfile(@PathVariable long uid) {
+        return teacherRepository.findById(uid).orElse(null);
     }
 
 }

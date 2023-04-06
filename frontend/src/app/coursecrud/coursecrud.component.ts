@@ -2,6 +2,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { er } from '@fullcalendar/core/internal-common';
 import { CourseService } from '../course.service';
+import { Course } from '../Course';
+// import { error } from 'console';
 
 @Component({
   selector: 'app-coursecrud',
@@ -12,20 +14,6 @@ export class CoursecrudComponent {
 
 	constructor(private courseService: CourseService, private fb:FormBuilder){}
 	
-	// @ViewChild('cid') courseId!: ElementRef;
-	// @ViewChild('cname') courseName!: ElementRef;
-	// @ViewChild('lecnum') totalLectures!: ElementRef;
-	// @ViewChild('stat') status!: ElementRef;
-
-
-	// ngOnChanges(){
-	// 	console.log(this.courseId.nativeElement.value);
-	// 	console.log(this.courseName.nativeElement.value);
-	// 	console.log(this.totalLectures.nativeElement.value);
-	// 	console.log(this.status.nativeElement.value);
-	// }
-
-
 	update= new FormGroup({
 		courseCode: new FormControl(''),
 		courseName: new FormControl(''),
@@ -33,10 +21,17 @@ export class CoursecrudComponent {
 		status: new FormControl(''),
 	})
 
+	putOp= new FormGroup({
+		courseCode: new FormControl(''),
+		courseName: new FormControl(''),
+		totalLectures: new FormControl(0),
+		status: new FormControl(''),
+	})
 	
 	
-	courseArr:any[]=[];
+	courseArr:Course[]=[];
 	courseDetails:any={};
+	id:number= 0;
 	onSubmit(){
 		console.log(this.update.value);
 		this.courseDetails= this.update.value;
@@ -54,7 +49,13 @@ export class CoursecrudComponent {
 
 	getAllCoursesList(){
 		this.courseService.getCoursesList().subscribe({
-			next: (data) => {console.log(data); this.courseArr=data},
+			next: (data) => {	console.log(data);
+                                for(const x of data)
+                                {
+                                    this.courseArr.push(x.courseId);
+                                }
+								this.courseArr=data
+                            },
 			error: (err) => {console.log(err)}
 		})
 	}
@@ -65,5 +66,30 @@ export class CoursecrudComponent {
 			error: (err) => {console.log(err)}
 		})
 	}
+    key:number= 0;
+	updateData(courseId:number){
+        this.key= courseId;   
+	}
+
+    updateCourse(){
+        let body={
+			courseName: this.putOp.value.courseName,
+			courseCode: this.putOp.value.courseCode,
+			totalLectures: this.putOp.value.totalLectures,
+			status: this.putOp.value.status,
+            courseId: this.key
+		}
+        this.courseService.updateCourses(body,body.courseId).subscribe({
+            next: (data) => {   console.log(data);
+                                this.courseService.getCoursesList().subscribe({
+                                    next: (data) => {   this.courseArr=data	
+                                                        console.log(this.courseArr);
+                                                    },
+                                    error: (err) => {console.log(err)}
+                                })
+                            },
+            error: (err) => {console.log(err)}
+        })
+    }
 	
 }

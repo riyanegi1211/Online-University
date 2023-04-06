@@ -1,4 +1,4 @@
-package com.example.enrollment;
+package com.example.enrollment.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +11,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseSummary {
-    long courseId;
-    String courseName;
-    
+public class StudentList {
+    long studentId;
 }
