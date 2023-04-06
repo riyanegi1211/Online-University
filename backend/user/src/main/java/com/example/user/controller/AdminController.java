@@ -1,5 +1,6 @@
 package com.example.user.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.user.CourseService;
 import com.example.user.model.Admin;
+import com.example.user.model.ChartDTO;
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
 import com.example.user.model.CourseList;
@@ -74,6 +76,26 @@ public class AdminController {
     @GetMapping("{uid}")
     public String getName(@PathVariable long uid) {
         return "You are " + uid;
+    }
+
+    @GetMapping("{uid}/chart/branch")
+    public List<ChartDTO> getChartDataByBranch(@PathVariable long uid) {
+        List<Object[]> studentCount= studentRepository.countStudentsByStudentBranch();
+        List<ChartDTO> cdto= new ArrayList<>();
+        for(Object[] count: studentCount){
+            cdto.add(new ChartDTO((String) count[0], (Long) count[1]));
+        }
+        return cdto;
+    }
+
+    @GetMapping("{uid}/chart/semester")
+    public List<ChartDTO> getChartDataBySemester(@PathVariable long uid) {
+        List<Object[]> studentCount= studentRepository.countStudentsByStudentSemester();
+        List<ChartDTO> cdto= new ArrayList<>();
+        for(Object[] count: studentCount){
+            cdto.add(new ChartDTO((String.valueOf(count[0])) , (Long) count[1]));
+        }
+        return cdto;
     }
 
     @GetMapping("{uid}/courses")

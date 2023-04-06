@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
+import { CourseService } from '../course.service';
 
 @Component({
   selector: 'app-admin',
@@ -101,10 +102,51 @@ export class AdminComponent implements OnInit{
 	  }
 	]
   
-	constructor() { }
-  
+	constructor(private courseService:CourseService) { }
+    
+    label:string[]=[];
+    data:number[]=[];
+    arr:any[]=[];
+
 	ngOnInit() {
-  
+        this.courseService.getChartDataByBranch().subscribe({
+            next: (data) => {   console.log("Get data is"+data);
+                                this.arr= Object.values(data);
+                                // console.log(this.arr);
+                                this.label= this.arr.map((data: { label: string; }) => data.label);
+                                console.log(this.label);
+                                this.data= this.arr.map((data: { data: number; }) => data.data);
+                                console.log(this.data);
+                                this.pieChartData= {
+                                    labels: this.label,      
+                                    datasets: [ {
+                                        data: this.data,
+                                        backgroundColor: ['#E1D33F','#F04B4B','#57F35F']
+                                    } ]
+                                };
+                            },
+            error: (err) => {console.log(err)}
+        });
+
+
+        this.courseService.getChartDataBySemester().subscribe({
+            next: (data) => {   console.log("Get data is"+data);
+                                this.arr= Object.values(data);
+                                // console.log(this.arr);
+                                this.label= this.arr.map((data: { label: string; }) => data.label+" semester");
+                                console.log(this.label);
+                                this.data= this.arr.map((data: { data: number; }) => data.data);
+                                console.log(this.data);
+                                this.pieChartSemester= {
+                                    labels: this.label,      
+                                    datasets: [ {
+                                        data: this.data,
+                                        backgroundColor: ['#E1D33F','#F04B4B','#57F35F']
+                                    } ]
+                                };
+                            },
+            error: (err) => {console.log(err)}
+        })
 	}
   
 	showSubmenu(itemEl: HTMLElement) {
@@ -130,10 +172,20 @@ export class AdminComponent implements OnInit{
         },
       }
     };
+
+    // [ 'Download Sales' , 'In Store Sales' , 'Mail Sales' ]
     public pieChartData: ChartData<'pie', number[], string | string[]> = {
-        labels: [ 'Download Sales' , 'In Store Sales' , 'Mail Sales' ],
+        labels: this.label,      
         datasets: [ {
-            data: [ 300, 500, 100 ],
+            data: this.data,
+            backgroundColor: ['#E1D33F','#F04B4B','#57F35F']
+        } ]
+    };
+
+    public pieChartSemester: ChartData<'pie', number[], string | string[]> = {
+        labels: this.label,      
+        datasets: [ {
+            data: this.data,
             backgroundColor: ['#E1D33F','#F04B4B','#57F35F']
         } ]
     };
