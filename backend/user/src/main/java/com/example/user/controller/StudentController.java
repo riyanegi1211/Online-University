@@ -25,7 +25,7 @@ import com.example.user.repository.UserRepository;
 
 @RestController
 // @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("student")
+@RequestMapping("/api/student")
 public class StudentController {
     /*
 
@@ -54,7 +54,7 @@ public class StudentController {
     //     this.studentId = 1;
     // }
 
-    @GetMapping("/{sid}")
+    @GetMapping("{sid}")
     public String checkConnection(@PathVariable long sid) {
         return "You are student " + sid;
     }

@@ -18,7 +18,7 @@ import com.example.user.repository.TeacherRepository;
 import com.example.user.repository.UserRepository;
 
 @RestController
-@RequestMapping("/teacher")
+@RequestMapping("/api/teacher")
 public class TeacherController {
     /*
 
@@ -45,6 +45,11 @@ public class TeacherController {
     // TeacherController() {
     //     this.teacherId = 5;
     // }
+
+    @GetMapping("{uid}")
+    public String getName(@PathVariable long uid) {
+        return "You are " + uid;
+    }
 
     @GetMapping("{uid}/courses")
     public List<CourseList> getCourses(@PathVariable long uid) {

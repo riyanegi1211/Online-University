@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class AdminController {
     
 
@@ -70,6 +70,11 @@ public class AdminController {
     // AdminController() {
     //     this.adminId = 5;
     // }
+
+    @GetMapping("{uid}")
+    public String getName(@PathVariable long uid) {
+        return "You are " + uid;
+    }
 
     @GetMapping("{uid}/courses")
     public List<Course> getCourses(@PathVariable long uid) {
