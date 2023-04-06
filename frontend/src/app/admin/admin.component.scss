@@ -467,7 +467,15 @@
 	position: relative;
 	float: left;
 	top: 40px;
-	left: -235px;
+	left: -375px;
+	color: #B3ACAC;
+}
+
+.student-stats-p-b{
+	position: relative;
+	float: left;
+	top: 40px;
+	left: -340px;
 	color: #B3ACAC;
 }
 
@@ -574,49 +582,57 @@
 	color: white;
 }
 
-.button-73 {
-	position: relative;
+
+.cta {
+    position: relative;
 	top: 40px;
-	left: calc(100% + 10em);
-	appearance: none;
-	background-color: #FFFFFF;
-	border-radius: 40em;
-	border-style: none;
-	box-shadow: #ADCFFF 0 -12px 6px inset;
-	box-sizing: border-box;
-	color: #000000;
-	cursor: pointer;
-	display: inline-block;
-	font-family: -apple-system,sans-serif;
-	font-size: 1.2rem;
-	font-weight: 700;
-	letter-spacing: -.24px;
-	margin: 0;
-	outline: none;
-	padding: 1rem 1.3rem;
-	quotes: auto;
-	text-align: center;
-	text-decoration: none;
-	transition: all .15s;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
+	left: calc(100% + 13em);
+    border: none;
+    background: none;
   }
   
-  .button-73:hover {
-	background-color: #FFC229;
-	box-shadow: #FF6314 0 -6px 8px inset;
-	transform: scale(1.125);
+  .cta span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 14px;
+    padding-right: 15px;
+    text-transform: uppercase;
   }
   
-  .button-73:active {
-	transform: scale(1.025);
+  .cta svg {
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
   }
   
-  @media (min-width: 768px) {
-	.button-73 {
-	  font-size: 1.5rem;
-	  padding: .75rem 2rem;
-	}
+  .cta:hover svg {
+    transform: translateX(0);
+  }
+  
+  .cta:active svg {
+    transform: scale(0.9);
+  }
+  
+  .hover-underline-animation {
+    position: relative;
+    color: black;
+    padding-bottom: 20px;
+  }
+  
+  .hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 

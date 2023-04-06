@@ -20,12 +20,12 @@ import com.example.user.repository.TeacherRepository;
 @SpringBootApplication
 public class UserApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(UserApplication.class, args);
-	}
-	// @Bean
+    public static void main(String[] args) {
+        SpringApplication.run(UserApplication.class, args);
+    }
+    // @Bean
     // public PasswordEncoder encoder() {
-    //     return new BCryptPasswordEncoder();
+    // return new BCryptPasswordEncoder();
     // }
 
     @Component
@@ -43,7 +43,6 @@ public class UserApplication {
         @Autowired
         private CalenderRepository calenderRepository;
 
-
         @Override
         public void run(String... args) throws Exception {
 
@@ -59,6 +58,42 @@ public class UserApplication {
                     .build();
             studentRepo.save(s1);
 
+            Student s2 = Student.studentBuilder()
+                    .username("abc2")
+                    .password("{noop}abc2")
+                    .role(Role.STUDENT)
+                    .firstName("scam")
+                    .lastName("1992")
+                    .studentSemester(Long.valueOf(4))
+                    .studentBranch("MBA")
+                    .studentId("2015108")
+                    .build();
+            studentRepo.save(s2);
+
+            Student s3 = Student.studentBuilder()
+                    .username("abc3")
+                    .password("{noop}abc3")
+                    .role(Role.STUDENT)
+                    .firstName("scam")
+                    .lastName("1992")
+                    .studentSemester(Long.valueOf(7))
+                    .studentBranch("MCA")
+                    .studentId("2015108")
+                    .build();
+            studentRepo.save(s3);
+
+            Student s4 = Student.studentBuilder()
+                    .username("abc4")
+                    .password("{noop}abc4")
+                    .role(Role.STUDENT)
+                    .firstName("scam")
+                    .lastName("1992")
+                    .studentSemester(Long.valueOf(6))
+                    .studentBranch("B.Tech")
+                    .studentId("2015108")
+                    .build();
+            studentRepo.save(s4);
+
             Admin a1 = Admin.adminBuilder()
                     .username("admin")
                     .password("{noop}admin")
@@ -69,16 +104,16 @@ public class UserApplication {
             Teacher t1 = Teacher.teacherBuilder()
                     .username("prof")
                     .password("{noop}prof")
-                    //.password(encoder().encode("prof"))
+                    // .password(encoder().encode("prof"))
                     .role(Role.PROFESSOR)
                     .firstName("Proffesor").build();
-            teacherRepo.save(t1);           
+            teacherRepo.save(t1);
 
             CalenderItem cal = CalenderItem.builder().startDate("2023-04-03")
-            .endDate("2023-04-10")
-            .userId((long)1)
-            .task("Complete Project")
-            .build();
+                    .endDate("2023-04-10")
+                    .userId((long) 1)
+                    .task("Complete Project")
+                    .build();
 
             calenderRepository.save(cal);
         }

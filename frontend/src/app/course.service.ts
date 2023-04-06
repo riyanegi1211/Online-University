@@ -36,4 +36,17 @@ export class CourseService {
         let delURL= `http://localhost:8080/api/admin/${uid}/courses`;
         return this.http.put(delURL + '/' + courseId,data);
     }
+
+    getChartDataByBranch(){
+        let uid = localStorage.getItem("userId");
+	    let getURL= `http://localhost:8080/api/admin/${uid}/chart/branch`;
+        return this.http.get(getURL);
+    }
+
+
+    getChartDataBySemester(){
+        let uid = localStorage.getItem("userId");
+	    let getURL= `http://localhost:8080/api/admin/${uid}/chart/semester`;
+        return this.http.get(getURL);
+    }
 }

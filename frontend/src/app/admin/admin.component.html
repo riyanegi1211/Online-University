@@ -27,7 +27,6 @@
 		<ul class="sub-menu" [class.blank]="item.sub_menu.length == 0">
 		  <li><a class="link_name">{{item.link_name}}</a></li>
 		  <li *ngFor="let item_sub of item.sub_menu" routerLinkActive="active">
-			<!-- <a [routerLink]="[item_sub.link]">{{item_sub.link_name}}</a> -->
 		  </li>
 		</ul>
 	  </li>
@@ -82,11 +81,11 @@
 		</div>
 		<div class="student-stats">
 			<div class="student-stats-content">
-				<h1 class="student-stats-h1">Student Statistics</h1>
-				<p class="student-stats-p">Last Campaign Performance</p>
+				<h1 class="student-stats-h1">Student Semester Statistics</h1>
+				<p class="student-stats-p">Data Of Students By Semester</p>
 			</div>
 			<canvas baseChart class="chart"
-				[data]="pieChartData"
+				[data]="pieChartSemester"
 				[type]="pieChartType"
 				[options]="pieChartOptions"
 				[plugins]="pieChartPlugins"
@@ -98,8 +97,8 @@
 		</div>
 		<div class="professor-stats">
 			<div class="student-stats-content">
-				<h1 class="student-stats-h1">Student Statistics</h1>
-				<p class="student-stats-p">Last Campaign Performance</p>
+				<h1 class="student-stats-h1">Student Branch Statistics</h1>
+				<p class="student-stats-p-b">Data Of Students By Branch</p>
 			</div>
 			<canvas baseChart class="chart"
 				[data]="pieChartData"
@@ -176,7 +175,12 @@
                         <button class="btn btn-success table-buttons">Pending</button>
                     </td>
 				</tr>
-                <button class="button-73" role="button">View All</button>
+                <button class="cta">
+                    <span class="hover-underline-animation"> View All </span>
+                    <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg" id="arrow-horizontal">
+                        <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
+                    </svg>
+                </button>
 			</table>
 		</div>
 	</section>

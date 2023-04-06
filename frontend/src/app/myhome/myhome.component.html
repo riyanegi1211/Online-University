@@ -64,21 +64,25 @@
 	</button>
 </div>
 
-<div *ngFor="let x of send" class="card-container">
-	<div class="card-course" (click)="loadDashboard()">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">{{x.courseName}}</h3>
-				<p class="subtitle">{{x.courseCode}}</p>
-			</div>
-	
-			<div class="back">
-				<div class="progress description" role="progressbar" aria-label="Success striped example" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-					<div #progDiv class="progress-bar progress-bar-striped bg-success">{{answer}}</div>
+<div class="card-container">
+	<div *ngFor="let x of send">
+		<div class="card-course" (click)="loadDashboard()">
+			<div class="content">
+				<div class="front">
+					<h3 class="title">{{x.courseName}}</h3>
+					<p class="subtitle">{{x.courseCode}}</p>
+				</div>
+		
+				<div class="back">
+					<div class="progress description" role="progressbar" aria-label="Success striped example" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+						<div #progDiv class="progress-bar progress-bar-striped bg-success">{{answer}}</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
 	<!-- <div class="card-course">
 		<div class="content">
 			<div class="front">
@@ -149,7 +153,7 @@
 			</div>
 		</div> -->
 	<!-- </div> -->
-</div>
+
 
 <article class="updates-container">
 	<div class="upcoming-events">
