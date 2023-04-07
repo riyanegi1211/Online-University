@@ -1,39 +1,37 @@
-# Online-University
-Mini Project
-Micro Branch
-Steps to run on local machine
+# Online University
 
-Configure MySQl
-1. add new database name in the following command in place of {DATABASE_NAME}
+Online University is a web application that allows students to enroll in courses and view their grades. It is built with Spring Java on the backend and Angular on the frontend. The database is implemented using MySQL.
 
-mysql> CREATE DATABASE {DATABASE_NAME};
+## Installation
 
-2. add previously created username in {USERNAME}. previous user maybe 'newuser'
+To install the project, follow these steps:
 
-mysql> GRANT ALL PRIVILEGES ON {DATABASE_NAME}.* TO '{USERNAME}'@'localhost';
+1. Clone the repository: git clone https://github.com/your-username/online-university.git
+2. Navigate to the project directory: cd online-university
+3. Install the backend dependencies: (cd backend/user && ./mvnw install); (cd backend/courses && ./mvnw install); (cd backend/enrollment && ./mvnw install)
+4. Install the frontend dependencies: cd frontend && npm install
 
+To set up the MySQL database:
 
-3. Add/Change the required details to application.properties in 3 projects in the backend - user, course, enrollment
+5. Install MySQL if you haven't already: [link](https://dev.mysql.com/downloads/installer/) or brew install mysql
+6. Log in to MySQL as the root user: sudo mysql -u root -p
+7. Create a new database for the project: CREATE DATABASE online_university;
+8. Create a new user for the project: CREATE USER 'wissen_test'@'localhost' IDENTIFIED BY 'password';
+9. Grant the user access to the database: GRANT ALL PRIVILEGES ON online_university.* TO 'wissen_test'@'localhost';
+10. Exit MySQL: exit
 
-4. Use spring boot extension to run gateway, user, course, enrollment
+## Usage
 
-5. Authentication and Authorisation is not working in microservices. 
+To start the microservices, cd into the three microservices and run ./mvnw spring-boot:run in the directory.
 
-Static credential values are - "admin,admin", "prof,prof", "abc,abc"
+To start the frontend server, run cd frontend && ng serve. The frontend server will start on http://localhost:4200.
 
-Try to dynamically get values from the backend.if getting error, whatsapp.
+Before running the server, you'll need to update the application.properties file in the src/main/resources directory in the three microservices with your MySQL database credentials:
 
-6. To run the code
-```
-cd frontend
-npm install
-ng serve --open
-```
+spring.datasource.url=jdbc:mysql://localhost:3306/online_university
+spring.datasource.username=wissen_test
+spring.datasource.password=password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
 
-```
-Open spring boot extension and run 4 microservices - gateway, user, course, enrollment
-```
-
-# Current Architecture
-
-![mermaid-diagram-2023-04-03-155201](https://user-images.githubusercontent.com/34604329/229562399-16f5095d-2b83-47f0-b70a-92600cb0b0d2.svg)
+You can now navigate to http://localhost:4200 in your web browser to use the application.
