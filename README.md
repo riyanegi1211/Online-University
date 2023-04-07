@@ -28,10 +28,10 @@ To start the frontend server, run cd frontend && ng serve. The frontend server w
 
 Before running the server, you'll need to update the application.properties file in the src/main/resources directory in the three microservices with your MySQL database credentials:
 
-spring.datasource.url=jdbc:mysql://localhost:3306/online_university
-spring.datasource.username=wissen_test
-spring.datasource.password=password
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.hibernate.ddl-auto=update
+    spring.datasource.url=jdbc:mysql://localhost:3306/online_university
+    spring.datasource.username=wissen_test
+    spring.datasource.password=password
+    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+    spring.jpa.hibernate.ddl-auto=update
 
 You can now navigate to http://localhost:4200 in your web browser to use the application.
