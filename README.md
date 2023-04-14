@@ -6,7 +6,7 @@ Online University is a web application that allows students to enroll in courses
 
 To install the project, follow these steps:
 
-1. Clone the repository: git clone https://github.com/your-username/online-university.git
+1. Clone the repository: git clone https://github.com/riyanegi1211/Online-University.git
 2. Navigate to the project directory: cd online-university
 3. Install the backend dependencies: (cd backend/user && ./mvnw install); (cd backend/courses && ./mvnw install); (cd backend/enrollment && ./mvnw install)
 4. Install the frontend dependencies: cd frontend && npm install

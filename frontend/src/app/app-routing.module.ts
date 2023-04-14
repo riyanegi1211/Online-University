@@ -18,23 +18,24 @@ import { MyhomeComponent } from './myhome/myhome.component';
 import { UsercrudComponent } from './usercrud/usercrud.component';
 
 const routes: Routes = [
-    { path: '',   redirectTo: '/login', pathMatch: 'full' },
-    { path: 'home', component: MyhomeComponent, canActivate: [AuthGuard] },
-    { path: 'professor', component: ProfessorComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'dashboard', component: StudentDashboardComponent },
-    { path: 'admin', component: AdminComponent },
-    { path: 'admin/course', component: CoursecrudComponent },
-    { path: 'admin/student', component: UsercrudComponent },
-    {path: "Assessment",component:AssessmentComponent},
-    {path: "Assignment",component:AssignmentComponent},
-    {path: "One",component:UnitOneComponent},
-    {path: "Two",component:UnitTwoComponent},
-    {path: "Three",component:UnitThreeComponent},
-    {path: "Four",component:UnitFourComponent},
-    {path: "Five",component:UnitFiveComponent}
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'home', component: MyhomeComponent, canActivate: [AuthGuard] },
+  { path: 'professor', component: ProfessorComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: StudentDashboardComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/course', component: CoursecrudComponent },
+  { path: 'admin/student', component: UsercrudComponent },
+  { path: 'courseHome', component: HomeComponent },
+  { path: "Assessment", component: AssessmentComponent },
+  { path: "Assignment", component: AssignmentComponent },
+  { path: "One", component: UnitOneComponent },
+  { path: "Two", component: UnitTwoComponent },
+  { path: "Three", component: UnitThreeComponent },
+  { path: "Four", component: UnitFourComponent },
+  { path: "Five", component: UnitFiveComponent }
 
-  ];
+];
 
 
 

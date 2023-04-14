@@ -52,16 +52,17 @@ export class MyhomeComponent {
                     console.log(y.course);
                     this.send.push(y.course);
                 }
-				for(var obj of data){
-					this.res= obj.progress;
-					this.answer= this.res.toFixed(2) + "%";
-					this.progDiv.nativeElement.style.width= `${this.answer}`;
-				}
+				// for(var obj of data){
+				// 	this.res= obj.progress;
+				// 	this.answer= this.res.toFixed(2) + "%";
+				// 	this.progDiv.nativeElement.style.width= `${this.answer}`;
+				// }
 			},
 			error: (err) => {console.log(err)}
 		});
 		// this.fetchEvents();
-		this.http.get<any[]>(this.getURL).subscribe({
+
+		this.http.get<any[]>(this.getURL, { withCredentials: true }).subscribe({
 			next: (data) => { 
 								console.log(data)
                                 let temp:Object[];

@@ -20,6 +20,6 @@ export class StudentServiceService {
         let sid = this.userService.currentUser;
         let doURL= `http://localhost:8080/api/student/${sid}/postCourses/${cid}/data/${key}`;
         let headers= {'content-type':'application/json'};
-        return this.http.post(doURL, '', {'headers' : headers});
+        return this.http.post(doURL, '', {'headers' : headers, withCredentials: true});
     }
 }

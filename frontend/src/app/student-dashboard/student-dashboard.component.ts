@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class StudentDashboardComponent {
   opened = false;
+  ngOnInit() {
+    console.log("We are on home component")
+  }
 }

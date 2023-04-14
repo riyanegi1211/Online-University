@@ -18,13 +18,14 @@ export class ServicesService {
 
     const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
       reportProgress: true,
-      responseType: 'json'
+      responseType: 'json',
+      withCredentials: true
     });
 
     return this.http.request(req);
   }
 
   getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
+    return this.http.get(`${this.baseUrl}/files`, { withCredentials: true });
   }
 }
