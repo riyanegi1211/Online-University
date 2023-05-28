@@ -137,6 +137,9 @@ export class MyhomeComponent {
 	//   }
 
 
+    //cd deploy 
+    // tar -czvf . angular.tar.gz
+
 	upcoming:any[]=[
 		{
 			description: "Event 1"

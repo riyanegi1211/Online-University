@@ -20,10 +20,10 @@ import { UsercrudComponent } from './usercrud/usercrud.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'home', component: MyhomeComponent, canActivate: [AuthGuard] },
-  { path: 'professor', component: ProfessorComponent },
+  { path: 'professor', component: ProfessorComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: StudentDashboardComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'admin/course', component: CoursecrudComponent },
   { path: 'admin/student', component: UsercrudComponent },
   { path: 'courseHome', component: HomeComponent },
