@@ -109,8 +109,9 @@ public class UserApplication {
                     .firstName("Proffesor").build();
             teacherRepo.save(t1);
 
-            CalenderItem cal = CalenderItem.builder().startDate("2023-04-03")
-                    .endDate("2023-04-10")
+            CalenderItem cal = CalenderItem.builder()
+                    .startDate("2023-05-27")
+                    .endDate("2023-05-30")
                     .userId((long) 1)
                     .task("Complete Project")
                     .build();

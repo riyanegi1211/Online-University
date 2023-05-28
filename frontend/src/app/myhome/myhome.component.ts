@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { CalendarOptions } from '@fullcalendar/core';
 import { NgbOffcanvas, OffcanvasDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -33,27 +33,38 @@ export class MyhomeComponent {
 	eventData:Progress[]  =[]; // new Progress("hello", "2023-04-03", "2023-04-10"), new Progress("hello", "2023-04-03", "2023-04-11")
 
     progress!: Progress;
-    @ViewChild('progDiv') progDiv!: ElementRef;
+    // @ViewChild('progDiv') progDiv!: ElementRef<HTMLInputElement>;
+    @ViewChildren('progDiv') progDiv:QueryList<ElementRef> | undefined;
     calendarOptions: CalendarOptions=  {
         initialView: 'dayGridMonth',
         plugins: [dayGridPlugin,interactionPlugin],
         weekends: false,
         events: this.eventData
-      }
+    }
     info:any=[];
     response:any=[];
     send:any=[];
+    progressArr:number[]=[33.3,50];
+    i:number=0;
+    j:number=0;
+    lec:number=0;
+    answer:number[]=[];
 	// this.eventData= data; console.log(this.eventData)
 	ngOnInit(){
 		this.studentService.getCourseInfo().subscribe({
 			next: (data) => {
                 console.log(data);
                 for(let y of data){
-                    console.log(y.course);
+                    y.attendedLectures = this.progressArr[this.i]; 
+                    // console.log(y);
+                    y.course.answer= y.attendedLectures;
+                    console.log(y);
                     this.send.push(y.course);
+                    this.i=this.i+1;
                 }
 				// for(var obj of data){
 				// 	this.res= obj.progress;
+                //     console.log(this.res);
 				// 	this.answer= this.res.toFixed(2) + "%";
 				// 	this.progDiv.nativeElement.style.width= `${this.answer}`;
 				// }
@@ -88,6 +99,10 @@ export class MyhomeComponent {
 			error: (err) => {console.log(err)}
 		})
 	}
+
+    ngAfterViewInit(){
+        
+    }
 
 
 	open(content: any) {
@@ -145,10 +160,18 @@ export class MyhomeComponent {
 
 
 	res:number=0;
-	answer:string="";
 	
 
 	loadDashboard(){
 		this.router.navigate(['dashboard']);
 	}
+    loggingOut(){
+        console.log("logout in progress");
+        let headers= {'content-type':'application/json'};
+        let strURL= `http://localhost:8080/api/logout`;
+        // let jsonObj= JSON.stringify();
+        this.http.post(strURL,{'headers' : headers, withCredentials: true});
+        localStorage.removeItem("userId");
+        this.router.navigate(['login']);
+    }
 }

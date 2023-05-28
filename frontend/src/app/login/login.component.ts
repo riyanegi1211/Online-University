@@ -32,24 +32,26 @@ export class LoginComponent implements OnInit {
 
 
   redirecting(x: any) {
-    console.log("called");
+    console.log(x);
     const roleUrl = this.url + "role";
     this.userService.logIn();
-    // const observer = {
-    //   next: (x: any) => { console.log(x) },
-    //   error: (err: any) => { console.log(err.error) }
-    // }
-    // this.http.get(roleUrl, { responseType: 'text', withCredentials: true }).subscribe(observer);
-    if(x.role == "ADMIN")
-    {
-        this.router.navigate(['admin']);
+    const observer = {
+      next: (x: any) => { console.log(x);
+                            if(x == "ROLE_ADMIN")
+                            {
+                                this.router.navigate(['admin']);
+                            }
+                            else if(x == "ROLE_PROFESSOR")
+                            {
+                                this.router.navigate(['professor']);
+                            }
+                            else
+                                this.router.navigate(['home']);
+                        },
+      error: (err: any) => { console.log(err.error) }
     }
-    else if(x.role == "PROFESSOR")
-    {
-        this.router.navigate(['professor']);
-    }
-    else
-        this.router.navigate(['home']);
+    this.http.get(roleUrl, { responseType: 'text', withCredentials: true }).subscribe(observer);
+    
   }
 
   onLogin() {

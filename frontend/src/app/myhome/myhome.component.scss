@@ -55,6 +55,29 @@ img{
 	max-height: 1000px;
 }
 
+.user-icon-container {
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    flex-direction: column;
+}
+
+.user-icon-container:hover {
+    background-color:rgb(222, 215, 215);
+}
+
+.user-img {
+    height: 24px;
+    width: 24px;
+}
+
+.user-img:hover{
+    background-color: lightgray;
+}
+
 //Card styling
 
 .card-container{
@@ -247,16 +270,6 @@ img{
 
 .progress{
 	--mdb-progress-height: 20px;
-}
-
-.user-img{
-	width: 30px;
-	height: 30px;
-}
-
-.user-img:hover{
-	background-color: rgb(222, 215, 215);
-	cursor: pointer;
 }
 
 

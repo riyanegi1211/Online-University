@@ -517,7 +517,7 @@
 	flex-direction: column;
 	left: 110px;
 	height: 650px;
-	width: calc(100% - 35em);
+	width: calc(100% - 12.5em);
 	background-color: white;
 	.course-heading{
 		position: relative;
@@ -530,7 +530,7 @@
 .course-table{
 	position: relative;
 	top: 20px;
-	left: 20px;
+	left: 50px;
 	height: 80%;
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -542,7 +542,7 @@
 	position: relative;
 	left: 20px;
 	padding: 10px;
-	padding-left: 60px;
+	padding-left: 120px;
 	font-size: 15px;
 }
 
@@ -555,8 +555,8 @@
 .table-hr{
 	position: absolute;
 	margin-bottom: 0;
-	left: 20px;
-	width: 1030px;
+	left: 90px;
+	width: 1160px;
 	padding: 0;
 }
 
@@ -565,6 +565,7 @@
 	position: relative;
 	top: 10px;
 }
+
 
 .course-table .tr-change th:first-child{
 	border-left-style: solid;

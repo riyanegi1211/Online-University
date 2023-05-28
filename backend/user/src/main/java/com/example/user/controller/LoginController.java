@@ -11,6 +11,7 @@ import com.example.user.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import java.security.Principal;
 // import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -69,7 +70,7 @@ public class LoginController {
             }
             // roles list now contains the names of all roles the user has
         }
-        return "HI " + String.join(",", roles);
+        return String.join(",", roles);
     }
 
     // https://docs.spring.io/spring-security/reference/servlet/authentication/session-management.html#store-authentication-manually
@@ -116,13 +117,13 @@ public class LoginController {
     // }
 
     // It works, just returns 403 instead of 200
-    // @PostMapping("logout")
-    // public ResponseEntity<String> logout(Principal principal) {
-    // if (principal != null) {
-    // LOG.info("Logout : " + principal.getName());
-    // }
-    // return new ResponseEntity<>("Success", HttpStatus.OK);
-    // }
+    @PostMapping("logout")
+    public ResponseEntity<String> logout(Principal principal) {
+        if (principal != null) {
+            LOG.info("Logout : " + principal.getName());
+        }
+        return new ResponseEntity<>("Success", HttpStatus.OK);
+    }
 }
 
 // package com.example.user.controller;

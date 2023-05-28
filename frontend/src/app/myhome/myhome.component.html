@@ -29,15 +29,13 @@
 	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with heart icon">
 		<mat-icon>favorite</mat-icon>
 	</button>
-	<div ngbDropdown class="d-inline-block">
+	<div ngbDropdown class="user-icon-container">
 		<!-- <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
 			Toggle dropdown
 		</button> -->
 		<img class="user-img" src="./assets/user.png" alt="" ngbDropdownToggle>
 		<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-			<button ngbDropdownItem>Action - 1</button>
-			<button ngbDropdownItem>Another Action</button>
-			<button ngbDropdownItem>Something else is here</button>
+			<button (click)="loggingOut()" ngbDropdownItem>Logout</button>
 		</div>
 	</div>
 </mat-toolbar>
@@ -75,7 +73,7 @@
 		
 				<div class="back">
 					<div class="progress description" role="progressbar" aria-label="Success striped example" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-						<div #progDiv class="progress-bar progress-bar-striped bg-success">{{answer}}</div>
+						<div #progDiv class="progress-bar progress-bar-striped bg-success">{{x.answer}}</div>
 					</div>
 				</div>
 			</div>
