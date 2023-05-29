@@ -27,6 +27,12 @@ export class UserService {
 		return this.http.get(getURL, { withCredentials: true });
 	}
 
+    getStudentList():Observable<any>{
+        let uid = localStorage.getItem("userId");
+	    let getURL= `http://localhost:8080/api/teacher/${uid}/students`;
+		return this.http.get(getURL, { withCredentials: true });
+	}
+
     saveStudents(data: any):Observable<any>{
         let headers= {'content-type':'application/json'};
         let uid = localStorage.getItem("userId");

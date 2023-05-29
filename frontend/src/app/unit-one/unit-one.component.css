@@ -1,9 +1,26 @@
+body{
+    background: rgb(134,124,132);
+background: linear-gradient(324deg, rgba(134,124,132,1) 0%, rgba(235,54,182,1) 51%, rgba(214,48,221,1) 82%);
+}
+
 .content
 {
     margin-right: 20px;
     margin-left: 15px;
     text-align: center;
+    color:rgb(37, 33, 33);
 }
+
+.container{
+    padding: 10px;
+    margin: 0;
+    height: 100%;
+    max-width: 100%;
+    background: rgb(134,124,132);
+    background: linear-gradient(324deg, rgba(134,124,132,1) 0%, rgba(235,54,182,1) 51%, rgba(214,48,221,1) 82%);
+}
+
+
 .acc
 {
     margin: 30px;

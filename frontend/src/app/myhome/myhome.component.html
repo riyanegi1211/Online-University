@@ -24,7 +24,7 @@
 	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with menu icon" (click)="open(content)">
 		<mat-icon>menu</mat-icon>
 	</button>
-	<span style="position: relative;">My App</span>
+	<span style="position: relative;">Online University</span>
 	<span class="example-spacer"></span>
 	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with heart icon">
 		<mat-icon>favorite</mat-icon>
@@ -41,10 +41,145 @@
 </mat-toolbar>
 <div class="hero-container">
     <div class="hero-container-text">
-        <h1 class="hero-h1">Hello and welcome to the kapil sharma show</h1>
-        <p class="hero-p">lbhfbhb sjfbhjsbfbsf jsbfjbsfjbkjbsf hjsfbkbfbsf jbijsfbjsbsfij</p>
+        <h1 class="hero-h1">Welcome to School Of Online Teaching</h1>
+        <p class="hero-p">Turning your dreams into reality</p>
     </div>
     <img class="hero-img" src="./assets/man_book.jpg" alt="">
+</div>
+<div class="main-content-container">
+    <div class="course-card-container">
+        <div *ngFor="let x of send" class="course-card-item" (click)="loadDashboard()">
+            <img class="course-card-icon" src = './assets/grad.png' alt = 'grad-icon' />    
+            <div class="course-details-flex">
+                <h2>{{x.courseName}}</h2>
+                <h3>{{x.courseCode}}</h3>
+                <div class="progress-bar-container">
+                    <div #prog class="progress-bar-percent"></div>
+                    <p class="progress-bar-text">Progress {{x.answer}} %</p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="course-card-item">
+            <img class="course-card-icon" src = './assets/grad.png' alt = 'grad-icon' />    
+            <div class="course-details-flex">
+                <h2>BioTech</h2>
+                <h3>2015055</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-percent1"></div>
+                    <p class="progress-bar-text">Progress 60%</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="course-card-item">
+            <img class="course-card-icon" src = './assets/grad.png' alt = 'grad-icon' />    
+            <div class="course-details-flex">
+                <h2>BCA</h2>
+                <h3>2015102</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-percent2"></div>
+                    <p class="progress-bar-text">Progress 45%</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="course-card-item">
+            <img class="course-card-icon" src = './assets/grad.png' alt = 'grad-icon' />    
+            <div class="course-details-flex">
+                <h2>MCA</h2>
+                <h3>2014114</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-percent3"></div>
+                    <p class="progress-bar-text">Progress 72%</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="course-card-item">
+            <img class="course-card-icon" src = './assets/grad.png' alt = 'grad-icon' />    
+            <div class="course-details-flex">
+                <h2>Course Name</h2>
+                <h3>Course Code</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-percent"></div>
+                    <p class="progress-bar-text">Progress 50%</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="course-card-item">
+            <img class="course-card-icon" src = './assets/grad.png' alt = 'grad-icon' />    
+            <div class="course-details-flex">
+                <h2>Course Name</h2>
+                <h3>Course Code</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-percent"></div>
+                    <p class="progress-bar-text">Progress 50%</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="course-card-item">
+            <img class="course-card-icon" src = './assets/grad.png' alt = 'grad-icon' />    
+            <div class="course-details-flex">
+                <h2>Course Name</h2>
+                <h3>Course Code</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-percent"></div>
+                    <p class="progress-bar-text">Progress 50%</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="course-card-item">
+            <img class="course-card-icon" src = './assets/grad.png' alt = 'grad-icon' />    
+            <div class="course-details-flex">
+                <h2>Course Name</h2>
+                <h3>Course Code</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-percent"></div>
+                    <p class="progress-bar-text">Progress 50%</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="course-card-item">
+            <img class="course-card-icon" src = './assets/grad.png' alt = 'grad-icon' />    
+            <div class="course-details-flex">
+                <h2>Course Name</h2>
+                <h3>Course Code</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-percent"></div>
+                    <p class="progress-bar-text">Progress 50%</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <article class="updates-container">
+        <div class="upcoming-events">
+            <h1>Upcoming Events</h1>
+            <div class="events-container">
+                <ul class="events-list">
+                    <li class="event-li" *ngFor="let event of upcoming">
+                        {{event.description}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline">
+            <h1 class="timeline-heading">Timeline</h1>
+            <div class="timeline-container">
+                <ul class="timeline-list">
+                    <li class="timeline-li" *ngFor="let event of upcoming">
+                        {{event.description}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="calendar-div" >
+            <full-calendar #calendar [options]="calendarOptions"></full-calendar>
+        </div>
+    </article>
 </div>
 
 <!-- <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -70,7 +205,7 @@
 	</button>
 </div> -->
 
-<div class="card-container">
+<!-- <div class="card-container">
 	<div *ngFor="let x of send">
 		<div class="card-course" (click)="loadDashboard()">
 			<div class="content">
@@ -87,19 +222,9 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
-<div class="course-card-container">
-    <div class="course-card-item"></div>
-    <div class="course-card-item"></div>
-    <div class="course-card-item"></div>
-    <div class="course-card-item"></div>
-    <div class="course-card-item"></div>
-    <div class="course-card-item"></div>
-    <div class="course-card-item"></div>
-    <div class="course-card-item"></div>
-    <div class="course-card-item"></div>
-</div>
+
 
 	<!-- <div class="card-course">
 		<div class="content">
@@ -173,7 +298,7 @@
 	<!-- </div> -->
 
 
-<article class="updates-container">
+<!-- <article class="updates-container">
 	<div class="upcoming-events">
 		<h1>Upcoming Events</h1>
 		<div class="events-container">
@@ -197,6 +322,6 @@
 	<div class="calendar-div" >
 		<full-calendar #calendar [options]="calendarOptions"></full-calendar>
 	</div>
-</article>
+</article> -->
 
 <app-footer></app-footer>

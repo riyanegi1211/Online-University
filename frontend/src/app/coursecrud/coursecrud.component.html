@@ -1,56 +1,60 @@
-<button class="btn btn-success get-btn" (click)="getAllCoursesList()">Click</button>
+<div class="table-container">
+    <table>
+        <thead>
+            <th>Course Id</th>
+            <th>Course Name</th>
+            <th>Total Lectures</th>
+            <th>Course Code</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of courseArr">
+                <td> {{course.courseId}} </td>
+                <td> {{course.courseName}} </td>
+                <td> {{course.totalLectures}} </td>
+                <td> {{course.courseCode}} </td>
+                <td> {{course.status}} </td>
+                <td>
+                    <button class="btn btn-primary" (click)="updateData(course.courseId)">Edit</button> &nbsp;
+                    <button class="btn btn-danger" (click)="deleteData(course.courseId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success get-btn" (click)="getAllCoursesList()">Click</button>
+</div>
 
-<table>
-	<thead>
-		<th>Course Id</th>
-		<th>Course Name</th>
-		<th>Total Lectures</th>
-		<th>Course Code</th>
-		<th>Status</th>
-        <th>Actions</th>
-	</thead>
-	<tbody>
-		<tr *ngFor="let course of courseArr">
-			<td> {{course.courseId}} </td>
-			<td> {{course.courseName}} </td>
-			<td> {{course.totalLectures}} </td>
-			<td> {{course.courseCode}} </td>
-			<td> {{course.status}} </td>
-            <td>
-                <button class="btn btn-primary" (click)="updateData(course.courseId)">Edit</button> &nbsp;
-                <button class="btn btn-danger" (click)="deleteData(course.courseId)">Delete</button>
-            </td>
-		</tr>
-	</tbody>
-</table>
 
-
-
-<h3>Add Data :- </h3>
-<h3 class="second"> Update Data :- </h3>
-<div class="update-container">
-	<form class="form" [formGroup]="update" (ngSubmit)="onSubmit()">
-		<label for="cid">Course Code:</label>
-		<input type="text" name="courseCode" id="" formControlName="courseCode">
-		<label for="cname">Course Name:</label>
-		<input  type="text" name="coursename" id="" formControlName="courseName">
-		<label for="lecnum">Number Of Lectures:</label>
-		<input type="text" name="totallectures" id="" formControlName="totalLectures">
-		<label for="stat">Status:</label>
-		<input type="text" name="stat" id="" formControlName="status">
-		<button type="submit" class="btn btn-warning add-btn">Submit</button>
-	</form>
-    <form class="form" [formGroup]="putOp" (ngSubmit)="updateCourse()">
-        <label for="cid">Course Code:</label>
-		<input type="text" name="courseCode" id="" formControlName="courseCode">
-		<label for="cname">Course Name:</label>
-		<input  type="text" name="coursename" id="" formControlName="courseName">
-		<label for="lecnum">Number Of Lectures:</label>
-		<input type="text" name="totallectures" id="" formControlName="totalLectures">
-		<label for="stat">Status:</label>
-		<input type="text" name="stat" id="" formControlName="status">
-		<button type="submit" class="btn btn-warning add-btn">Submit</button>
-    </form>
+<div class="crud-container">
+    <div class="add-container">
+        <h3>Add Data :- </h3>
+        <form class="add-form" [formGroup]="update" (ngSubmit)="onSubmit()">
+            <label for="cid">Course Code:</label>
+            <input type="text" name="courseCode" id="" formControlName="courseCode">
+            <label for="cname">Course Name:</label>
+            <input  type="text" name="coursename" id="" formControlName="courseName">
+            <label for="lecnum">Number Of Lectures:</label>
+            <input type="text" name="totallectures" id="" formControlName="totalLectures">
+            <label for="stat">Status:</label>
+            <input type="text" name="stat" id="" formControlName="status">
+            <button type="submit" class="btn btn-success add-btn">Submit</button>
+        </form>
+    </div>
+    <div class="update-container">
+        <h3 class="second"> Update Data :- </h3>
+        <form class="update-form" [formGroup]="putOp" (ngSubmit)="updateCourse()">
+            <label for="cid">Course Code:</label>
+            <input type="text" name="courseCode" id="" formControlName="courseCode">
+            <label for="cname">Course Name:</label>
+            <input  type="text" name="coursename" id="" formControlName="courseName">
+            <label for="lecnum">Number Of Lectures:</label>
+            <input type="text" name="totallectures" id="" formControlName="totalLectures">
+            <label for="stat">Status:</label>
+            <input type="text" name="stat" id="" formControlName="status">
+            <button type="submit" class="btn btn-success add-btn">Submit</button>
+        </form>
+    </div>
 </div>
 
 

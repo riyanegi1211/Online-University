@@ -100,11 +100,13 @@ img{
 }
 
 .title {
+    margin-top: 45px;
 	transform: translateZ(5rem);
 	font-size: 2rem;
 }
 
 .subtitle {
+    margin-top: 50px;
 	transform: translateZ(2rem);
 }
 
@@ -114,6 +116,7 @@ img{
 }
 
 .description {
+    margin-top: 70px;
 	transform: translateZ(3rem);
 }
 
@@ -194,4 +197,41 @@ img{
     flex-direction: column;
     top: 10rem;
     row-gap: 30px;
+}
+
+.user-icon-container {
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    flex-direction: column;
+}
+
+.user-icon-container:hover {
+    background-color:rgb(222, 215, 215);
+}
+
+.user-img {
+    height: 24px;
+    width: 24px;
+}
+
+.user-img:hover{
+    background-color: lightgray;
+}
+
+.main-card-container {
+    margin: 100px 30px 50px 150px;
+    display: flex;
+}
+
+.course-card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    border-radius: 10px;
+    gap: 50px;
+    margin-right: 50px;
 }

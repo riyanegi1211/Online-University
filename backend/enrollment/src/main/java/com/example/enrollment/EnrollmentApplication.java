@@ -31,11 +31,41 @@ public class EnrollmentApplication {
 									.build();
 			enrollmentRepository.save(e);
 
-            Enrollment e2 = Enrollment.builder()
+            Enrollment e1 = Enrollment.builder()
 									.courseId(2)
 									.userId(1)
 									.build();
+			enrollmentRepository.save(e1);
+
+            Enrollment e2 = Enrollment.builder()
+									.courseId(3)
+									.userId(1)
+									.build();
 			enrollmentRepository.save(e2);
+
+            Enrollment e3 = Enrollment.builder()
+									.courseId(4)
+									.userId(1)
+									.build();
+			enrollmentRepository.save(e3);
+
+            Enrollment e4 = Enrollment.builder()
+									.courseId(5)
+									.userId(1)
+									.build();
+			enrollmentRepository.save(e4);
+
+            Enrollment e5 = Enrollment.builder()
+									.courseId(6)
+									.userId(1)
+									.build();
+			enrollmentRepository.save(e5);
+
+            Enrollment e6 = Enrollment.builder()
+									.courseId(7)
+									.userId(1)
+									.build();
+			enrollmentRepository.save(e6);
 		}
 	}
 

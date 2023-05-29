@@ -4,8 +4,8 @@
 	</div>
 	<div class="offcanvas-body">
 		<div class="btn-holder">
-			<button class="btn-offcanvas">
-				Hover me
+			<button class="btn-offcanvas" (click)="loadStudentsList()">
+				Students List
 			</button>
 			<button class="btn-offcanvas">
 				Hover me
@@ -24,21 +24,20 @@
 	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with menu icon" (click)="open(content)">
 		<mat-icon>menu</mat-icon>
 	</button>
-	<span>My App</span>
+	<span>Online Univeristy</span>
 	<span class="example-spacer"></span>
 	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with heart icon">
 		<mat-icon>favorite</mat-icon>
 	</button>
-	<div ngbDropdown class="d-inline-block">
-        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
-            Toggle dropdown
-        </button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem>Action - 1</button>
-            <button ngbDropdownItem>Another Action</button>
-            <button ngbDropdownItem>Something else is here</button>
-        </div>
-    </div>
+	<div ngbDropdown class="user-icon-container">
+		<!-- <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+			Toggle dropdown
+		</button> -->
+		<img class="user-img" src="./assets/user.png" alt="" ngbDropdownToggle>
+		<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+			<button (click)="loggingOut()" ngbDropdownItem>Logout</button>
+		</div>
+	</div>
 </mat-toolbar>
 
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -63,147 +62,122 @@
 	</button>
 </div>
 
-<div class="card-container">
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="card-course">
-		<div class="content">
-			<div class="front">
-				<h3 class="title">Hey</h3>
-				<p class="subtitle">Hover me :)</p>
-			</div>
-	
-			<div class="back">
-				<p class="description">
-					Cool description so you can read it too my friend
-				</p>
-			</div>
-		</div>
-	</div>
+<div class="main-card-container">
+    <div class="course-card-container">
+        <div class="card-course">
+            <div class="content">
+                <div class="front">
+                    <h3 class="title">B.Tech</h3>
+                    <p class="subtitle">2015108</p>
+                </div>
+        
+                <div class="back">
+                    <p class="description">
+                        Cool description so you can read it too my friend
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card-course">
+            <div class="content">
+                <div class="front">
+                    <h3 class="title">MBA</h3>
+                    <p class="subtitle">2015109</p>
+                </div>
+        
+                <div class="back">
+                    <p class="description">
+                        Cool description so you can read it too my friend
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card-course">
+            <div class="content">
+                <div class="front">
+                    <h3 class="title">BioTech</h3>
+                    <p class="subtitle">2015055</p>
+                </div>
+        
+                <div class="back">
+                    <p class="description">
+                        Cool description so you can read it too my friend
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card-course">
+            <div class="content">
+                <div class="front">
+                    <h3 class="title">BCA</h3>
+                    <p class="subtitle">2015102</p>
+                </div>
+        
+                <div class="back">
+                    <p class="description">
+                        Cool description so you can read it too my friend
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card-course">
+            <div class="content">
+                <div class="front">
+                    <h3 class="title">MCA</h3>
+                    <p class="subtitle">2014114</p>
+                </div>
+        
+                <div class="back">
+                    <p class="description">
+                        Cool description so you can read it too my friend
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card-course">
+            <div class="content">
+                <div class="front">
+                    <h3 class="title">B.Pharma</h3>
+                    <p class="subtitle">2014025</p>
+                </div>
+        
+                <div class="back">
+                    <p class="description">
+                        Cool description so you can read it too my friend
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card-course">
+            <div class="content">
+                <div class="front">
+                    <h3 class="title">LLM</h3>
+                    <p class="subtitle">2013886</p>
+                </div>
+        
+                <div class="back">
+                    <p class="description">
+                        Cool description so you can read it too my friend
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card-course">
+            <div class="content">
+                <div class="front">
+                    <h3 class="title">MBBS</h3>
+                    <p class="subtitle">2014732</p>
+                </div>
+        
+                <div class="back">
+                    <p class="description">
+                        Cool description so you can read it too my friend
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 <app-footer></app-footer>

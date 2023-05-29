@@ -1,4 +1,75 @@
-<button class="btn btn-success get-btn" (click)="getAllStudentsList()">Click</button>
+<div class="table-container">
+    <table>
+        <thead>
+            <th>Student Id</th>
+            <th>Student Code</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Semester</th>
+            <th>Branch</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of studentArr">
+                <td> {{student.id}} </td>
+                <td> {{student.studentId}} </td>
+                <td> {{student.firstName}} </td>
+                <td> {{student.lastName}} </td>
+                <td> {{student.studentSemester}} </td>
+                <td> {{student.studentBranch}} </td>
+                <td>
+                    <button class="btn btn-primary" (click)="updateData(student.id)">Edit</button> &nbsp;
+                    <button class="btn btn-danger" (click)="deleteData(student.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success get-btn" (click)="getAllStudentsList()">Click</button>
+</div>
+
+
+<div class="crud-container">
+    <div class="add-container">
+        <h3>Add Data :-</h3>
+        <form class="add-form" [formGroup]="update" (ngSubmit)="onSubmit()">
+            <label for="cid">Student Id:</label>
+            <input type="text" name="studentId" id="" formControlName="studentId">
+            <label for="cname">First Name</label>
+            <input  type="text" name="firstname" id="" formControlName="firstName">
+            <label for="lecnum">Last Name</label>
+            <input type="text" name="lastname" id="" formControlName="lastName">
+            <label for="stat">Branch</label>
+            <input type="text" name="branch" id="" formControlName="studentBranch">
+            <label for="stat">Semester</label>
+            <input type="text" name="sem" id="" formControlName="studentSemester">
+            <button type="submit" class="btn btn-success add-btn">Submit</button>
+        </form>
+    </div>
+    <div class="update-container">
+        <h3 class="second"> Update Data :-</h3>
+        <form class="update-form" [formGroup]="putOp" (ngSubmit)="updateCourse()">
+            <label for="cid">Student Id:</label>
+            <input type="text" name="studentId" id="" formControlName="studentId">
+            <label for="cname">First Name</label>
+            <input  type="text" name="firstname" id="" formControlName="firstName">
+            <label for="lecnum">Last Name</label>
+            <input type="text" name="lastname" id="" formControlName="lastName">
+            <label for="stat">Branch</label>
+            <input type="text" name="branch" id="" formControlName="studentBranch">
+            <label for="stat">Semester</label>
+            <input type="text" name="sem" id="" formControlName="studentSemester">
+            <button type="submit" class="btn btn-success add-btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- <button class="btn btn-success get-btn" (click)="getAllStudentsList()">Click</button>
 
 <table>
 	<thead>
@@ -56,7 +127,7 @@
 		<input type="text" name="sem" id="" formControlName="studentSemester">
 		<button type="submit" class="btn btn-warning add-btn">Submit</button>
     </form>
-</div>
+</div> -->
 
 
 

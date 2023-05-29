@@ -10,7 +10,7 @@
 		<div class="logo"></div>
 	</div>
 	<ul class="nav-links" id="nav-links">
-	  <li *ngFor="let item of menuSidebar" #itemEl routerLinkActive="active">
+	  <li *ngFor="let item of menuSidebar" #itemEl>
 		<div *ngIf="item.sub_menu.length == 0" class="dropdown-title">
 		  <a [routerLink]="[item.link]">
 			<i [class] ="item.icon"></i>
@@ -42,7 +42,7 @@
 				<div class="bar"></div>
 			</label>
 		</div>
-		<div class="title">Header</div>
+		<div class="title">Admin Dashboard</div>
 	</div>
 	<section class="home-view">
 		<div class="total-cards-wrapper">

@@ -1,11 +1,61 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
-    Online University
-  </mat-toolbar-row>
-  
+<ng-template #content let-offcanvas>
+	<div class="offcanvas-header">
+		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+	</div>
+	<div class="offcanvas-body">
+		<div class="btn-holder">
+			<button class="btn-offcanvas" routerLink="/courseHome">
+				Course Overview
+			</button>
+			<button class="btn-offcanvas" routerLink="/One">
+				Unit-1
+			</button>
+			<button class="btn-offcanvas" routerLink="/Two">
+				Unit-2
+			</button>
+			<button class="btn-offcanvas" routerLink="/Three">
+				Unit-3
+			</button>
+			<button class="btn-offcanvas" routerLink="/Four">
+				Unit-4
+			</button>
+			<button class="btn-offcanvas" routerLink="/Five">
+				Unit-5
+			</button>
+			<button class="btn-offcanvas" routerLink="/Assessment">
+				Assessment
+			</button>
+			<button class="btn-offcanvas" routerLink="/Assignment">
+				Assignment
+			</button>
+		</div>
+	</div>
+</ng-template>
+
+<mat-toolbar class="mat-tool">
+	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with menu icon" (click)="open(content)">
+		<mat-icon>menu</mat-icon>
+	</button>
+	<span style="position: relative;">Online University</span>
+	<span class="example-spacer"></span>
+	<button class="nav-btn" mat-icon-button  aria-label="Example icon-button with heart icon">
+		<mat-icon>favorite</mat-icon>
+	</button>
+	<div ngbDropdown class="user-icon-container">
+		<img class="user-img" src="./assets/user.png" alt="" ngbDropdownToggle>
+		<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+			<button (click)="loggingOut()" ngbDropdownItem>Logout</button>
+		</div>
+	</div>
 </mat-toolbar>
-<mat-sidenav-container>
+
+<div class="quote">
+    <div class="quote-text">
+        <p>Enjoy Your Learning</p>
+    </div>
+    <img src="./assets/study-img.jpg" alt="student-img" class="quote-img">
+</div>
+<!-- <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
     <mat-list>
       <mat-list-item><a routerLink="/courseHome" [routerLinkActive]="['is-active']"><span>Course Overview</span></a></mat-list-item>
@@ -21,4 +71,4 @@
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->

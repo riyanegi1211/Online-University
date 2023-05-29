@@ -16,6 +16,7 @@ import { AuthGuard } from './auth.guard';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { MyhomeComponent } from './myhome/myhome.component';
 import { UsercrudComponent } from './usercrud/usercrud.component';
+import { StudentListComponent } from './student-list/student-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: StudentDashboardComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'studentlist', component: StudentListComponent},
   { path: 'admin/course', component: CoursecrudComponent },
   { path: 'admin/student', component: UsercrudComponent },
   { path: 'courseHome', component: HomeComponent },

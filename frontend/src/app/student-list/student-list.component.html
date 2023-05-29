@@ -1,0 +1,23 @@
+<div class="table-container">
+    <table>
+        <thead>
+            <th>Student Id</th>
+            <th>Student Code</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Semester</th>
+            <th>Branch</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of studentArr">
+                <td> {{student.id}} </td>
+                <td> {{student.studentId}} </td>
+                <td> {{student.firstName}} </td>
+                <td> {{student.lastName}} </td>
+                <td> {{student.studentSemester}} </td>
+                <td> {{student.studentBranch}} </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success get-btn" (click)="getAllStudentsList()">Click</button>
+</div>

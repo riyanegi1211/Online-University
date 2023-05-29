@@ -3,6 +3,7 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 import { CourseService } from '../course.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -15,7 +16,7 @@ export class AdminComponent implements OnInit{
 	menuSidebar = [
 	  {
 		link_name: "Dashboard",
-		link: "/dashboard",
+		link: "/admin",
 		sub_menu: [],
         icon: "bx bx-book-alt",
 	  }, 
@@ -55,7 +56,7 @@ export class AdminComponent implements OnInit{
 	//   }, 
 	  {
 		link_name: "Courses",
-		link: "/analytics",
+		link: "/admin/course",
 		icon: "bx bx-pie-chart-alt-2",
 		sub_menu: []
 	  }, 
@@ -84,7 +85,7 @@ export class AdminComponent implements OnInit{
 	//   }, 
 	  {
 		link_name: "Students",
-		link: "/explore",
+		link: "/admin/student",
 		icon: "bx bx-compass",
 		sub_menu: []
 	  }, 
@@ -102,7 +103,7 @@ export class AdminComponent implements OnInit{
 	  }
 	]
   
-	constructor(private courseService:CourseService) { }
+	constructor(private courseService:CourseService, private router:Router) { }
     
     label:string[]=[];
     data:number[]=[];
@@ -200,5 +201,10 @@ export class AdminComponent implements OnInit{
   
     public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
       console.log(event, active);
+    }
+
+    goToCourseCrud(){
+        console.log("hello course");
+        this.router.navigate(['admin','course'])
     }
 }

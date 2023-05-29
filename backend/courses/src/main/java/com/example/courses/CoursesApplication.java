@@ -45,6 +45,55 @@ public class CoursesApplication {
 							.status("completed")
 							.build();
             courseRepository.save(c2);
+
+            Course c3 = Course.builder()
+							.totalLectures(5)
+							.courseName("BioTech")
+							.courseCode("20151055")
+							.status("completed")
+							.build();
+            courseRepository.save(c3);
+
+            Course c4 = Course.builder()
+							.totalLectures(6)
+							.courseName("BCA")
+							.courseCode("2015012")
+							.status("completed")
+							.build();
+            courseRepository.save(c4);
+
+            Course c5 = Course.builder()
+							.totalLectures(7)
+							.courseName("MCA")
+							.courseCode("2014114")
+							.status("completed")
+							.build();
+            courseRepository.save(c5);
+
+            Course c6 = Course.builder()
+							.totalLectures(8)
+							.courseName("B.Pharma")
+							.courseCode("2014025")
+							.status("completed")
+							.build();
+            courseRepository.save(c6);
+
+            Course c7 = Course.builder()
+							.totalLectures(9)
+							.courseName("LLM")
+							.courseCode("2013886")
+							.status("completed")
+							.build();
+            courseRepository.save(c7);
+
+            Course c8 = Course.builder()
+							.totalLectures(14)
+							.courseName("MBBS")
+							.courseCode("2014732")
+							.status("completed")
+							.build();
+            courseRepository.save(c8);
+
 			// Course 1 Unit 1 
 			CourseData cData= CourseData.builder()
 										.course(c1)

@@ -14,6 +14,7 @@ h2
     margin-right: 20px;
     margin-left: 15px;
     text-align: center;
+    color:rgb(37, 33, 33);
 }
 .display-5
 {
@@ -76,14 +77,11 @@ h2
   }
   
   .flip-card-front {
-    background: linear-gradient(120deg, #D2EFEE 60%, #dff6f5 88%,
-       rgb(121,208,204) 40%, rgba(19,106,102) 48%);
-    color: #20B2AA;
+    background: linear-gradient(324deg, rgba(246,215,240,1) 7%, rgba(211,100,216,1) 40%);
   }
   
   .flip-card-back {
-    background: linear-gradient(120deg, rgb(121,208,204) 30%, #20B2AA 88%,
-    #D2EFEE 40%, rgb(121,208,204) 78%);
+    background: linear-gradient(324deg, rgba(246,215,240,1) 7%, rgba(211,100,216,1) 40%);
     color: white;
     transform: rotateY(180deg);
   }
@@ -94,12 +92,12 @@ h2
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #2c9caf;
+  color: #A365E9;;
   transition: all 1000ms;
   font-size: 10px;
   position: relative;
   overflow: hidden;
-  outline: 2px solid #2c9caf;
+  outline: 2px solid #A365E9;;
   height: 50px;
   width: 100px;
   margin-left: 65px;
@@ -108,7 +106,7 @@ h2
 button:hover {
   color: #ffffff;
   transform: scale(1.1);
-  outline: 2px solid #70bdca;
+  outline: 2px solid #A365E9;;
   box-shadow: 4px 5px 17px -4px #268391;
 }
 
@@ -119,7 +117,7 @@ button::before {
   top: 0;
   width: 0;
   height: 100%;
-  background-color: #2c9caf;
+  background-color: #A365E9;
   transform: skewX(45deg);
   z-index: -1;
   transition: width 1000ms;

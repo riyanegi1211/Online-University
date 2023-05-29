@@ -100,6 +100,10 @@
 	z-index: 100;
 	transition: all 0.6s ease;
   }
+
+  a{
+    cursor: pointer;
+  }
   
   .sidebar.sidebar-close {
 	width: 60px;
@@ -587,7 +591,7 @@
 .cta {
     position: relative;
 	top: 40px;
-	left: calc(100% + 13em);
+	left: calc(100% + 20em);
     border: none;
     background: none;
   }

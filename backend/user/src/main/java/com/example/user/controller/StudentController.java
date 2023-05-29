@@ -6,12 +6,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.user.CourseService;
+import com.example.user.EnrollmentService;
 import com.example.user.model.CalenderItem;
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
@@ -49,6 +57,8 @@ public class StudentController {
     @Autowired
     private CalenderRepository calenderRepository;
 
+    @Autowired
+    private EnrollmentService enrollmentService;
     // long studentId;
     // StudentController() {
     //     this.studentId = 1;
@@ -89,6 +99,13 @@ public class StudentController {
         return calItem;
     }
 
-
+    @PostMapping("/{sid}/course/{courseId}/upload")
+    public ResponseEntity<String> uploadFile(@PathVariable long sid, @PathVariable long courseId, @RequestParam("file") MultipartFile file) {
+        return new ResponseEntity<>(enrollmentService.uploadFile(sid, courseId, file), HttpStatus.CREATED);
+    }
     
+    @GetMapping("/{sid}/course/{courseId}/files")
+    public List<String> getFileNames(@PathVariable long sid, @PathVariable long courseId) {
+        return enrollmentService.getFileNames(sid, courseId);
+    }
 }

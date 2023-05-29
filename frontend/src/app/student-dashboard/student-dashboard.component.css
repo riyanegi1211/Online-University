@@ -1,14 +1,119 @@
 mat-sidenav-container
 {
     height: calc(205vh - 115vh);
-    background-color: black;
+    background-color: white;
+}
+
+.example-spacer {
+	flex: 1 1 auto;
+}
+
+.mat-tool{
+	padding: 0 46px;
 }
 
 mat-toolbar
 {
-    background-color: black;
-    color: white;
+    background-color: #f5f5f5;
+    color: black;
 }
+
+
+.user-icon-container {
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    flex-direction: column;
+}
+
+.user-icon-container:hover {
+    background-color:rgb(222, 215, 215);
+}
+
+.user-img {
+    height: 24px;
+    width: 24px;
+}
+
+.user-img:hover{
+    background-color: lightgray;
+}
+
+.btn-close{
+	margin-left: auto;
+}
+
+
+.offcanvas-body{
+	position: relative;
+	top: 5rem;
+	width: auto;
+}
+
+.offcanvas-header{
+	background-color: white;
+}
+
+.btn-offcanvas {
+	font-size: 17px;
+	background: transparent;
+	border: none;
+	padding: 1em 1.5em;
+	color: #ffedd3;
+	text-transform: uppercase;
+	position: relative;
+	transition: .5s ease;
+}
+  
+.btn-offcanvas::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 2px;
+	width: 0;
+	background-color: #DFA4E2;
+	transition: .5s ease;
+}
+  
+.btn-offcanvas:hover {
+	color: #1e1e2b;
+	transition-delay: .5s;
+}
+  
+.btn-offcanvas:hover::before {
+	width: 100%;
+}
+  
+.btn-offcanvas::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 0;
+	width: 100%;
+	background-color: #DFA4E2;
+	transition: .4s ease;
+	z-index: -1;
+}
+  
+.btn-offcanvas:hover::after {
+	height: 100%;
+	transition-delay: 0.4s;
+	color: aliceblue;
+}
+
+.btn-holder{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	top: 10rem;
+	row-gap: 30px;
+}
+
 mat-sidenav
 {
     width: 200px;
@@ -35,10 +140,10 @@ mat-list-item:hover
 .is-active {
     font-weight: bolder;
 }
-mat-sidenav-container
+/* mat-sidenav-container
 {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,170,176,1) 79%, rgba(0,205,172,1) 100%);
-}
+} */
 mat-sidenav
 {
     background-color: black;
@@ -69,4 +174,32 @@ a:active
 { 
     text-decoration: none;
     color: white; 
+}
+
+.quote{
+    height: 100%;
+}
+
+.quote-img{
+    width: 100%;
+    height: 100vh;
+    opacity: 0.52;
+}
+
+.quote-text{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    /* margin-top: 100px;
+    margin-left: 100px; */
+    padding: 470px 0 0 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.quote-text p{
+    font-size: 150px;
+    font-weight: 800;
+    font-family: 'Lato', sans-serif;
 }

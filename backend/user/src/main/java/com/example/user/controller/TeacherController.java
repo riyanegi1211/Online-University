@@ -7,17 +7,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.user.CourseService;
 import com.example.user.model.Course;
 import com.example.user.model.CourseData;
 import com.example.user.model.CourseList;
 import com.example.user.model.CourseSummary;
+import com.example.user.model.Student;
 import com.example.user.model.Teacher;
+import com.example.user.repository.StudentRepository;
 import com.example.user.repository.TeacherRepository;
 import com.example.user.repository.UserRepository;
 
 @RestController
+// @CrossOrigin(origins = "http://localhost:8000/*")
 @RequestMapping("/api/teacher")
 public class TeacherController {
     /*
@@ -34,6 +38,9 @@ public class TeacherController {
 
     @Autowired
     private TeacherRepository teacherRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     // @Autowired
     // private UserRepository userRepository;
@@ -69,6 +76,11 @@ public class TeacherController {
     @GetMapping("{uid}/profile")
     public Teacher getProfile(@PathVariable long uid) {
         return teacherRepository.findById(uid).orElse(null);
+    }
+
+    @GetMapping("{uid}/students")
+    public List<Student> getAllStudent(@PathVariable long uid) {
+        return studentRepository.findAll();
     }
 
 }

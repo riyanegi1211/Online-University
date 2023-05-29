@@ -1,4 +1,4 @@
-h1 {
+h1, h3, h2 {
     padding: 0;
     margin: 0;
 }
@@ -155,7 +155,6 @@ img{
 
 .calendar-div{
 	width: auto;
-	height: 45rem;
 }
 
 .btn-close{
@@ -231,13 +230,9 @@ img{
 }
 
 .updates-container{
-	position: absolute;
-	left: 96em;
-	top: 67em;
 	display: flex;
 	flex-direction: column;
-	width: calc(100% - 100em);
-	height: 80rem;
+	width: calc(100% - 80em);
 	row-gap: 20px;
 }
 
@@ -264,24 +259,25 @@ img{
 }
 
 .upcoming-events h1{
-	padding: 12px 0px 12px 15px;
+	padding: 15px 0px 15px 18px;
     font-weight: 700;
-    letter-spacing: 0.5px;
-    font-size: 20px;
-    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.85px;
+    font-size: 18px;
+    word-spacing: 4px;
+    font-family: 'Lato', sans-serif;
     text-transform: uppercase;
-	background-color: #184e77;
+	background-color: #581C87;
 	color: white;
 }
 
 .timeline h1{
-	padding: 12px 0px 12px 15px;
+	padding: 15px 0px 15px 18px;
     font-weight: 700;
-    letter-spacing: 0.5px;
-    font-size: 20px;
-    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.85px;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
     text-transform: uppercase;
-	background-color: #184e77;
+	background-color: #581C87;
 	color: white;
 }
 
@@ -376,26 +372,92 @@ ul{
     color: white;
     font-size: 20px;
     font-weight: 200;
-    margin-left: 50px;
+    margin-left: 60px;
     line-height: 1.5;
 }
 
 .course-card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    width: 100%;
     border-radius: 10px;
-    gap: 10px;
+    gap: 50px;
+    margin-right: 50px;
 }
 
 .course-card-item {
-    background-color: red;
-    height: 10px;
+    height: 400px;
+    cursor: pointer;
+    background: linear-gradient(to bottom right, #2e0e46, #581C87, #C026D3);
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 30px;
+    transition: transform 300ms ease-in-out;
 }
 
-  
+.main-content-container {
+    margin: 100px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-card-icon {
+    height: 100px;
+    width: 100px;
+    mix-blend-mode: lighten;
+    background-color: #FAE8FF;
+    padding: 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transform: rotate(-45deg);
+    color: white;
+    
+}
+
+.course-card-item:hover {
+    transform: scale(1.05);
+}
+
+.course-details-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+    color: white;
+}
 
 
+.course-details-flex h2 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.5;
+}
+
+.course-details-flex h3 {
+    font-size: 18px;    
+    font-weight: 500;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 5px;
+
+    border-radius: 999px;
+}
+
+.progress-bar-percent {
+    width: 50%;
+    height: inherit;
+    border-radius: 9999px;
+    background-color: white;
+}
 
 
+.progress-bar-text {
+    margin-top: 5px;
+}
 
   

@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { CalendarOptions } from '@fullcalendar/core';
 import { NgbOffcanvas, OffcanvasDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -18,7 +18,7 @@ import { constrainPoint } from '@fullcalendar/core/internal';
   templateUrl: './myhome.component.html',
   styleUrls: ['./myhome.component.scss']
 })
-export class MyhomeComponent {
+export class MyhomeComponent implements OnInit,AfterViewInit{
 	closeResult = '';
 
 	// events: EventInput[] = [];
@@ -28,13 +28,13 @@ export class MyhomeComponent {
 
 	getURL:string= "http://localhost:8080/api/student/1/calender";
 
-	constructor(private offcanvasService: NgbOffcanvas, private studentService:StudentServiceService, private elementRef:ElementRef, private router:Router, private http:HttpClient) {}
+	constructor(private offcanvasService: NgbOffcanvas, private studentService:StudentServiceService, private elementRef:ElementRef, private router:Router, private http:HttpClient, private render: Renderer2) {}
 
 	eventData:Progress[]  =[]; // new Progress("hello", "2023-04-03", "2023-04-10"), new Progress("hello", "2023-04-03", "2023-04-11")
 
     progress!: Progress;
     // @ViewChild('progDiv') progDiv!: ElementRef<HTMLInputElement>;
-    @ViewChildren('progDiv') progDiv:QueryList<ElementRef> | undefined;
+    // @ViewChildren('progDiv') progDiv:QueryList<ElementRef> | undefined;
     calendarOptions: CalendarOptions=  {
         initialView: 'dayGridMonth',
         plugins: [dayGridPlugin,interactionPlugin],
@@ -44,11 +44,14 @@ export class MyhomeComponent {
     info:any=[];
     response:any=[];
     send:any=[];
-    progressArr:number[]=[33.3,50];
+    progressArr:number[]=[33.3,50,60,45,66,88,100];
     i:number=0;
     j:number=0;
     lec:number=0;
-    answer:number[]=[];
+    answer:string[]=[];
+    cid:string="";
+    // @ViewChild('prog') progP!: ElementRef<HTMLElement>;
+    @ViewChildren('prog', { read: ElementRef }) progPs!: QueryList<ElementRef>;
 	// this.eventData= data; console.log(this.eventData)
 	ngOnInit(){
 		this.studentService.getCourseInfo().subscribe({
@@ -60,6 +63,7 @@ export class MyhomeComponent {
                     y.course.answer= y.attendedLectures;
                     console.log(y);
                     this.send.push(y.course);
+                    this.cid= y.course.courseId;
                     this.i=this.i+1;
                 }
 				// for(var obj of data){
@@ -88,20 +92,34 @@ export class MyhomeComponent {
                                 for (const x of this.eventData) {
                                     calendarApi.addEvent(x);
                                 }
-                                // calendarApi.render()
-                                // const x = calendarApi.getEvents
-                                // console.log(x())
-								// this.eventData= data
-                                // this.eventData= Object.values(data)
-								// console.log(this.eventData[0])
-                                // this.progress = new Progress(this.eventData[0],this.eventData[1],this.eventData[2])
 							},
 			error: (err) => {console.log(err)}
 		})
 	}
-
-    ngAfterViewInit(){
-        
+    values:string[]=[];
+    ngAfterViewInit() {
+        this.studentService.getCourseInfo().subscribe({
+            next: (data) =>{
+                this.i=0;
+                for(let y of data){
+                        y.attendedLectures = this.progressArr[this.i]; 
+                        // console.log(y);
+                        y.course.answer= y.attendedLectures;
+                        console.log(y.course.answer);
+                        const val= y.course.answer + '%';
+                        this.values.push(val);
+                        // console.log(val);
+                        setTimeout(()=>{
+                            this.progPs.forEach((elementRef,index)=>{
+                                const element = elementRef.nativeElement;
+                                const ans= this.values[index];
+                                this.render.setStyle(element, 'width', ans);
+                            });
+                        },0);
+                        this.i=this.i+1;
+                }
+            }
+        });
     }
 
 
@@ -167,6 +185,7 @@ export class MyhomeComponent {
 
 	loadDashboard(){
 		this.router.navigate(['dashboard']);
+        localStorage.setItem("courseID",this.cid);
 	}
     loggingOut(){
         console.log("logout in progress");

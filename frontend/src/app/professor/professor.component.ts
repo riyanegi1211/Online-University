@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbOffcanvas, OffcanvasDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from '../user.service';
+import { Student } from '../Student';
 
 @Component({
   selector: 'app-professor',
@@ -9,7 +13,7 @@ import { NgbOffcanvas, OffcanvasDismissReasons } from '@ng-bootstrap/ng-bootstra
 export class ProfessorComponent {
     closeResult = '';
 
-	constructor(private offcanvasService: NgbOffcanvas) {}
+	constructor(private offcanvasService: NgbOffcanvas, private http:HttpClient, private router:Router, private userService: UserService) {}
 
 	open(content: any) {
 		this.offcanvasService.open(content, { ariaLabelledBy: 'offcanvas-basic-title' }).result.then(
@@ -31,4 +35,19 @@ export class ProfessorComponent {
 			return `with: ${reason}`;
 		}
 	}
+
+    loggingOut(){
+        console.log("logout in progress");
+        let headers= {'content-type':'application/json'};
+        let strURL= `http://localhost:8080/api/logout`;
+        // let jsonObj= JSON.stringify();
+        this.http.post(strURL,{'headers' : headers, withCredentials: true});
+        localStorage.removeItem("userId");
+        this.router.navigate(['login']);
+    }
+
+    loadStudentsList()
+    {
+        this.router.navigate(['studentlist']);
+    }
 }
