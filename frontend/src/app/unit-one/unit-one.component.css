@@ -52,3 +52,8 @@ input
 {
    margin: 10px;
 }
+button
+{
+    margin-left: 150px;
+    padding: 2px;
+}
