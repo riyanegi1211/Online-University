@@ -54,6 +54,7 @@ input
 }
 button
 {
-    margin-left: 250px;
     padding: 2px;
+    display: block;
+    float: right;
 }
